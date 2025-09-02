@@ -7,6 +7,26 @@ Posteriormente incluir informações para o README neste arquivo!
 Todos as mudanças notáveis neste projeto serão documentadas neste arquivo.
 
 ---
+
+## [0.5.0] - In Dev
+### Adicionado (CHANGELOG)
+- O fluxo SAE-CGAJAPDI-Servidores-v2 está apto a gerar uma lista em excel com os novos usuários.
+- A LST_Usuarios agora tem uma coluna com Data da Última Modificação.
+- Fluxo_Usuarios-v2 24% mais eficiente após as mudanças.
+- Script_Usuarios-v2 foi separado em tabelas com nomes únicos para diminuir a quantidade de tempo gasto em loops entre as listas de nomes e conclusões.
+- Fluxo_SAE-CGAJAPDI-Servidores-v2 está apto a rodar na nuvem em sua totalidade. Basta enviar e-mail para e-guilherme-ramos@pge.rs.gov.br com o assunto "Fluxo_Atualizar_SAE".
+- Script_SAE-CGAJAPDI-Servidores-v4.0.0 está totalmente atualizado e funcional.
+
+### Problemas (KNOW_ISSUES)
+- Provavel 1 curso sem ID no ultimo relatório rodado, necessario adicionar try/catch para pegar essa exceção.
+
+
+### Informações Extras (TRABALHANDO)
+>>> Tentar Try and Catch para achar problemas no fluxo, ou separar a informação.
+>>> Última ingestão de dados em 22/08/2025
+
+---
+
 # Planejamento para Novas Versões
 
 Este documento descreve o roteiro de desenvolvimento para futuras versões do sistema, focando em agregar valor, robustez e novas funcionalidades à base já construída.
@@ -26,29 +46,13 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - [ ] **Fluxo de Ingestão da CGAJAPI:** Automatizar o fluxo para usar gatilho por email e processar automaticamente.
 
 ---
-```
-## [0.5.0] - In Dev
-### Adicionado (CHANGELOG)
-- O fluxo SAE-CGAJAPDI-Servidores está apto a gerar uma lista em excel com os novos usuários.
-- A LST_Usuarios agora tem uma coluna com Data da Última Modificação.
-- Fluxo LST_Usuarios 24% mais eficiente após as mudanças. O fluxo foi separado em tabelas com nomes únicos para diminuir a quantidade de tempo gasto em loops entre as listas de nomes e conclusões, aumentando sua eficiência.
-- Fluxo_SAE-CGAJAPDI-Servidores-v2 está apto a rodar na nuvem em sua totalidade. Basta enviar e-mail para e-guilherme-ramos@pge.rs.gov.br com o assunto "Fluxo_Atualizar_SAE", após é gerado no arquivo Novos_Usuarios o log com a data de adição destes usuarios, necessitando atualização na Pasta SAE. Para o Power Automate, essa ação já é automática. 
-- Script_SAE-CGAJAPDI-Servidores-v4.0.0 está totalmente atualizado e funcional.
-
-### Problemas (KNOW_ISSUES)
-- Provavel 1 curso sem ID.
-
-
-### Informações Extras (TRABALHANDO)
->>> Tentar Try and Catch para achar problemas no fluxo, ou separar a informação.
->>> Última ingestão de dados em 22/08/2025
-
 
 ### Fluxo dos Relatórios da Silvia 
 > Power Automate: Relatorios_ESAE_Teste
 > Recebe Relatorio do Moodle: Automatico_ID=1 =2 =3 e envia para o e-mail relacionado
 > Scripts Utilizados - Relatorio_ESAE_Testes - Criar_Tabela_1 // Mudar_Datas // Criar_Tabelas_Dinamicas
-```
+> ID = 1 Rodando normalmente a cada semana. ID = 2 e 3 Pausados, rodando sob solicitação do Rodrigo
+
 ---
 
 ## [0.4.0] - 2025-08-28
@@ -190,9 +194,10 @@ Verifique se o problema já está listado aqui
 
 Para problemas não listados aqui:
 1. Consulte o `CHANGELOG.md` para mudanças recentes
-2. e-guilherme-ramos@pge.rs.gov.br
+2. Contato Teams: e-guilherme-ramos@pge.rs.gov.br
 
 ---
 
-**Última Atualização**: 2025-xx-xx
-**Versão do Documento**: 1.0.0
+**Última Atualização**: 2025-09-02
+
+**Versão do Documento**: 0.9.0
