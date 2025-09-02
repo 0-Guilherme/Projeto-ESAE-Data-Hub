@@ -7,21 +7,21 @@ Todos as mudanças notáveis neste projeto serão documentadas neste arquivo.
 ---
 
 ## [0.5.0] - In Dev
-### Adicionado (CHANGELOG)
+### Adicionado
 - O fluxo SAE-CGAJAPDI-Servidores-v2 está apto a gerar uma lista em excel com os novos usuários.
 - A LST_Usuarios agora tem uma coluna com Data da Última Modificação.
-- Fluxo_Usuarios-v2 24% mais eficiente após as mudanças.
+- Fluxo_Usuarios-v2 24% mais eficiente após as mudanças. Para enviar o email, usar assunto "Fluxo_Usuarios_Moodle".
 - Script_Usuarios-v2 foi separado em tabelas com nomes únicos para diminuir a quantidade de tempo gasto em loops entre as listas de nomes e conclusões.
 - Fluxo_SAE-CGAJAPDI-Servidores-v2 está apto a rodar na nuvem em sua totalidade. Basta enviar e-mail, assunto "Fluxo_Atualizar_SAE".
 - Script_SAE-CGAJAPDI-Servidores-v4.0.0 está totalmente atualizado e funcional.
 
-### Problemas (KNOW_ISSUES)
+### Problemas
 - Provavel 1 curso sem ID no ultimo relatório rodado, necessario adicionar try/catch para pegar essa exceção.
 
 
-### Informações Extras (TRABALHANDO)
+### Informações Extras
 - Tentar Try and Catch para achar problemas no fluxo, ou separar a informação.
-- Última ingestão de dados em 22/08/2025
+- Última ingestão de dados em 02/09/2025
 
 ---
 
