@@ -14,7 +14,7 @@ Todos as mudanças notáveis neste projeto serão documentadas neste arquivo.
 - A LST_Usuarios agora tem uma coluna com Data da Última Modificação.
 - Fluxo_Usuarios-v2 24% mais eficiente após as mudanças.
 - Script_Usuarios-v2 foi separado em tabelas com nomes únicos para diminuir a quantidade de tempo gasto em loops entre as listas de nomes e conclusões.
-- Fluxo_SAE-CGAJAPDI-Servidores-v2 está apto a rodar na nuvem em sua totalidade. Basta enviar e-mail para e-guilherme-ramos@pge.rs.gov.br com o assunto "Fluxo_Atualizar_SAE".
+- Fluxo_SAE-CGAJAPDI-Servidores-v2 está apto a rodar na nuvem em sua totalidade. Basta enviar e-mail, assunto "Fluxo_Atualizar_SAE".
 - Script_SAE-CGAJAPDI-Servidores-v4.0.0 está totalmente atualizado e funcional.
 
 ### Problemas (KNOW_ISSUES)
@@ -201,3 +201,4 @@ Para problemas não listados aqui:
 **Última Atualização**: 2025-09-02
 
 **Versão do Documento**: 0.9.0
+
