@@ -22,8 +22,8 @@ Todos as mudanças notáveis neste projeto serão documentadas neste arquivo.
 
 
 ### Informações Extras (TRABALHANDO)
->>> Tentar Try and Catch para achar problemas no fluxo, ou separar a informação.
->>> Última ingestão de dados em 22/08/2025
+> Tentar Try and Catch para achar problemas no fluxo, ou separar a informação.
+> Última ingestão de dados em 22/08/2025
 
 ---
 
@@ -201,4 +201,5 @@ Para problemas não listados aqui:
 **Última Atualização**: 2025-09-02
 
 **Versão do Documento**: 0.9.0
+
 
