@@ -22,8 +22,8 @@ Todos as mudanças notáveis neste projeto serão documentadas neste arquivo.
 
 
 ### Informações Extras (TRABALHANDO)
-> Tentar Try and Catch para achar problemas no fluxo, ou separar a informação.
-> Última ingestão de dados em 22/08/2025
+- Tentar Try and Catch para achar problemas no fluxo, ou separar a informação.
+- Última ingestão de dados em 22/08/2025
 
 ---
 
@@ -48,10 +48,10 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 ---
 
 ### Fluxo dos Relatórios da Silvia 
-> Power Automate: Relatorios_ESAE_Teste
-> Recebe Relatorio do Moodle: Automatico_ID=1 =2 =3 e envia para o e-mail relacionado
-> Scripts Utilizados - Relatorio_ESAE_Testes - Criar_Tabela_1 // Mudar_Datas // Criar_Tabelas_Dinamicas
-> ID = 1 Rodando normalmente a cada semana. ID = 2 e 3 Pausados, rodando sob solicitação do Rodrigo
+- Power Automate: Relatorios_ESAE_Teste
+- Recebe Relatorio do Moodle: Automatico_ID=1 =2 =3 e envia para o e-mail relacionado
+- Scripts Utilizados - Relatorio_ESAE_Testes - Criar_Tabela_1 // Mudar_Datas // Criar_Tabelas_Dinamicas
+- ID = 1 Rodando normalmente a cada semana. ID = 2 e 3 Pausados, rodando sob solicitação do Rodrigo
 
 ---
 
@@ -201,5 +201,6 @@ Para problemas não listados aqui:
 **Última Atualização**: 2025-09-02
 
 **Versão do Documento**: 0.9.0
+
 
 
