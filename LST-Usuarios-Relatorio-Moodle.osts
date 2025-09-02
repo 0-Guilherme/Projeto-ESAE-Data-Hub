@@ -1,0 +1,182 @@
+/**
+ * Script mestre para limpar, formatar e separar o relatório global do Moodle.
+ * V3.7.0 - Implementa uma função de parse de data universal, que entende tanto formatos numéricos quanto texto em português.
+ */
+function main(workbook: ExcelScript.Workbook) {
+  console.log("Iniciando script de limpeza e separação (v3.7.0)...");
+
+  // --- CONFIGURAÇÃO ---
+  const NOME_PLANILHA_ORIGINAL = "Sheet1";
+  const NOME_TABELA_PROCESSADA = "TabelaGlobalProcessada";
+  const NOME_PLANILHA_USUARIOS = "usuarios";
+  const NOME_TABELA_USUARIOS = "TabelaUsuarios";
+  const NOME_PLANILHA_CURSOS = "cursos";
+  const NOME_TABELA_CURSOS = "TabelaCursos";
+  const NOME_PLANILHA_LOTACOES = "lotacao";
+  const NOME_TABELA_LOTACOES = "TabelaLotacao";
+  const NOME_PLANILHA_CONCLUSAO = "conclusao";
+  const NOME_TABELA_CONCLUSAO = "TabelaConclusao";
+  // --------------------
+
+  const planilhaOriginal = workbook.getWorksheet(NOME_PLANILHA_ORIGINAL);
+  if (!planilhaOriginal) {
+    console.log(`Erro: Planilha original "${NOME_PLANILHA_ORIGINAL}" não encontrada.`);
+    return;
+  }
+  if (workbook.getTable(NOME_TABELA_USUARIOS)) {
+    console.log("Tabelas de dados únicos já existem. Processo já executado.");
+    return;
+  }
+  const rangeUsado = planilhaOriginal.getUsedRange();
+  if (!rangeUsado) { console.log("Nenhum dado na planilha original."); return; }
+
+  let tabelaOriginal = planilhaOriginal.getTables()[0];
+  if (!tabelaOriginal) {
+    tabelaOriginal = planilhaOriginal.addTable(rangeUsado, true);
+  }
+
+  const dadosCompletos = tabelaOriginal.getRange().getValues();
+  const cabecalho = dadosCompletos.shift() as string[];
+
+  // Encontra os índices das colunas originais
+  const idxNomeCompleto = cabecalho.indexOf("NomeCompleto");
+  const idxEmail = cabecalho.indexOf("Email");
+  const idxUsuarioSAE = cabecalho.indexOf("Usuario_SAE");
+  const idxTipoUsuario = cabecalho.indexOf("Tipo_Usuario");
+  const idxNomeCurso = cabecalho.indexOf("NomeCurso");
+  const idxNomeBreveCurso = cabecalho.indexOf("NomeBreveCurso");
+  const idxIdCurso = cabecalho.indexOf("ID_Curso");
+  const idxDataInicioCurso = cabecalho.indexOf("DataInicioCurso");
+  const idxDataTerminoCurso = cabecalho.indexOf("DataTerminoCurso");
+  const idxLotacao = cabecalho.indexOf("Lotacao");
+  const idxDataConclusao = cabecalho.indexOf("DataConclusao");
+  const idxDataInicio = cabecalho.indexOf("DataInicio");
+
+  // --- FUNÇÃO DE DATA UNIVERSAL ---
+  function parseData(valor: string | number): string {
+    if (!valor || valor === "") return "";
+    let dataObj: Date;
+
+    if (typeof valor === 'number') {
+      if (valor < 1) return "";
+      dataObj = new Date(Math.round((valor - 25569) * 86400 * 1000));
+    } else if (typeof valor === 'string') {
+      const meses: { [key: string]: number } = {
+        'jan': 0, 'fev': 1, 'mar': 2, 'abr': 3, 'mai': 4, 'jun': 5,
+        'jul': 6, 'ago': 7, 'set': 8, 'out': 9, 'nov': 10, 'dez': 11
+      };
+
+      const strLimpa = valor.toLowerCase()
+        .replace(/.*?,\s*/, '') // Remove "segunda-feira, "
+        .replace(/\./g, '')    // Remove pontos (ex: "jun.")
+        .replace(/,/g, '');     // Remove vírgulas (ex: "2025,")
+
+      const partes = strLimpa.split(' ');
+
+      if (partes.length >= 3 && meses.hasOwnProperty(partes[1])) {
+        const dia = parseInt(partes[0]);
+        const mesIndex = meses[partes[1]];
+        const ano = parseInt(partes[2]);
+        dataObj = new Date(ano, mesIndex, dia);
+      } else {
+        // Fallback para outros formatos de texto, como AAAA-MM-DD
+        dataObj = new Date(valor);
+      }
+    } else {
+      return "";
+    }
+
+    if (!dataObj || isNaN(dataObj.getTime())) return "";
+
+    const dataCorrigida = new Date(dataObj.valueOf() + dataObj.getTimezoneOffset() * 60 * 1000);
+
+    const ano = dataCorrigida.getFullYear();
+    const mes = (dataCorrigida.getMonth() + 1).toString().padStart(2, '0');
+    const dia = dataCorrigida.getDate().toString().padStart(2, '0');
+    return `${ano}-${mes}-${dia}`;
+  }
+
+  function removerAcentos(texto: string): string { if (typeof texto !== 'string' || !texto) return texto; return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
+  function toProperCase(texto: string): string { if (typeof texto !== 'string' || !texto) return ""; const excecoes = ["de", "da", "do", "das", "dos", "e"]; return texto.toLowerCase().split(' ').map((palavra, index) => { if (index > 0 && excecoes.includes(palavra)) { return palavra; } return palavra.charAt(0).toUpperCase() + palavra.slice(1); }).join(' '); }
+
+  // --- PROCESSAMENTO ---
+  const usuariosUnicos = new Map<string, string[]>();
+  const cursosUnicos = new Map<string, string[]>();
+  const lotacoesUnicas = new Set<string>();
+  const dadosFinaisProcessados: (string | number | boolean)[][] = [];
+  const dadosConclusao: string[][] = [];
+
+  for (const linha of dadosCompletos) {
+    const email = (linha[idxEmail] as string || "").toLowerCase().trim();
+    const idCurso = linha[idxIdCurso] as string;
+    const lotacao = removerAcentos((linha[idxLotacao] as string || "").trim());
+
+    if (linha[idxDataInicio] || linha[idxDataConclusao]) {
+      const dataInicioFormatada = parseData(linha[idxDataInicio] as string | number);
+      const dataConclusaoFormatada = parseData(linha[idxDataConclusao] as string | number);
+      dadosConclusao.push([idCurso, dataInicioFormatada, dataConclusaoFormatada, email]);
+    }
+
+    if (email && !usuariosUnicos.has(email)) {
+      let usuarioSAE = linha[idxUsuarioSAE] as string;
+      if (!usuarioSAE || usuarioSAE.trim() === "") usuarioSAE = "Não";
+      const dadosDoUsuario = [
+        toProperCase(removerAcentos(linha[idxNomeCompleto] as string)),
+        email,
+        usuarioSAE,
+        removerAcentos(linha[idxTipoUsuario] as string),
+        lotacao
+      ];
+      usuariosUnicos.set(email, dadosDoUsuario.map(v => v ? v.toString() : ""));
+    }
+
+    if (idCurso && !cursosUnicos.has(idCurso)) {
+      const idCursoString = idCurso.toString();
+      let cargaHorariaCalculada = 0;
+      if (idCursoString.length >= 3) {
+        cargaHorariaCalculada = Number(idCursoString.slice(-3));
+      }
+      const dadosDoCurso = [
+        removerAcentos(linha[idxNomeCurso] as string),
+        removerAcentos(linha[idxNomeBreveCurso] as string),
+        idCurso,
+        cargaHorariaCalculada,
+        parseData(linha[idxDataInicioCurso] as string | number),
+        parseData(linha[idxDataTerminoCurso] as string | number)
+      ];
+      cursosUnicos.set(idCurso, dadosDoCurso.map(v => v ? v.toString() : ""));
+    }
+
+    if (lotacao) {
+      lotacoesUnicas.add(lotacao);
+    }
+    dadosFinaisProcessados.push(linha);
+  }
+
+  // --- ETAPA FINAL: ESCREVER TODAS AS TABELAS ---
+  function criarPlanilhaETabela(nomePlanilha: string, nomeTabela: string, cabecalho: string[], dados: string[][]) {
+    let ws = workbook.getWorksheet(nomePlanilha);
+    if (ws) { ws.delete(); }
+    ws = workbook.addWorksheet(nomePlanilha);
+    const dadosParaEscrever = [cabecalho, ...dados];
+    if (dados.length === 0) {
+      console.log(`Nenhum dado para a tabela ${nomeTabela}. Apenas o cabeçalho será escrito.`);
+      ws.getRange("A1").getResizedRange(0, cabecalho.length - 1).setValues([cabecalho]);
+      return;
+    }
+    const range = ws.getRange("A1").getResizedRange(dadosParaEscrever.length - 1, cabecalho.length - 1);
+    range.setValues(dadosParaEscrever);
+    const novaTabela = ws.addTable(range, true);
+    novaTabela.setName(nomeTabela);
+    ws.getUsedRange().getFormat().autofitColumns();
+  }
+
+  criarPlanilhaETabela(NOME_PLANILHA_USUARIOS, NOME_TABELA_USUARIOS, ["NomeCompleto", "Email", "Usuario_SAE", "Tipo_Usuario", "Lotacao"], Array.from(usuariosUnicos.values()));
+  criarPlanilhaETabela(NOME_PLANILHA_CURSOS, NOME_TABELA_CURSOS, ["NomeCurso", "NomeBreveCurso", "ID_Curso", "Carga_Horaria", "DataInicioCurso", "DataTerminoCurso"], Array.from(cursosUnicos.values()));
+  const dadosLotacoes = Array.from(lotacoesUnicas).map(l => [l]);
+  criarPlanilhaETabela(NOME_PLANILHA_LOTACOES, NOME_TABELA_LOTACOES, ["Lotacao"], dadosLotacoes);
+  criarPlanilhaETabela(NOME_PLANILHA_CONCLUSAO, NOME_TABELA_CONCLUSAO, ["ID_Curso", "DataInicio", "DataConclusao", "Email"], dadosConclusao);
+
+  tabelaOriginal.setName(NOME_TABELA_PROCESSADA);
+  console.log("Criação de planilhas e tabelas de dados únicos concluída!");
+}
