@@ -14,14 +14,18 @@ Todos as mudanças notáveis neste projeto serão documentadas neste arquivo.
 - Script_Usuarios-v2 foi separado em tabelas com nomes únicos para diminuir a quantidade de tempo gasto em loops entre as listas de nomes e conclusões.
 - Fluxo_SAE-CGAJAPDI-Servidores-v2 está apto a rodar na nuvem em sua totalidade. Basta enviar e-mail, assunto "Fluxo_Atualizar_SAE".
 - Script_SAE-CGAJAPDI-Servidores-v4.0.0 está totalmente atualizado e funcional.
+- Tela_Inicial do App foi refatorada para containers na horizontal, ainda faltou adaptação para celulares na vertical, mas provavelmente não iremos mecher nisso.
+- Tela_Inicial alteração na localização das estatisticas iniciais, sairam dos botões e agora estão no rodapé.
+- Tela_Editar_Cursos e Tela_Editar_Usuarios tiveram os botões de navegação removidos, para sair/voltar é necessário clicar em cancelar.
 
 ### Problemas
-- Provavel 1 curso sem ID no ultimo relatório rodado, necessario adicionar try/catch para pegar essa exceção.
+-
 
 
 ### Informações Extras
 - Tentar Try and Catch para achar problemas no fluxo, ou separar a informação.
 - Última ingestão de dados em 02/09/2025
+- Versão do App: 121
 
 ---
 
