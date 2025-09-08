@@ -10,8 +10,7 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 
 ## Índice
 1. [Changelog](#changelog)
-2. [0.5.0](##[0.5.0])
-3. []
+2. [0.5.0](##[0.5.0]---In-Dev)
 4. []
 5. []
 6. []
@@ -19,6 +18,7 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 8. []
 9. []
 10. []
+11. []
 
 
 
