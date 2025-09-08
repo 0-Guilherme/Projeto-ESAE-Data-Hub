@@ -1,5 +1,5 @@
 # Data Hub - ESAE
-![Microsoft](https://img.shields.io/badge/Microsoft-PowerApps-blue)
+![Microsoft](https://img.shields.io/badge/Microsoft-PowerApps%20and%20PowerAutomate-blue)
 ![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
 
 Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Power Apps, Power Automate e Office Scripts.
