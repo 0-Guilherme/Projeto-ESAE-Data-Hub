@@ -200,6 +200,7 @@ Este documento rastreia bugs conhecidos, limitações de arquitetura e potenciai
 ## Desempenho (Power Apps)
 
 ### Interface Gráfica 🔵
+- **Status:** ❌ NÃO RESOLVIDO - Porém, a Tela Inicial ja esá refatorada para containers flexiveis.
 - **Problema:** A tela do aplicativo não é adaptavel para dispositivos móveis.
 - **Impacto:** Em telas menores a unica forma de funcionalidade atual é utilizar na horiontal, virando a tela, o que precisamos e adaptar para vertical e manter todas as funcionalidades visuais.
 - **Solução Planejada:** Criar layout adaptativo ou diretamente para o Mobile.
