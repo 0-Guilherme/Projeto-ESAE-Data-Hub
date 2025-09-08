@@ -1,8 +1,30 @@
-# Este Documento contém o CHANGELOG e o KNOW_ISSUES
+# Data Hub - ESAE
+![Microsoft](https://img.shields.io/badge/Microsoft-PowerApps-blue)
+![Status](https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow)
 
-# CHANGELOG 🔧 - Histórico de Alterações do Aplicativo
+Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Power Apps, Power Automate e Office Scripts.
 
-Todos as mudanças notáveis neste projeto serão documentadas neste arquivo.
+*Este Documento contém o CHANGELOG e o KNOW_ISSUES*
+
+---
+
+## Índice
+1. [Changelog] (#changelog)
+2. []
+3. []
+4. []
+5. []
+6. []
+7. []
+8. []
+9. []
+10. []
+
+
+
+# CHANGELOG 
+
+Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 
 ---
 
@@ -154,7 +176,7 @@ Este documento rastreia bugs conhecidos, limitações de arquitetura e potenciai
 
 ```
 ### Fluxo dos AJS-NS 🔴 🟡 🔵 🟢
-- **STATUS:** ❌ RESOLVIDO
+- **STATUS:** ✅ ❌ RESOLVIDO
 - **MÉTODO:**   
 
 - **Problema:**
