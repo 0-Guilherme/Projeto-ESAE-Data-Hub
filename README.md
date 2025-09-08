@@ -61,16 +61,19 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 ### Adicionado
 - O fluxo SAE-CGAJAPDI-Servidores-v2 está apto a gerar uma lista em excel com os novos usuários.
 - A LST_Usuarios agora tem uma coluna com Data da Última Modificação.
-- Fluxo_Usuarios-v2 24% mais eficiente após as mudanças. Para enviar o email, usar assunto "Fluxo_Usuarios_Moodle".
+- Fluxo_Usuarios-v2 30% mais eficiente após as mudanças. Para enviar o email, usar assunto "Fluxo_Usuarios_Moodle".
 - Script_Usuarios-v2 foi separado em tabelas com nomes únicos para diminuir a quantidade de tempo gasto em loops entre as listas de nomes e conclusões.
 - Fluxo_SAE-CGAJAPDI-Servidores-v2 está apto a rodar na nuvem em sua totalidade. Basta enviar e-mail, assunto "Fluxo_Atualizar_SAE".
 - Script_SAE-CGAJAPDI-Servidores-v4.0.0 está totalmente atualizado e funcional.
-- Tela_Inicial do App foi refatorada para containers flexiveis para multiplas telas.
-- Tela_Inicial alteração na localização das estatisticas iniciais, sairam dos botões e agora estão no rodapé.
-- Tela_Editar_Cursos e Tela_Editar_Usuarios tiveram os botões de navegação removidos.
+- tela_inicial do App foi refatorada para containers flexiveis para multiplas telas.
+- tela_inicial alteração na localização das estatisticas iniciais, sairam dos botões e agora estão no rodapé.
+- tela_editar_cursos e tela_editar_usuarios tiveram os botões de navegação removidos.
+- Fluxo_Auditor agora também executa a contagens de usuários em cada curso
 
-### Problemas
--
+### Trabalhando
+- tela_dashboard criada, tentando inclusões de alguns gráficos e indicadores.
+- testes com a tela_inicial pronta para adaptação em celular horizontal e vertical.
+- ajustes ao longo de todo o readme.md
 
 
 ### Informações Extras
@@ -93,10 +96,15 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 
 ### Melhorar
 - [ ] **Interface Gráfica Responsiva:** Refatorar as telas do Power App utilizando Contêineres de Layout para garantir a adaptabilidade a dispositivos móveis em modo vertical.
+      - tela_inicial ja foi refatorada para responsividade em multiplas telas e orientações.
 - [ ] **Otimizar Fluxo de Dados da `LST_Usuarios`:** Revisar o fluxo de sincronização para reduzir o número de chamadas e otimizar a performance, garantindo que não exceda os limites diários de solicitações da plataforma.
+      - o fluxo ja foi refatorado e melhorado em 30% do tempo total de execução.
 - [ ] **Tratamento de Erros Avançado:** Implementar um sistema de notificação por e-mail no Power Automate para alertar administradores sobre falhas na execução dos fluxos.
 - [ ] **Fluxo de Ingestão AJS-NS:** Desenvolver um novo fluxo de trabalho para processar a lista de AJS-NS, que é recebida em um formato diferente (apenas nomes). O fluxo precisará buscar e validar os e-mails no Microsoft 365 para enriquecer os dados antes de sincronizá-los.
 - [ ] **Fluxo de Ingestão da CGAJAPI:** Automatizar o fluxo para usar gatilho por email e processar automaticamente.
+      - fluxo ja está automaziada por gatilho em e-mail.
+      - fluxo foi retrabalhado e melhorado para aumentar a velocidade de processamento de dados.
+- [ ] **Fluxo Auditor:** Adicionar contagem de usuarios e usuarios que concluiram nas telas refatoradas, mas para isso precisamos da contagem na base de dados.
 
 ---
 
