@@ -9,14 +9,45 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 ---
 
 ## Índice
-1. [Changelog](#changelog)
-3. [Mudanças Futuras](#não-lançado---planejamento-para-próximas-versões) 
-4. [Versão 0.4.0](#040---2025-08-28)
-5. [Versão 0.3.0](#030---2025-08-04)
-6. [Versão 0.2.0](#020---2025-07-10)
-7. [Versão 0.1.0](#010---2025-06-22)
-8. [Know Issues](#know_issues---problemas-conhecidos-e-suas-limitações)
-9. [Como Reportar Problemas](#%EF%B8%8F-como-reportar-problemas)
+1. [Sobre](#sobre)
+2. [Funcionalidades](#funcionalidades)
+3. [Estrutura do Projeto](#estrutura-do-projeto)
+4. [Banco de Dados](#banco-de-dados)
+6. [Changelog](#changelog)
+7. [Mudanças Futuras](#não-lançado---planejamento-para-próximas-versões) 
+8. [Versão 0.4.0](#040---2025-08-28)
+9. [Versão 0.3.0](#030---2025-08-04)
+10. [Versão 0.2.0](#020---2025-07-10)
+11. [Versão 0.1.0](#010---2025-06-22)
+12. [Know Issues](#know_issues---problemas-conhecidos-e-suas-limitações)
+13. [Como Reportar Problemas](#%EF%B8%8F-como-reportar-problemas)
+
+---
+
+# SOBRE
+
+Campos que ainda precisam de atenção e possivelmente preenchidos pr último...
+
+---
+
+# Funcionalidades
+
+...
+
+---
+
+# Estrutura do Projeto
+
+...
+
+---
+
+# Banco de Dados 
+
+...
+
+---
+
 
 
 
