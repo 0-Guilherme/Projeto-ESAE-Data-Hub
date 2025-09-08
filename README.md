@@ -195,7 +195,7 @@ Este documento rastreia bugs conhecidos, limitações de arquitetura e potenciai
 - **Solução Planejada:** Implementar uma ramificação de tratamento de erros que, em caso de falha em uma etapa crítica (como a busca de ID de Lotação), registre o erro em uma lista do SharePoint ou envie um e-mail de alerta para o administrador.
 
 ### Sobrecarga de Dados 🔵 
-- **Status:** ✅ Resolvido na versão 0.5.0 - Fluxo 24% mais rápido.
+- **Status:** ✅ Resolvido na versão 0.5.0 - Fluxo 30% mais rápido.
 - **Problema:** O fluxo de ingestão principal foi construído com muitas redundancias, gerando uma quantidade de loop desnecessária para as versões futuras.
 - **Impacto:** Baixo. Dependendo da quantidade de dados pode exeder o limite de 10.000 solicitações diárias, deixando o fluxo lento.
 - **Solução Planejada:** Otimizar o fluxo, utilizando tabelas de nomes de usuarios unicos e cursos unicos, a fim de reduzir a redundancia no preenchimento das LST_Usuarios e LST_Cursos, mantendo o fluxo completo para a LST_Usuarios-Curso.
