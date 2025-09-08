@@ -10,8 +10,7 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 
 ## Índice
 1. [CHANGELOG](#changelog)
-2. [Em Desenvolvimento](#050---in-dev)
-3. [Planejamento Para Novas Versões](#não-lançado---planejamento-para-próximas-versões) 
+3. [Mudanças Futuras](#não-lançado---planejamento-para-próximas-versões) 
 4. [Versão 0.4.0](#040---2025-08-28)
 5. [Versão 0.3.0](#030---2025-08-04)
 6. [Versão 0.2.0](#020---2025-07-10)
