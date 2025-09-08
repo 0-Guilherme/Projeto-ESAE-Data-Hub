@@ -9,17 +9,15 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 ---
 
 ## Índice
-1. [Changelog](#changelog)
-2. [0.5.0](##050---in-dev)
-3. 
-4. []
-5. []
-6. []
-7. []
-8. []
-9. []
-10. []
-11. []
+1. [CHANGELOG](#changelog)
+2. [Em Desenvolvimento](#050---in-dev)
+3. [Planejamento Para Novas Versões](#não-lançado---planejamento-para-próximas-versões) 
+4. [Versão 0.4.0](#040---2025-08-28)
+5. [Versão 0.3.0](#030---2025-08-04)
+6. [Versão 0.2.0](#020---2025-07-10)
+7. [Versão 0.1.0](#010---2025-06-22)
+8. [KNOWISSUES](#know_issues---problemas-conhecidos-e-suas-limitações)
+9. [Como Reportar Problemas](#%EF%B8%8F-como-reportar-problemas)
 
 
 
@@ -139,7 +137,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 
 ---
 
-## KNOW_ISSUES ⚠️ - Problemas Conhecidos e Suas Limitações
+## KNOW_ISSUES - Problemas Conhecidos e Suas Limitações
 
 Este documento rastreia bugs conhecidos, limitações de arquitetura e potenciais problemas da solução atual.
 
