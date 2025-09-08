@@ -20,7 +20,7 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 10. [Versão 0.2.0](#020---2025-07-10)
 11. [Versão 0.1.0](#010---2025-06-22)
 12. [Know Issues](#know_issues---problemas-conhecidos-e-suas-limitações)
-13. [Como Reportar Problemas](#%EF%B8%8F-como-reportar-problemas)
+13. [Suporte](#-suporte)
 
 ---
 
@@ -211,36 +211,6 @@ Este documento rastreia bugs conhecidos, limitações de arquitetura e potenciai
 - **Problema:**
 - **Impacto:**
 - **Solução Planejada:**
-```
-
-## 🛠️ Como Reportar Problemas
-
-### Antes de Reportar
-Verifique se o problema já está listado aqui
-
-### Template de Report
-```markdown
-## Problema Reportado
-
-**Versão**: 1.0.0
-**Ambiente**: [Windows 11, IOS]
-
-### Descrição
-[Descreva o problema]
-
-### Passos para Reproduzir
-1. [Passo 1]
-2. [Passo 2]
-3. [Passo 3]
-
-### Comportamento Esperado
-[O que deveria acontecer]
-
-### Comportamento Atual
-[O que está acontecendo]
-
-### Logs de Erro
-[Se houver, cole os logs aqui]
 ```
 
 ## 📞 Suporte
