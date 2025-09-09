@@ -71,7 +71,13 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 - Fluxo_Auditor agora também executa a contagens de usuários em cada curso
 
 ### Trabalhando
-- tela_dashboard criada, tentando inclusões de alguns gráficos e indicadores.
+- tela_dashboard INICIAL criada
+      - tentando inclusões de alguns gráficos e indicadores, pelo que vi o melhor via ser trabalhar cada tela com um modelo ou método de gráfico.
+      - primeiro grafico horizontal criado a partir de galeria, ele lista o nome a barra e quantidade total de alunos. Possiveis melhorias: colocar para resetar o tamanho "maximo" da barra quando selecionar um novo filtro // podemos duplicar para ver quantos alunos temos que concluiram o curso
+      - agora com navegação clicavel para o curso selecionado.
+      - o que pensei: montar alguma janela para mostra as estatisticas de quantos usuarios fizeram o que nos ultimos 30 dias, 7 dias e no dia. como por exemplo: grafico por tipo de usuario, quantidade por curso talvez tabela, algo que podemos mudar como "inscrições e conclusões" algum switch ou algo do genero.
+      - tentar incluir analise relativa ao semestre, como grafico de pizza para tipos_usuarios, tipos_curso, numeros absolutos, e amostragem rapida dos ultimos 7 dias.
+      - necessario incluir um botão para levar ao BI completo, que ainda vamos desenvolver, dentro do aplicativo não vai ser possivel, está ficando extremamente pesado para a plataforma.
 - testes com a tela_inicial pronta para adaptação em celular horizontal e vertical.
 - ajustes ao longo de todo o readme.md
 
