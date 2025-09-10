@@ -26,7 +26,7 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 
 # SOBRE
 
-Campos que ainda precisam de atenção e possivelmente preenchidos pr último...
+Campos que ainda precisam de atenção e possivelmente preenchidos por último...
 
 ---
 
@@ -78,6 +78,8 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
       - o que pensei: montar alguma janela para mostra as estatisticas de quantos usuarios fizeram o que nos ultimos 30 dias, 7 dias e no dia. como por exemplo: grafico por tipo de usuario, quantidade por curso talvez tabela, algo que podemos mudar como "inscrições e conclusões" algum switch ou algo do genero.
       - tentar incluir analise relativa ao semestre, como grafico de pizza para tipos_usuarios, tipos_curso, numeros absolutos, e amostragem rapida dos ultimos 7 dias.
       - necessario incluir um botão para levar ao BI completo, que ainda vamos desenvolver, dentro do aplicativo não vai ser possivel, está ficando extremamente pesado para a plataforma.
+        - tela_db_cursos criada com 3 filtros de dropbox,categoria do curso, semestre em que iniciou, e é inscrições ou conclusões.
+              -PROBLEMAS: CURSOS NÃO TEM DIVISÃO ENTRE AS TURMAS, COMO PENSAR ISSO PARA O FLUXO DO POWERAPPS? necessario dividir ou só aceitar aqui e ir para o powerBI e la separar por turmas.
 - testes com a tela_inicial pronta para adaptação em celular horizontal e vertical.
 - ajustes ao longo de todo o readme.md
 
