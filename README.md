@@ -305,9 +305,9 @@ Para problemas não listados aqui:
 
 ---
 
-**Última Atualização**: 2025-09-08
+**Última Atualização**: 2025-00-00
 
-**Versão do Documento**: 0.9.0
+**Versão do Documento**: 0.0.0
 
 
 
