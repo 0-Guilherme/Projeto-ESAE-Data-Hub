@@ -16,13 +16,14 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 5. [Banco de Dados](#banco-de-dados)
 6. [Pontos de Atenção e Roadmap de Evolução](#Pontos-de-Atenção-e-Roadmap-de-Evolução)
 7. [Changelog](#changelog)
-8. [Mudanças Futuras](#não-lançado---planejamento-para-próximas-versões) 
-9. [Versão 0.4.0](#040---2025-08-28)
-10. [Versão 0.3.0](#030---2025-08-04)
-11. [Versão 0.2.0](#020---2025-07-10)
-12. [Versão 0.1.0](#010---2025-06-22)
-13. [Know Issues](#know_issues---problemas-conhecidos-e-suas-limitações)
-14. [Suporte](#-suporte)
+8. [Mudanças Futuras](#não-lançado---planejamento-para-próximas-versões)
+9. [Versão 0.5.0](#050---2025-09-16)
+10. [Versão 0.4.0](#040---2025-08-28)
+11. [Versão 0.3.0](#030---2025-08-04)
+12. [Versão 0.2.0](#020---2025-07-10)
+13. [Versão 0.1.0](#010---2025-06-22)
+14. [Know Issues](#know_issues---problemas-conhecidos-e-suas-limitações)
+15. [Suporte](#-suporte)
 
 ---
 
@@ -120,7 +121,7 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 
 ---
 
-## [0.5.0] - In Dev
+## [0.5.0] - 2025-09-16
 ### Adicionado
 - O fluxo SAE-CGAJAPDI-Servidores-v2 está apto a gerar uma lista em excel com os novos usuários.
 - A LST_Usuarios agora tem uma coluna com Data da Última Modificação.
