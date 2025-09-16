@@ -26,25 +26,71 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 
 # SOBRE
 
-Campos que ainda precisam de atenção e possivelmente preenchidos por último...
+O **Data Hub ESAE** é uma plataforma integrada e automatizada, construída sobre o ecossistema Microsoft Power Platform. O sistema foi projetado para centralizar, limpar, gerenciar e analisar todos os dados de participação em cursos e eventos oferecidos pela instituição, transformando relatórios brutos de múltiplas fontes (Moodle, listas SAE) em uma base de dados única, confiável e interativa.
+
+Ele resolve o desafio de um processo anteriormente manual, demorado e sujeito a erros, que dependia de planilhas descentralizadas e dados inconsistentes.
+
+### Pontos de Atenção e Roadmap de Evolução
+
+Esta seção documenta áreas que exigem monitoramento contínuo e possíveis melhorias futuras para garantir a robustez e a escalabilidade da solução a longo prazo.
+
+* **Escalabilidade da Camada de Dados:** A solução atual utiliza o SharePoint como banco de dados, o que é excelente para um início rápido. No entanto, com o aumento massivo de volume de dados, a performance pode ser um ponto de atenção. Uma futura evolução seria migrar a base para o **Microsoft Dataverse** ou um banco de dados **Azure SQL**.
+* **Automação Completa do Gatilho:** Atualmente, o fluxo é iniciado manually por um administrador. O próximo passo é evoluir para um gatilho 100% automático, como o monitoramento de uma pasta no OneDrive ou caixa de e-mail para processar novos relatórios assim que chegam.
+* **Limites de Delegação do Power Apps:** É crucial que todas as consultas e filtros no aplicativo sejam construídos utilizando funções delegáveis ao SharePoint para garantir que toda a base de dados seja analisada, e não apenas os primeiros 2.000 registros.
+* **Monitoramento e Tratamento de Erros:** Implementar um sistema de log e notificação mais robusto no Power Automate para capturar e relatar falhas durante o processo de sincronização de forma proativa.
 
 ---
 
 # Funcionalidades
 
-...
+* **Centralização de Dados:** Consolida informações de fontes distintas (Moodle, SAE) em uma base de dados única e padronizada.
+* **Automação de ETL:** Automatiza o processo de Extração, Transformação (limpeza e padronização com Office Scripts) e Carga (sincronização com SharePoint via Power Automate).
+* **Gestão Inteligente:** Permite a visualização, pesquisa e filtragem de todo o histórico de usuários e suas participações em cursos.
+* **Sincronização Inteligente:** Gerencia o ciclo de vida dos registros, realizando operações de criação, atualização e inativação de forma automática.
+* **Análise e Dashboards:** Oferece um cockpit de controle (Power App) com visões gerenciais, gráficos e indicadores de performance (KPIs).
+* **Auditoria de Dados:** Inclui funcionalidades para reconciliar e auditar dados de diferentes fontes em telas de comparação.
+
 
 ---
 
 # Estrutura do Projeto
 
-...
+A arquitetura do sistema é baseada em quatro pilares principais, que representam as camadas lógicas da solução, orquestradas pelo ecossistema Power Platform.
+
+* **Pilar 1: Camada de Dados**
+    * **Tecnologia:** SharePoint Online
+    * **Função:** Atua como a base de dados central do sistema, utilizando um modelo relacional implementado através de listas interligadas para armazenar as informações de forma estruturada.
+
+* **Pilar 2: Camada de Transformação de Dados**
+    * **Tecnologia:** Office Scripts
+    * **Função:** Realiza a limpeza e padronização dos relatórios brutos recebidos, garantindo a qualidade e a consistência dos dados antes de serem carregados no sistema.
+
+* **Pilar 3: Camada de Orquestração e Automação**
+    * **Tecnologia:** Power Automate
+    * **Função:** É o motor que automatiza todo o fluxo de trabalho. Ele executa os scripts de limpeza, lê os dados transformados e orquestra a sincronização com a camada de dados no SharePoint.
+
+* **Pilar 4: Camada de Apresentação e Análise**
+    * **Tecnologia:** Power Apps
+    * **Função:** Serve como a interface do usuário final (administradores e gestores). Permite a consulta, visualização e análise dos dados consolidados através de dashboards e ferramentas de pesquisa.
+
 
 ---
 
 # Banco de Dados 
 
-...
+A camada de dados foi implementada utilizando **Listas do SharePoint Online**, configuradas para simular um modelo de banco de dados relacional. As principais listas (tabelas) são:
+
+* **LST_Usuarios:**
+    * **Descrição:** Armazena o cadastro único de todos os participantes (servidores, alunos, etc.).
+    * **Campos Principais:** `ID`, `NomeCompleto`, `Email`, `CPF`, `TipoUsuario`, `Status` (Ativo/Inativo).
+
+* **LST_Cursos:**
+    * **Descrição:** Armazena o catálogo de todos os cursos, eventos e capacitações oferecidos.
+    * **Campos Principais:** `ID`, `NomeCurso`, `DataInicio`, `DataFim`, `CargaHoraria`, `Fonte` (Moodle/SAE).
+
+* **LST_UsuariosCursos (Tabela de Junção):**
+    * **Descrição:** Relaciona os usuários aos cursos que eles participaram, registrando a conclusão.
+    * **Campos Principais:** `ID`, `UsuarioID` (Lookup para LST_Usuarios), `CursoID` (Lookup para LST_Cursos), `StatusConclusao`, `DataConclusao`.
 
 ---
 
@@ -68,7 +114,8 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 - tela_inicial do App foi refatorada para containers flexiveis para multiplas telas.
 - tela_inicial alteração na localização das estatisticas iniciais, sairam dos botões e agora estão no rodapé.
 - tela_editar_cursos e tela_editar_usuarios tiveram os botões de navegação removidos.
-- Fluxo_Auditor agora também executa a contagens de usuários em cada curso
+- Fluxo_Auditor agora também executa a contagens de usuários em cada curso.
+- Atualização da descrição do projeto em 2025-09-16, anexando informações sobre a estrutura e definições do sistema.
 
 ### Trabalhando
 - tela_dashboard INICIAL criada
@@ -82,6 +129,10 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
               -PROBLEMAS: CURSOS NÃO TEM DIVISÃO ENTRE AS TURMAS, COMO PENSAR ISSO PARA O FLUXO DO POWERAPPS? necessario dividir ou só aceitar aqui e ir para o powerBI e la separar por turmas.
 - testes com a tela_inicial pronta para adaptação em celular horizontal e vertical.
 - ajustes ao longo de todo o readme.md
+- ajustes na lógica de carregamento nos dados do power apps para passar do limite de 2000 delegações ao sharepoint, tentando contornar adicionando uma coluna nova com o ID do curso em formato textual, para consulta e unificação na hora de atualizar e listar os nomes dos ususarios dentro dos cursos
+- é necessario acrescentar a logica de preencher coluna FK_Curso_in_Text na LST_Usuarios-Cursos para ajudar na delegação dos dados
+- 
+
 
 
 ### Informações Extras
