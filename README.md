@@ -30,26 +30,25 @@ O **Data Hub ESAE** é uma plataforma integrada e automatizada, construída sobr
 
 Ele resolve o desafio de um processo anteriormente manual, demorado e sujeito a erros, que dependia de planilhas descentralizadas e dados inconsistentes.
 
-### Pontos de Atenção e Roadmap de Evolução
+---
 
-Esta seção documenta áreas que exigem monitoramento contínuo e possíveis melhorias futuras para garantir a robustez e a escalabilidade da solução a longo prazo.
+# Tecnologias Utilizadas
 
-* **Escalabilidade da Camada de Dados:** A solução atual utiliza o SharePoint como banco de dados, o que é excelente para um início rápido. No entanto, com o aumento massivo de volume de dados, a performance pode ser um ponto de atenção. Uma futura evolução seria migrar a base para o **Microsoft Dataverse** ou um banco de dados **Azure SQL**.
-* **Automação Completa do Gatilho:** Atualmente, o fluxo é iniciado manually por um administrador. O próximo passo é evoluir para um gatilho 100% automático, como o monitoramento de uma pasta no OneDrive ou caixa de e-mail para processar novos relatórios assim que chegam.
-* **Limites de Delegação do Power Apps:** É crucial que todas as consultas e filtros no aplicativo sejam construídos utilizando funções delegáveis ao SharePoint para garantir que toda a base de dados seja analisada, e não apenas os primeiros 2.000 registros.
-* **Monitoramento e Tratamento de Erros:** Implementar um sistema de log e notificação mais robusto no Power Automate para capturar e relatar falhas durante o processo de sincronização de forma proativa.
+* **Microsoft Power Apps (Canvas App):** Para a camada de apresentação e interface do usuário.
+* **Microsoft Power Automate:** Para a camada de orquestração e automação dos fluxos de trabalho.
+* **Microsoft SharePoint Online:** Para a camada de dados (banco de dados relacional).
+* **Microsoft Office Scripts (TypeScript):** Para a camada de transformação e limpeza de dados (ETL).
 
 ---
 
-# Funcionalidades
+# Funcionalidades Principais
 
 * **Centralização de Dados:** Consolida informações de fontes distintas (Moodle, SAE) em uma base de dados única e padronizada.
-* **Automação de ETL:** Automatiza o processo de Extração, Transformação (limpeza e padronização com Office Scripts) e Carga (sincronização com SharePoint via Power Automate).
-* **Gestão Inteligente:** Permite a visualização, pesquisa e filtragem de todo o histórico de usuários e suas participações em cursos.
+* **Automação de ETL de Ponta a Ponta:** Automatiza todo o processo de Extração, Transformação (limpeza e padronização com Office Scripts) e Carga (sincronização com SharePoint via Power Automate).
+* **Gestão e Visualização 360°:** Permite a visualização, pesquisa e filtragem de todo o histórico de usuários e suas participações em cursos, bem como o perfil detalhado de cada curso e seus participantes.
 * **Sincronização Inteligente:** Gerencia o ciclo de vida dos registros, realizando operações de criação, atualização e inativação de forma automática.
-* **Análise e Dashboards:** Oferece um cockpit de controle (Power App) com visões gerenciais, gráficos e indicadores de performance (KPIs).
-* **Auditoria de Dados:** Inclui funcionalidades para reconciliar e auditar dados de diferentes fontes em telas de comparação.
-
+* **Análise e Dashboards:** Oferece um cockpit de controle (Power App) com visões gerenciais, gráficos interativos e indicadores de performance (KPIs).
+* **Auditoria de Dados:** Inclui funcionalidades e automações para reconciliar e auditar dados de diferentes fontes, sinalizando inconsistências para revisão.
 
 ---
 
@@ -57,45 +56,61 @@ Esta seção documenta áreas que exigem monitoramento contínuo e possíveis me
 
 A arquitetura do sistema é baseada em quatro pilares principais, que representam as camadas lógicas da solução, orquestradas pelo ecossistema Power Platform.
 
-* **Pilar 1: Camada de Dados**
+* **Pilar 1: Camada de Dados (Onde a informação vive)**
     * **Tecnologia:** SharePoint Online
     * **Função:** Atua como a base de dados central do sistema, utilizando um modelo relacional implementado através de listas interligadas para armazenar as informações de forma estruturada.
 
-* **Pilar 2: Camada de Transformação de Dados**
+* **Pilar 2: Camada de Transformação de Dados (Onde a informação é limpa)**
     * **Tecnologia:** Office Scripts
     * **Função:** Realiza a limpeza e padronização dos relatórios brutos recebidos, garantindo a qualidade e a consistência dos dados antes de serem carregados no sistema.
 
-* **Pilar 3: Camada de Orquestração e Automação**
+* **Pilar 3: Camada de Orquestração e Automação (Onde a mágica acontece)**
     * **Tecnologia:** Power Automate
     * **Função:** É o motor que automatiza todo o fluxo de trabalho. Ele executa os scripts de limpeza, lê os dados transformados e orquestra a sincronização com a camada de dados no SharePoint.
 
-* **Pilar 4: Camada de Apresentação e Análise**
+* **Pilar 4: Camada de Apresentação e Análise (Onde o usuário interage)**
     * **Tecnologia:** Power Apps
     * **Função:** Serve como a interface do usuário final (administradores e gestores). Permite a consulta, visualização e análise dos dados consolidados através de dashboards e ferramentas de pesquisa.
 
-
 ---
 
-# Banco de Dados 
+# Banco de Dados
 
-A camada de dados foi implementada utilizando **Listas do SharePoint Online**, configuradas para simular um modelo de banco de dados relacional. As principais listas (tabelas) são:
+A camada de dados foi implementada utilizando **Listas do SharePoint Online**. As principais listas (tabelas) são:
 
-* **LST_Usuarios:**
-    * **Descrição:** Armazena o cadastro único de todos os participantes (servidores, alunos, etc.).
-    * **Campos Principais:** `ID`, `NomeCompleto`, `Email`, `CPF`, `TipoUsuario`, `Status` (Ativo/Inativo).
+* **`LST_Usuarios`:**
+    * **Descrição:** Armazena o cadastro único de todos os participantes que têm registros no Moodle.
+    * **Campos Principais:** `ID`, `NomeCompleto (Title)`, `PK_Email`, `Tipo_Usuario`, `Usuario_SAE_Lookup` (Lookup para LST_Usuarios_SAE), `StatusDeConsistencia`, `QtdConclusoes`.
 
-* **LST_Cursos:**
+* **`LST_Cursos`:**
     * **Descrição:** Armazena o catálogo de todos os cursos, eventos e capacitações oferecidos.
-    * **Campos Principais:** `ID`, `NomeCurso`, `DataInicio`, `DataFim`, `CargaHoraria`, `Fonte` (Moodle/SAE).
+    * **Campos Principais:** `ID`, `Nome_Curso (Title)`, `PK_ID_Curso`, `DataInicioCurso`, `DataTerminoCurso`, `Carga_Horaria`, `Categoria`, `QtdAlunos`.
 
-* **LST_UsuariosCursos (Tabela de Junção):**
-    * **Descrição:** Relaciona os usuários aos cursos que eles participaram, registrando a conclusão.
-    * **Campos Principais:** `ID`, `UsuarioID` (Lookup para LST_Usuarios), `CursoID` (Lookup para LST_Cursos), `StatusConclusao`, `DataConclusao`.
+* **`LST_Usuarios_SAE`:**
+    * **Descrição:** Funciona como a "fonte da verdade" para a lista de usuários externos (SAE), vinda de múltiplas fontes.
+    * **Campos Principais:** `ID`, `NomeCompleto (Title)`, `Email_SAE`, `Lotacao_SAE`, `Cargo_SAE`, `OrigemDados`, `Status` (Ativo/Inativo/Verificar!).
+
+* **`LST_Lotacoes`:**
+    * **Descrição:** Armazena uma lista de lotações únicas, para padronização e filtragem.
+    * **Campos Principais:** `ID`, `Lotacao (Title)`.
+
+* **`LST_Usuarios-Cursos` (Tabela de Junção):**
+    * **Descrição:** Relaciona os usuários aos cursos que eles participaram, registrando a inscrição e a conclusão.
+    * **Campos Principais:** `ID`, `FK_Usuario` (Lookup para LST_Usuarios), `FK_Curso_ID` (Lookup para LST_Cursos), `StatusAluno`, `Data_Inscricao`, `Data_Conclusao`.
 
 ---
 
+# Pontos de Atenção e Roadmap de Evolução
 
+Esta seção documenta áreas que exigem monitoramento e possíveis melhorias futuras.
 
+* **Escalabilidade da Camada de Dados:** A solução atual utiliza o SharePoint. Com o aumento massivo de volume de dados, uma futura evolução seria migrar a base para o **Microsoft Dataverse** ou um banco de dados **Azure SQL** para otimizar a performance em larga escala.
+* **Automação Completa do Gatilho:** Atualmente, os fluxos são iniciados manualmente. O próximo passo é evoluir para gatilhos 100% automáticos, como o monitoramento de uma pasta no OneDrive ou caixa de e-mail.
+* **Limites de Delegação do Power Apps:** É crucial que todas as novas consultas e filtros no aplicativo sejam construídos utilizando funções delegáveis para garantir que toda a base de dados seja analisada, e não apenas os primeiros 2.000 registros.
+* **Monitoramento e Tratamento de Erros:** Implementar um sistema de log e notificação mais robusto no Power Automate para capturar e relatar falhas durante o processo de sincronização de forma proativa.
+* **Ferramenta de Mesclagem de Lotações:** Desenvolver a funcionalidade planejada para permitir que administradores unifiquem registros de lotações inconsistentes.
+
+---
 
 # CHANGELOG 
 
