@@ -147,9 +147,10 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 - PROBLEMAS: CURSOS NÃO TEM DIVISÃO ENTRE AS TURMAS, COMO PENSAR ISSO PARA O FLUXO DO POWERAPPS? necessario dividir ou só aceitar aqui e ir para o powerBI e la separar por turmas.
 - testes com a tela_inicial pronta para adaptação em celular horizontal e vertical.
 - ajustes ao longo de todo o readme.md
-- ajustes na lógica de carregamento nos dados do power apps para passar do limite de 2000 delegações ao sharepoint, tentando contornar adicionando uma coluna nova com o ID do curso em formato textual, para consulta e unificação na hora de atualizar e listar os nomes dos ususarios dentro dos cursos
-- é necessario acrescentar a logica de preencher coluna FK_Curso_in_Text na LST_Usuarios-Cursos para ajudar na delegação dos dados
-- 
+- (esse fluxo durou 8horas para 5000 registros - deve ser incluido no meio do fluxo já usado) ajustes na lógica de carregamento nos dados do power apps para passar do limite de 2000 delegações ao sharepoint, agora temos uma coluna FK_Curso_in_Text que é preenchida com o numero de ID do curso no sharepoint, assim não usando delegações.
+- é necessario acrescentar a logica de preencher coluna FK_Curso_in_Text na LST_Usuarios-Cursos, de forma que o fluxo inclua automaticamente quando rodar.
+- o OnVisible da tela_detalhes_cursos agora utiliza uma coleção para exibir a lista de alunos
+- aplicar esta mesma lógica para a listagem dos cursos concluidos por cada aluno na tela_detalhes_usuarios - em processo
 
 
 
