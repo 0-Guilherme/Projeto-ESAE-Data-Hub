@@ -17,7 +17,7 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 6. [Pontos de Atenção e Roadmap de Evolução](#Pontos-de-Atenção-e-Roadmap-de-Evolução)
 7. [Changelog](#changelog)
 8. [Mudanças Futuras](#não-lançado---planejamento-para-próximas-versões)
-9. [Versão 0.5.0](#050---2025-09-16)
+9. [Versão 0.5.0](#050---2025-09-19)
 10. [Versão 0.4.0](#040---2025-08-28)
 11. [Versão 0.3.0](#030---2025-08-04)
 12. [Versão 0.2.0](#020---2025-07-10)
@@ -121,38 +121,16 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 
 ---
 
-## [0.5.0] - 2025-09-16
-### Adicionado
-- O fluxo SAE-CGAJAPDI-Servidores-v2 está apto a gerar uma lista em excel com os novos usuários.
-- A LST_Usuarios agora tem uma coluna com Data da Última Modificação.
-- Fluxo_Usuarios-v2 30% mais eficiente após as mudanças. Para enviar o email, usar assunto "Fluxo_Usuarios_Moodle".
-- Script_Usuarios-v2 foi separado em tabelas com nomes únicos para diminuir a quantidade de tempo gasto em loops entre as listas de nomes e conclusões.
-- Fluxo_SAE-CGAJAPDI-Servidores-v2 está apto a rodar na nuvem em sua totalidade. Basta enviar e-mail, assunto "Fluxo_Atualizar_SAE".
-- Script_SAE-CGAJAPDI-Servidores-v4.0.0 está totalmente atualizado e funcional.
-- tela_inicial do App foi refatorada para containers flexiveis para multiplas telas.
-- tela_inicial alteração na localização das estatisticas iniciais, sairam dos botões e agora estão no rodapé.
-- tela_editar_cursos e tela_editar_usuarios tiveram os botões de navegação removidos.
-- Fluxo_Auditor agora também executa a contagens de usuários em cada curso.
-- Atualização da descrição do projeto em 2025-09-16, anexando informações sobre a estrutura e definições do sistema.
+## [0.6.0] - 2025-00-00
 
 ### Trabalhando
-- tela_dashboard INICIAL criada.
-- tentando inclusões de alguns gráficos e indicadores, pelo que vi o melhor via ser trabalhar cada tela com um modelo ou método de gráfico.
-- primeiro grafico horizontal criado a partir de galeria, ele lista o nome a barra e quantidade total de alunos. Possiveis melhorias: colocar para resetar o tamanho "maximo" da barra quando selecionar um novo filtro // podemos duplicar para ver quantos alunos temos que concluiram o curso.
-- agora com navegação clicavel para o curso selecionado.
 - o que pensei: montar alguma janela para mostra as estatisticas de quantos usuarios fizeram o que nos ultimos 30 dias, 7 dias e no dia. como por exemplo: grafico por tipo de usuario, quantidade por curso talvez tabela, algo que podemos mudar como "inscrições e conclusões" algum switch ou algo do genero.
 - tentar incluir analise relativa ao semestre, como grafico de pizza para tipos_usuarios, tipos_curso, numeros absolutos, e amostragem rapida dos ultimos 7 dias.
 - necessario incluir um botão para levar ao BI completo, que ainda vamos desenvolver, dentro do aplicativo não vai ser possivel, está ficando extremamente pesado para a plataforma.
-- tela_db_cursos criada com 3 filtros de dropbox,categoria do curso, semestre em que iniciou, e é inscrições ou conclusões.
 - PROBLEMAS: CURSOS NÃO TEM DIVISÃO ENTRE AS TURMAS, COMO PENSAR ISSO PARA O FLUXO DO POWERAPPS? necessario dividir ou só aceitar aqui e ir para o powerBI e la separar por turmas.
-- testes com a tela_inicial pronta para adaptação em celular horizontal e vertical.
-- ajustes ao longo de todo o readme.md
-- (esse fluxo durou 8horas para 5000 registros - deve ser incluido no meio do fluxo já usado) ajustes na lógica de carregamento nos dados do power apps para passar do limite de 2000 delegações ao sharepoint, agora temos uma coluna FK_Curso_in_Text que é preenchida com o numero de ID do curso no sharepoint, assim não usando delegações.
-- é necessario acrescentar a logica de preencher coluna FK_Curso_in_Text na LST_Usuarios-Cursos, de forma que o fluxo inclua automaticamente quando rodar.
-- o OnVisible da tela_detalhes_cursos agora utiliza uma coleção para exibir a lista de alunos
 - aplicar esta mesma lógica para a listagem dos cursos concluidos por cada aluno na tela_detalhes_usuarios - em processo
-
-
+- <BUG> ou todos usuarios só estão se inscrevendo nos cursos e as datas de conclusão estão sendo preenchidas erradas, ou precisamos arrumar o fluxo LST-Usuarios, não está mudando o campo para "concluido" e as datas estão estranhas.
+- <BUG> lista de cursos sem datas de término adequadas, campo "Palestras" "Eventos" "Cursos" tem alguns vaios, ou não estão sendo incluidos.
 
 ### Informações Extras
 - Tentar Try and Catch para achar problemas no fluxo, ou separar a informação.
@@ -192,6 +170,33 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - Scripts Utilizados - Relatorio_ESAE_Testes - Criar_Tabela_1 // Mudar_Datas // Criar_Tabelas_Dinamicas
 - ID = 1 Rodando normalmente a cada semana. ID = 2 e 3 Pausados, rodando sob solicitação do Rodrigo
 
+---
+
+## [0.5.0] - 2025-09-19
+
+### 🔧 Alterado
+- Otimizado o `Fluxo_Usuarios-v2` em aproximadamente 30% de desempenho. (Para envio de e-mails, utilizar o assunto `"Fluxo_Usuarios_Moodle"`).
+- O `Script_Usuarios-v2` foi reorganizado para gerar tabelas com nomes únicos, reduzindo o tempo de execução em loops.
+- A `tela_inicial` do Power App foi refatorada com contêineres flexíveis, tornando-a compatível com múltiplas resoluções, inclusive celulares.
+- A propriedade `OnVisible` das telas `tela_detalhes_cursos` e `tela_detalhes_usuarios` agora utiliza coleções para exibir as listas de alunos/cursos, melhorando drasticamente a performance e a escalabilidade.
+- Atualização completa da documentação do projeto (`README.md`, `CHANGELOG.md`).
+
+### 🆕 Adicionado
+- O `Fluxo_SAE-CGAJAPDI-Servidores-v2` agora gera uma planilha Excel separada com o log de novos usuários adicionados.
+- A lista `LST_Usuarios` agora possui a coluna `Data da Última Modificação` para melhor rastreabilidade.
+- O `Fluxo_SAE-CGAJAPDI-Servidores-v2` está apto a rodar integralmente na nuvem. (Para ativação, enviar e-mail com o assunto `"Fluxo_Atualizar_SAE"`).
+- O `Script_SAE-CGAJAPDI-Servidores-v4.0.0` foi finalizado e validado.
+- **`Fluxo de Ingestão do Moodle` agora calcula e atualiza a contagem de alunos (`QtdAlunos`) em cada curso.** *(Ajuste de clareza: A contagem é feita pelo fluxo de ingestão, enquanto o Fluxo Auditor verifica inconsistências).*
+- A tela `tela_dashboard_bi` foi criada com:
+  - Gráfico em formato de galeria horizontal exibindo o total de alunos inscritos por curso.
+  - Três menus suspensos para seleção de Categoria, Semestre e Status (Inscrição/Conclusão).
+  - Navegação para os detalhes do curso habilitada ao clicar no item do gráfico.
+- Adicionadas as colunas auxiliares `FK_Curso_in_Text` e `FK_Usuario_in_Text` à lista `LST_Usuarios-Cursos`, preenchidas via Power Automate. Isso permite filtros delegáveis no Power Apps e supera o limite de 2.000 registros.
+- O fluxo de criação de conclusões foi ajustado para preencher automaticamente os campos `FK_Curso_in_Text` e `FK_Usuario_in_Text`.
+
+### 🛠️ Corrigido
+- Ajustada a lógica de carregamento de dados com `ClearCollect` e `OnVisible` para resolver falhas de delegação com listas acima de 2.000 registros.
+- Corrigida a navegação entre as telas de cursos e usuários, garantindo a passagem correta do contexto (`gblCursoSelecionado`, `gblUsuarioSelecionado`) e a exibição completa dos dados vinculados.
 ---
 
 ## [0.4.0] - 2025-08-28
