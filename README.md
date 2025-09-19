@@ -131,6 +131,7 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 - aplicar esta mesma lógica para a listagem dos cursos concluidos por cada aluno na tela_detalhes_usuarios - em processo
 - <BUG> ou todos usuarios só estão se inscrevendo nos cursos e as datas de conclusão estão sendo preenchidas erradas, ou precisamos arrumar o fluxo LST-Usuarios, não está mudando o campo para "concluido" e as datas estão estranhas.
 - <BUG> lista de cursos sem datas de término adequadas, campo "Palestras" "Eventos" "Cursos" tem alguns vaios, ou não estão sendo incluidos.
+- pensar em como adequar a inclusão dos dados nas listas, estava pensando em deletar tudo o que temos ali e incluir novamente, ao final do fluxo, mas preciso penssar em corrigir as colunas das conclusões pelo menos, e depois podemos nem que seja separar em um fluxo somente para as conclusoes ou cursos e etc,, minimizando a quantidade de desemprenho necessaria ao fazer uma nova gigante inclusão
 
 ### Informações Extras
 - Tentar Try and Catch para achar problemas no fluxo, ou separar a informação.
