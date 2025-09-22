@@ -150,7 +150,7 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 - aplicar esta mesma lógica para a listagem dos cursos concluidos por cada aluno na tela_detalhes_usuarios - em processo.
 - verificar logica do fluxo de veificação do SAE repensar e filtrar antes se eles estão ou não na lista.
 - rodar novamente a ingestao de dados para atualização das colunas, primeira ingestão é de 01/08/2025-22/09/2025.
-- 
+- a tela do auditor tem problemas de lógica, precisamos corrigir para aparecer usuarios que estejam com a coluna !=Normal, que tenham que ser adicionados ou removidos.
 
 ### Informações Extras
 - Tentar Try and Catch para achar problemas no fluxo, ou separar a informação.
