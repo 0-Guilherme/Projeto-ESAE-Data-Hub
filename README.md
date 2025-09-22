@@ -123,20 +123,38 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 
 ## [0.6.0] - 2025-00-00
 
+### 🆕 Adicionado
+- **Fluxo "Auditor" de Consistência de Dados:** Criado um novo fluxo agendado no Power Automate dedicado a auditar a consistência entre as listas `LST_Usuarios` e `LST_Usuarios_SAE`.
+    - O fluxo percorre todos os registros da `LST_Usuarios`.
+    - Para cada registro, ele cruza a informação com a `LST_Usuarios_SAE` (usando o e-mail como chave).
+    - Ele aplica um conjunto de regras de negócio para identificar inconsistências (ex: um usuário marcado como "SAE Sim" na lista principal, mas que está "Inativo" ou não existe na lista SAE).
+    - Quando uma inconsistência é encontrada, o fluxo atualiza uma coluna de status (ex: `ValidarSAE`) para um valor de alerta (ex: "AdicionarSAE", "RemoverSAE"), sinalizando a necessidade de revisão manual.
+- **Tela de Auditoria no Power App (`TelaAuditoria`):**
+    - Criada uma nova tela no aplicativo que exibe uma galeria com os usuários que precisam de atenção.
+    - A galeria é filtrada para mostrar apenas os usuários cuja coluna `ValidarSAE` (ou similar) tenha um status diferente de "Normal".
+    - A tela inclui filtros para que o administrador possa focar em ações específicas ("AdicionarSAE", "RemoverSAE").
+    - Cada item na galeria é clicável e navega para a tela de detalhes/reconciliação (`TelaDetalhesUsuarioSAE`), fornecendo um atalho direto para a resolução do problema.
+ 
+
+### 🛠️ Corrigido
+- <bug> Lista de Categorias não estava sendo adicionada corretamente, corrigido fluxo no power automate e também o script do office para as ccorreções surtirem efeito
+- <bug> Datas de concluões dos cursos e dos ususarios não estavam corretas, corrigido de maneira a mostrar a data formatada, configurada e também adicionando o "statusaluno' para inscrito ou concluido na coluna Status.
+- alterações e optimizações para o fluxo LST-Usuarios, agora verifica se o usuario esta com um email possivel de procurar no outlook, como final rs.gov.br. Também verifica se o ID do curso está preenchido se não ignora.
+- 
+
 ### Trabalhando
 - o que pensei: montar alguma janela para mostra as estatisticas de quantos usuarios fizeram o que nos ultimos 30 dias, 7 dias e no dia. como por exemplo: grafico por tipo de usuario, quantidade por curso talvez tabela, algo que podemos mudar como "inscrições e conclusões" algum switch ou algo do genero.
 - tentar incluir analise relativa ao semestre, como grafico de pizza para tipos_usuarios, tipos_curso, numeros absolutos, e amostragem rapida dos ultimos 7 dias.
 - necessario incluir um botão para levar ao BI completo, que ainda vamos desenvolver, dentro do aplicativo não vai ser possivel, está ficando extremamente pesado para a plataforma.
 - PROBLEMAS: CURSOS NÃO TEM DIVISÃO ENTRE AS TURMAS, COMO PENSAR ISSO PARA O FLUXO DO POWERAPPS? necessario dividir ou só aceitar aqui e ir para o powerBI e la separar por turmas.
-- aplicar esta mesma lógica para a listagem dos cursos concluidos por cada aluno na tela_detalhes_usuarios - em processo
-- <BUG> ou todos usuarios só estão se inscrevendo nos cursos e as datas de conclusão estão sendo preenchidas erradas, ou precisamos arrumar o fluxo LST-Usuarios, não está mudando o campo para "concluido" e as datas estão estranhas.
-- <BUG> lista de cursos sem datas de término adequadas, campo "Palestras" "Eventos" "Cursos" tem alguns vaios, ou não estão sendo incluidos.
-- pensar em como adequar a inclusão dos dados nas listas, estava pensando em deletar tudo o que temos ali e incluir novamente, ao final do fluxo, mas preciso penssar em corrigir as colunas das conclusões pelo menos, e depois podemos nem que seja separar em um fluxo somente para as conclusoes ou cursos e etc,, minimizando a quantidade de desemprenho necessaria ao fazer uma nova gigante inclusão
-- verificar logica do fluxo de veificação do SAE repensar e filtrar antes se eles estão ou não na lista
+- aplicar esta mesma lógica para a listagem dos cursos concluidos por cada aluno na tela_detalhes_usuarios - em processo.
+- verificar logica do fluxo de veificação do SAE repensar e filtrar antes se eles estão ou não na lista.
+- rodar novamente a ingestao de dados para atualização das colunas, primeira ingestão é de 01/08/2025-22/09/2025.
+- 
 
 ### Informações Extras
 - Tentar Try and Catch para achar problemas no fluxo, ou separar a informação.
-- Última ingestão de dados em 02/09/2025
+- Última ingestão de dados em 01/08/2025-22/09/2025
 - Versão do App: 121
 
 ---
@@ -207,7 +225,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - **Módulo de Gestão de Usuários SAE:** Criada a lista `LST_Usuarios_SAE` para servir como "fonte da verdade" para usuários externos.
 - **Fluxo de Sincronização SAE:** Criado um novo fluxo no Power Automate para sincronizar a lista `LST_Usuarios_SAE` a partir de um arquivo Excel, incluindo lógica de inativação de usuários removidos.
 - **Telas de Reconciliação no Power App:** Criadas as telas `TelaGerenciarUsuariosSAE` (com filtros) e `TelaDetalhesUsuarioSAE` (para comparação lado a lado dos dados SAE vs. Moodle).
-- **Fluxo "Auditor":** Implementada uma automação agendada para verificar e sinalizar inconsistências de status entre as listas `LST_Usuarios` e `LST_Usuarios_SAE`.
 - **Pré-processamento com Office Scripts:** Criado um script mestre para limpar e formatar os relatórios do Excel (SAE e Moodle) antes da ingestão de dados.
 
 ### Alterado
