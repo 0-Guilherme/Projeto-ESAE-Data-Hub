@@ -22,8 +22,9 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 11. [Versão 0.3.0](#030---2025-08-04)
 12. [Versão 0.2.0](#020---2025-07-10)
 13. [Versão 0.1.0](#010---2025-06-22)
-14. [Know Issues](#know_issues---problemas-conhecidos-e-suas-limitações)
-15. [Suporte](#-suporte)
+14. [Versão Conceitual - 2025-01-01 - Fluxo dos Relatórios - ALFA](#Versão-Conceitual---2025-01-01---Fluxo-dos-Relatórios---ALFA)
+15. [Know Issues](#know_issues---problemas-conhecidos-e-suas-limitações)
+16. [Suporte](#-suporte)
 
 ---
 
@@ -140,9 +141,9 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 - <bug> Lista de Categorias não estava sendo adicionada corretamente, corrigido fluxo no power automate e também o script do office para as ccorreções surtirem efeito
 - <bug> Datas de concluões dos cursos e dos ususarios não estavam corretas, corrigido de maneira a mostrar a data formatada, configurada e também adicionando o "statusaluno' para inscrito ou concluido na coluna Status.
 - alterações e optimizações para o fluxo LST-Usuarios, agora verifica se o usuario esta com um email possivel de procurar no outlook, como final rs.gov.br. Também verifica se o ID do curso está preenchido se não ignora.
-- 
 
-### Trabalhando
+```
+### Notas Temporárias
 - o que pensei: montar alguma janela para mostra as estatisticas de quantos usuarios fizeram o que nos ultimos 30 dias, 7 dias e no dia. como por exemplo: grafico por tipo de usuario, quantidade por curso talvez tabela, algo que podemos mudar como "inscrições e conclusões" algum switch ou algo do genero.
 - tentar incluir analise relativa ao semestre, como grafico de pizza para tipos_usuarios, tipos_curso, numeros absolutos, e amostragem rapida dos ultimos 7 dias.
 - necessario incluir um botão para levar ao BI completo, que ainda vamos desenvolver, dentro do aplicativo não vai ser possivel, está ficando extremamente pesado para a plataforma.
@@ -151,19 +152,13 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 - verificar logica do fluxo de veificação do SAE repensar e filtrar antes se eles estão ou não na lista.
 - rodar novamente a ingestao de dados para atualização das colunas, primeira ingestão é de 01/08/2025-22/09/2025.
 - a tela do auditor tem problemas de lógica, precisamos corrigir para aparecer usuarios que estejam com a coluna !=Normal, que tenham que ser adicionados ou removidos.
-
-### Informações Extras
-- Tentar Try and Catch para achar problemas no fluxo, ou separar a informação.
-- Última ingestão de dados em 01/08/2025-22/09/2025
-- Versão do App: 121
+```
 
 ---
 
 # Planejamento para Novas Versões
 
 Este documento descreve o roteiro de desenvolvimento para futuras versões do sistema, focando em agregar valor, robustez e novas funcionalidades à base já construída.
-
-## [Não Lançado] - Planejamento para Próximas Versões
 
 ### Adicionar
 - [ ] **Gráficos no Dashboard:** Inclusão de elementos visuais de BI na tela principal para análise de dados (`Gráfico de Colunas` para Top Cursos, `Gráfico de Pizza` para distribuição de usuários).
@@ -181,14 +176,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
       - fluxo ja está automaziada por gatilho em e-mail.
       - fluxo foi retrabalhado e melhorado para aumentar a velocidade de processamento de dados.
 - [ ] **Fluxo Auditor:** Adicionar contagem de usuarios e usuarios que concluiram nas telas refatoradas, mas para isso precisamos da contagem na base de dados.
-
----
-
-### Fluxo dos Relatórios - BETA - (Silvia)
-- Power Automate: Relatorios_ESAE_Teste
-- Recebe Relatorio do Moodle: Automatico_ID=1 =2 =3 e envia para o e-mail relacionado
-- Scripts Utilizados - Relatorio_ESAE_Testes - Criar_Tabela_1 // Mudar_Datas // Criar_Tabelas_Dinamicas
-- ID = 1 Rodando normalmente a cada semana. ID = 2 e 3 Pausados, rodando sob solicitação do Rodrigo
 
 ---
 
@@ -274,6 +261,14 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
     - `TelaUsuarios` e `TelaCursos` com galerias e caixas de busca.
     - `TelaDetalhesUsuario` e `TelaDetalhesCurso` para visualização 360°, incluindo sub-galerias para dados relacionados.
     - Navegação cruzada entre as telas de detalhes.
+
+---
+
+## Versão Conceitual - 2025-01-01 - Fluxo dos Relatórios - ALFA
+- Power Automate: Relatorios_ESAE_Teste
+- Recebe Relatorio do Moodle: Automatico_ID=1 =2 =3 e envia para o e-mail relacionado
+- Scripts Utilizados - Relatorio_ESAE_Testes - Criar_Tabela_1 // Mudar_Datas // Criar_Tabelas_Dinamicas
+- ID = 1 Rodando normalmente a cada semana. ID = 2 e 3 Pausados, rodando sob solicitação do Rodrigo
 
 ---
 
