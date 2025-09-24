@@ -326,7 +326,7 @@ Este documento rastreia bugs conhecidos, limitações de arquitetura e potenciai
 
 Para problemas não listados aqui:
 1. Consulte o `CHANGELOG.md` para mudanças recentes
-2. Contato Teams: e-guilherme-ramos@pge.rs.gov.br
+2. Contato Teams: ---
 
 ---
 
