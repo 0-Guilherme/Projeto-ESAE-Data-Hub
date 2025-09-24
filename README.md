@@ -17,14 +17,15 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 6. [Pontos de Atenção e Roadmap de Evolução](#Pontos-de-Atenção-e-Roadmap-de-Evolução)
 7. [Changelog](#changelog)
 8. [Mudanças Futuras](#não-lançado---planejamento-para-próximas-versões)
-9. [Versão 0.5.0](#050---2025-09-19)
-10. [Versão 0.4.0](#040---2025-08-28)
-11. [Versão 0.3.0](#030---2025-08-04)
-12. [Versão 0.2.0](#020---2025-07-10)
-13. [Versão 0.1.0](#010---2025-06-22)
-14. [Versão Conceitual - 2025-01-01 - Fluxo dos Relatórios - ALFA](#Versão-Conceitual---2025-01-01---Fluxo-dos-Relatórios---ALFA)
-15. [Know Issues](#know_issues---problemas-conhecidos-e-suas-limitações)
-16. [Suporte](#-suporte)
+9. [Versão 0.6.0 - WIP](#060---2025-00-00)
+10. [Versão 0.5.0](#050---2025-09-19)
+11. [Versão 0.4.0](#040---2025-08-28)
+12. [Versão 0.3.0](#030---2025-08-04)
+13. [Versão 0.2.0](#020---2025-07-10)
+14. [Versão 0.1.0](#010---2025-06-22)
+15. [Versão Conceitual - 2025-01-01 - Fluxo dos Relatórios - ALFA](#Versão-Conceitual---2025-01-01---Fluxo-dos-Relatórios---ALFA)
+16. [Know Issues](#know_issues---problemas-conhecidos-e-suas-limitações)
+17. [Suporte](#-suporte)
 
 ---
 
@@ -122,7 +123,32 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 
 ---
 
+# Planejamento para Novas Versões
+
+Este documento descreve o roteiro de desenvolvimento para futuras versões do sistema, focando em agregar valor, robustez e novas funcionalidades à base já construída.
+
+### 🆕 Adicionar
+- [ ] **Gráficos no Dashboard:** Inclusão de elementos visuais de BI na tela principal para análise de dados (`Gráfico de Colunas` para Top Cursos, `Gráfico de Pizza` para distribuição de usuários).
+- [ ] **Ferramenta de Mesclagem de Lotações:** Nova tela no Power App e fluxo associado para permitir que administradores corrijam e unifiquem registros de lotações duplicados.
+- [ ] **Filtros Adicionais na Tela de Conclusões:** Implementar novos filtros na `TelaConclusoesRecentes` (ex: "Este Mês", "Últimos 7 dias") para facilitar a análise dos gestores.
+
+### ✅ Melhorar
+- [ ] **Interface Gráfica Responsiva:** Refatorar as telas do Power App utilizando Contêineres de Layout para garantir a adaptabilidade a dispositivos móveis em modo vertical.
+      - tela_inicial ja foi refatorada para responsividade em multiplas telas e orientações.
+- [ ] **Otimizar Fluxo de Dados da `LST_Usuarios`:** Revisar o fluxo de sincronização para reduzir o número de chamadas e otimizar a performance, garantindo que não exceda os limites diários de solicitações da plataforma.
+      - o fluxo ja foi refatorado e melhorado em 30% do tempo total de execução.
+- [ ] **Tratamento de Erros Avançado:** Implementar um sistema de notificação por e-mail no Power Automate para alertar administradores sobre falhas na execução dos fluxos.
+- [ ] **Fluxo de Ingestão AJS-NS:** Desenvolver um novo fluxo de trabalho para processar a lista de AJS-NS, que é recebida em um formato diferente (apenas nomes). O fluxo precisará buscar e validar os e-mails no Microsoft 365 para enriquecer os dados antes de sincronizá-los.
+- [ ] **Fluxo de Ingestão da CGAJAPI:** Automatizar o fluxo para usar gatilho por email e processar automaticamente.
+      - fluxo ja está automaziada por gatilho em e-mail.
+      - fluxo foi retrabalhado e melhorado para aumentar a velocidade de processamento de dados.
+- [ ] **Fluxo Auditor:** Adicionar contagem de usuarios e usuarios que concluiram nas telas refatoradas, mas para isso precisamos da contagem na base de dados.
+
+---
+
 ## [0.6.0] - 2025-00-00
+
+## Work in Progress
 
 ### 🆕 Adicionado
 - **Fluxo "Auditor" de Consistência de Dados:** Criado um novo fluxo agendado no Power Automate dedicado a auditar a consistência entre as listas `LST_Usuarios` e `LST_Usuarios_SAE`.
@@ -136,7 +162,6 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
     - A tela inclui filtros para que o administrador possa focar em ações específicas ("AdicionarSAE", "RemoverSAE").
     - Cada item na galeria é clicável e navega para a tela de detalhes/reconciliação (`TelaDetalhesUsuarioSAE`), fornecendo um atalho direto para a resolução do problema.
  
-
 ### 🛠️ Corrigido
 - <bug> Lista de Categorias não estava sendo adicionada corretamente, corrigido fluxo no power automate e também o script do office para as ccorreções surtirem efeito
 - <bug> Datas de concluões dos cursos e dos ususarios não estavam corretas, corrigido de maneira a mostrar a data formatada, configurada e também adicionando o "statusaluno' para inscrito ou concluido na coluna Status.
@@ -153,29 +178,6 @@ Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 - rodar novamente a ingestao de dados para atualização das colunas, primeira ingestão é de 01/08/2025-22/09/2025.
 - a tela do auditor tem problemas de lógica, precisamos corrigir para aparecer usuarios que estejam com a coluna !=Normal, que tenham que ser adicionados ou removidos.
 ```
-
----
-
-# Planejamento para Novas Versões
-
-Este documento descreve o roteiro de desenvolvimento para futuras versões do sistema, focando em agregar valor, robustez e novas funcionalidades à base já construída.
-
-### Adicionar
-- [ ] **Gráficos no Dashboard:** Inclusão de elementos visuais de BI na tela principal para análise de dados (`Gráfico de Colunas` para Top Cursos, `Gráfico de Pizza` para distribuição de usuários).
-- [ ] **Ferramenta de Mesclagem de Lotações:** Nova tela no Power App e fluxo associado para permitir que administradores corrijam e unifiquem registros de lotações duplicados.
-- [ ] **Filtros Adicionais na Tela de Conclusões:** Implementar novos filtros na `TelaConclusoesRecentes` (ex: "Este Mês", "Últimos 7 dias") para facilitar a análise dos gestores.
-
-### Melhorar
-- [ ] **Interface Gráfica Responsiva:** Refatorar as telas do Power App utilizando Contêineres de Layout para garantir a adaptabilidade a dispositivos móveis em modo vertical.
-      - tela_inicial ja foi refatorada para responsividade em multiplas telas e orientações.
-- [ ] **Otimizar Fluxo de Dados da `LST_Usuarios`:** Revisar o fluxo de sincronização para reduzir o número de chamadas e otimizar a performance, garantindo que não exceda os limites diários de solicitações da plataforma.
-      - o fluxo ja foi refatorado e melhorado em 30% do tempo total de execução.
-- [ ] **Tratamento de Erros Avançado:** Implementar um sistema de notificação por e-mail no Power Automate para alertar administradores sobre falhas na execução dos fluxos.
-- [ ] **Fluxo de Ingestão AJS-NS:** Desenvolver um novo fluxo de trabalho para processar a lista de AJS-NS, que é recebida em um formato diferente (apenas nomes). O fluxo precisará buscar e validar os e-mails no Microsoft 365 para enriquecer os dados antes de sincronizá-los.
-- [ ] **Fluxo de Ingestão da CGAJAPI:** Automatizar o fluxo para usar gatilho por email e processar automaticamente.
-      - fluxo ja está automaziada por gatilho em e-mail.
-      - fluxo foi retrabalhado e melhorado para aumentar a velocidade de processamento de dados.
-- [ ] **Fluxo Auditor:** Adicionar contagem de usuarios e usuarios que concluiram nas telas refatoradas, mas para isso precisamos da contagem na base de dados.
 
 ---
 
@@ -208,20 +210,20 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 
 ## [0.4.0] - 2025-08-28
 
-### Adicionado
+### 🆕 Adicionado
 - **Módulo de Gestão de Usuários SAE:** Criada a lista `LST_Usuarios_SAE` para servir como "fonte da verdade" para usuários externos.
 - **Fluxo de Sincronização SAE:** Criado um novo fluxo no Power Automate para sincronizar a lista `LST_Usuarios_SAE` a partir de um arquivo Excel, incluindo lógica de inativação de usuários removidos.
 - **Telas de Reconciliação no Power App:** Criadas as telas `TelaGerenciarUsuariosSAE` (com filtros) e `TelaDetalhesUsuarioSAE` (para comparação lado a lado dos dados SAE vs. Moodle).
 - **Pré-processamento com Office Scripts:** Criado um script mestre para limpar e formatar os relatórios do Excel (SAE e Moodle) antes da ingestão de dados.
 
-### Alterado
+### 🔧 Alterado
 - **Escopo do Power App:** O aplicativo foi redefinido como uma ferramenta de **visualização e consulta** para os dados do Moodle.
 - **Fluxo Principal do Moodle:** A lógica de preenchimento do campo `Usuario_SAE` foi alterada para consultar a lista `LST_Usuarios_SAE`.
 
-### Removido
+### ❌ Removido
 - **Funcionalidade de Edição/Criação:** As telas e botões para criar/editar/excluir usuários e cursos das listas principais foram removidos.
 
-### Corrigido
+### 🛠️ Corrigido
 - **Filtros Complexos não Delegáveis:** Otimizadas as fórmulas de filtro em várias telas (como `TelaAuditoria`) para serem delegáveis ao SharePoint, utilizando `SortByColumns` e reestruturando a lógica para resolver problemas de performance e os limites de delegação de dados.
 - Múltiplos erros de conversão de tipo de dado (Datas, Números, Booleanos) no Power Automate.
 
@@ -229,14 +231,14 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 
 ## [0.3.0] - 2025-08-04
 
-### Adicionado
+### 🆕 Adicionado
 - **Fluxo de Ingestão de Dados (Power Automate):** Criado o fluxo principal acionado por arquivo no OneDrive para sincronizar os dados do Moodle com o SharePoint.
 - **Lógica de Sincronização Otimizada:** Implementado o padrão de "Selecionar" e "Compor" (`union`) para processar apenas usuários e cursos únicos, melhorando a performance.
 - **Lógica de "Check-then-Create/Update":** O fluxo agora verifica se um registro já existe antes de criá-lo, para evitar duplicatas.
 - **Contagem Automática de Alunos:** Adicionada uma etapa ao final do fluxo de ingestão que calcula e atualiza a coluna `QtdAlunos`.
 - **Tela de "Conclusões Recentes":** Criada tela no Power App para exibir conclusões dos últimos meses, com filtros de data dinâmicos.
 
-### Corrigido
+### 🛠️ Corrigido
 - **Problemas de Delegação:** Otimizadas as fórmulas das galerias nas telas de detalhes com `SortByColumns` para resolver problemas de lentidão com mais de 2000 itens.
 - **Erros de Tipo de Dado:** Resolvidos múltiplos erros de conversão de dados (Datas, Números, Booleanos) no Power Automate.
 
@@ -244,7 +246,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 
 ## [0.2.0] - 2025-07-10
 
-### Adicionado
+### 🆕 Adicionado
 - Funcionalidade completa de CRUD para Usuários e Cursos no Power App para manter o controle dos dados nas etapas iniciais de desenvolvimento.
 - Telas de formulário (`TelaEditarUsuario`, `TelaNovoUsuario`, etc.) utilizando o controle `Formulário de Edição`.
 - Lógica de `NewForm()` e `ResetForm()` para gerenciamento do estado dos formulários.
@@ -254,7 +256,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 
 ## [0.1.0] - 2025-06-22
 
-### Adicionado
+### 🆕 Adicionado
 - **Base de Dados:** Criadas as 4 listas iniciais no SharePoint (`LST_Usuarios`, `LST_Cursos`, `LST_Lotacoes`, `LST_Usuarios-Cursos`).
 - **Power App (Interface de Leitura):**
     - `TelaDashboard` com indicadores de contagem (`CountRows()`) e navegação principal.
