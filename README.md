@@ -23,7 +23,7 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 12. [Versão 0.3.0](#030---2025-08-04)
 13. [Versão 0.2.0](#020---2025-07-10)
 14. [Versão 0.1.0](#010---2025-06-22)
-15. [Versão Conceitual - 2025-01-01 - Fluxo dos Relatórios - ALFA](#Versão-Conceitual---2025-01-01---Fluxo-dos-Relatórios---ALFA)
+15. [Versão Conceitual - 2025-01-01 - ALFA](#Versão-Conceitual---2025-01-01---Fluxo-dos-Relatórios---ALFA)
 16. [Know Issues](#know_issues---problemas-conhecidos-e-suas-limitações)
 17. [Suporte](#-suporte)
 
