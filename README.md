@@ -7,7 +7,6 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 *Este Documento contém o CHANGELOG e o KNOW_ISSUES*
 
 ---
-
 ## Índice
 1. [Sobre](#sobre)
 2. [Tecnologias Utilizadas](#tecnologias-utilizadas)
@@ -28,7 +27,6 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 17. [Suporte](#-suporte)
 
 ---
-
 # SOBRE
 
 O **Data Hub ESAE** é uma plataforma integrada e automatizada, construída sobre o ecossistema Microsoft Power Platform. O sistema foi projetado para centralizar, limpar, gerenciar e analisar todos os dados de participação em cursos e eventos oferecidos pela instituição, transformando relatórios brutos de múltiplas fontes (Moodle, listas SAE) em uma base de dados única, confiável e interativa.
@@ -36,7 +34,6 @@ O **Data Hub ESAE** é uma plataforma integrada e automatizada, construída sobr
 Ele resolve o desafio de um processo anteriormente manual, demorado e sujeito a erros, que dependia de planilhas descentralizadas e dados inconsistentes.
 
 ---
-
 # Tecnologias Utilizadas
 
 * **Microsoft Power Apps (Canvas App):** Para a camada de apresentação e interface do usuário.
@@ -45,7 +42,6 @@ Ele resolve o desafio de um processo anteriormente manual, demorado e sujeito a 
 * **Microsoft Office Scripts (TypeScript):** Para a camada de transformação e limpeza de dados (ETL).
 
 ---
-
 # Funcionalidades Principais
 
 * ✅ **Centralização de Dados:** Consolida informações de fontes distintas (Moodle, SAE) em uma base de dados única e padronizada.
@@ -56,7 +52,6 @@ Ele resolve o desafio de um processo anteriormente manual, demorado e sujeito a 
 * ✅ **Auditoria de Dados:** Inclui funcionalidades e automações para reconciliar e auditar dados de diferentes fontes, sinalizando inconsistências para revisão.
 
 ---
-
 # Estrutura do Projeto
 
 A arquitetura do sistema é baseada em quatro pilares principais, que representam as camadas lógicas da solução, orquestradas pelo ecossistema Power Platform.
@@ -78,11 +73,9 @@ A arquitetura do sistema é baseada em quatro pilares principais, que representa
     * **Função:** Serve como a interface do usuário final (administradores e gestores). Permite a consulta, visualização e análise dos dados consolidados através de dashboards e ferramentas de pesquisa.
 
 ---
-
 # Banco de Dados
 
 A camada de dados foi implementada utilizando **Listas do SharePoint Online**, configuradas para simular um modelo de banco de dados relacional.
-
 
 ### `LST_Usuarios`
 **Descrição:** Armazena o cadastro único de todos os participantes que possuem registros no Moodle. É a tabela principal de "alunos" do sistema.
@@ -98,7 +91,6 @@ A camada de dados foi implementada utilizando **Listas do SharePoint Online**, c
 | `ValidarSAE` | Escolha (Choice) | Usada pelo fluxo "auditor". **Opções:** `Normal`, `AdicionarSAE`, `RemoverSAE`. |
 | `QtdConclusoes` | Número | Armazena o total de cursos concluídos pelo usuário (preenchido por um fluxo). |
 
-
 ### `LST_Cursos`
 **Descrição:** Armazena o catálogo de todos os cursos, eventos e capacitações oferecidos.
 
@@ -113,14 +105,12 @@ A camada de dados foi implementada utilizando **Listas do SharePoint Online**, c
 | `Categoria` | Escolha (Choice) | Categoria do curso (ex: "Cursos", "Palestras"), calculada pelo Office Script. |
 | `QtdAlunos` | Número | Armazena o total de alunos que concluíram o curso (preenchido por um fluxo). |
 
-
 ### `LST_Lotacoes`
 **Descrição:** Lista mestra que armazena os nomes únicos de todas as lotações para garantir a padronização e facilitar o gerenciamento.
 
 | Nome da Coluna | Tipo de Dado | Descrição / Propriedades |
 | :--- | :--- | :--- |
 | `Title` | Texto Simples | **Nome de Exibição:** `Nome da Lotação`. Configurado para **valores exclusivos**. |
-
 
 ### `LST_Usuarios_SAE`
 **Descrição:** Funciona como a "fonte da verdade" para a lista de usuários externos (SAE), que é sincronizada a partir de relatórios específicos.
@@ -137,7 +127,6 @@ A camada de dados foi implementada utilizando **Listas do SharePoint Online**, c
 | `Status` | Escolha (Choice) | Ciclo de vida do usuário na lista. **Opções:** `Ativo`, `Inativo`, `Verificar!`. |
 | `DataUltimaSincronizacao` | Data e Hora | Data em que o registro foi criado ou atualizado pela última vez pelo fluxo. |
 
-
 ### `LST_Usuarios-Cursos`
 **Descrição:** Tabela de junção que cria o vínculo entre um usuário e um curso, registrando cada matrícula e seu status. É a lista mais importante para o histórico.
 
@@ -152,7 +141,6 @@ A camada de dados foi implementada utilizando **Listas do SharePoint Online**, c
 | `FK_Curso_in_Text` | Texto Simples | **Otimização:** Cópia em texto do `ID` do curso. Usado para filtros delegáveis. |
 
 ---
-
 # Pontos de Atenção e Roadmap de Evolução
 
 Esta seção documenta áreas que exigem monitoramento e possíveis melhorias futuras.
@@ -164,7 +152,6 @@ Esta seção documenta áreas que exigem monitoramento e possíveis melhorias fu
 * **Ferramenta de Mesclagem de Lotações:** Desenvolver a funcionalidade planejada para permitir que administradores unifiquem registros de lotações inconsistentes.
 
 ---
-
 # Descrição das Pastas
 ```
 Projeto-ESAE-Data-Hub/
@@ -172,14 +159,81 @@ Projeto-ESAE-Data-Hub/
 ├── Documentacao/Scripts      # Scripts utilizados
 └── Readme.md                 # Este arquivo
 ```
----
 
+---
+# Telas
+
+1. **[Descrição da Tela 01]**
+   ![Tela 1](Documentacao/Imagens/1.jpg)
+---
+3. **[Descrição da Tela 02]**
+   ![Tela 2](Documentacao/Imagens/2.jpg)
+---
+4. **[Descrição da Tela 03]**
+   ![Tela 3](Documentacao/Imagens/3.jpg)
+---
+5. **[Descrição da Tela 04]**
+   ![Tela 4](Documentacao/Imagens/4.jpg)
+---
+6. **[Descrição da Tela 05]**
+   ![Tela 5](Documentacao/Imagens/5.jpg)
+---
+7. **[Descrição da Tela 06]**
+   ![Tela 6](Documentacao/Imagens/6.jpg)
+---
+8. **[Descrição da Tela 07]**
+   ![Tela 7](Documentacao/Imagens/7.jpg)
+---
+9. **[Descrição da Tela 08]**
+   ![Tela 8](Documentacao/Imagens/8.jpg)
+---
+10. **[Descrição da Tela 09]**
+   ![Tela 9](Documentacao/Imagens/9.jpg)
+---
+11. **[Descrição da Tela 10]**
+    ![Tela 10](Documentacao/Imagens/10.jpg)
+---
+12. **[Descrição da Tela 11]**
+    ![Tela 11](Documentacao/Imagens/11.jpg)
+---
+13. **[Descrição da Tela 12]**
+    ![Tela 12](Documentacao/Imagens/12.jpg)
+---
+14. **[Descrição da Tela 13]**
+    ![Tela 13](Documentacao/Imagens/13.jpg)
+---
+15. **[Descrição da Tela 14]**
+    ![Tela 14](Documentacao/Imagens/14.jpg)
+---
+16. **[Descrição da Tela 15]**
+    ![Tela 15](Documentacao/Imagens/15.jpg)
+---
+17. **[Descrição da Tela 16]**
+    ![Tela 16](Documentacao/Imagens/16.jpg)
+---
+18. **[Descrição da Tela 17]**
+    ![Tela 17](Documentacao/Imagens/17.jpg)
+---
+19. **[Descrição da Tela 18]**
+    ![Tela 18](Documentacao/Imagens/18.jpg)
+---
+20. **[Descrição da Tela 19]**
+    ![Tela 19](Documentacao/Imagens/19.jpg)
+---
+21. **[Descrição da Tela 20]**
+    ![Tela 20](Documentacao/Imagens/20.jpg)
+
+22. **[Descrição da Tela 21]**
+    ![Tela 20](Documentacao/Imagens/21.jpg)
+
+
+
+---
 # CHANGELOG 
 
 Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 
 ---
-
 # Planejamento para Novas Versões
 
 Este documento descreve o roteiro de desenvolvimento para futuras versões do sistema, focando em agregar valor, robustez e novas funcionalidades à base já construída.
@@ -202,7 +256,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - [ ] **Fluxo Auditor:** Adicionar contagem de usuarios e usuarios que concluiram nas telas refatoradas, mas para isso precisamos da contagem na base de dados.
 
 ---
-
 ## [0.6.0] - 2025-00-00
 
 ## Work in Progress
@@ -237,7 +290,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 ```
 
 ---
-
 ## [0.5.0] - 2025-09-19
 
 ### 🔧 Alterado
@@ -263,8 +315,8 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 ### 🛠️ Corrigido
 - Ajustada a lógica de carregamento de dados com `ClearCollect` e `OnVisible` para resolver falhas de delegação com listas acima de 2.000 registros.
 - Corrigida a navegação entre as telas de cursos e usuários, garantindo a passagem correta do contexto (`gblCursoSelecionado`, `gblUsuarioSelecionado`) e a exibição completa dos dados vinculados.
----
 
+---
 ## [0.4.0] - 2025-08-28
 
 ### 🆕 Adicionado
@@ -285,7 +337,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - Múltiplos erros de conversão de tipo de dado (Datas, Números, Booleanos) no Power Automate.
 
 ---
-
 ## [0.3.0] - 2025-08-04
 
 ### 🆕 Adicionado
@@ -300,7 +351,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - **Erros de Tipo de Dado:** Resolvidos múltiplos erros de conversão de dados (Datas, Números, Booleanos) no Power Automate.
 
 ---
-
 ## [0.2.0] - 2025-07-10
 
 ### 🆕 Adicionado
@@ -310,7 +360,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - Implementado pop-up de confirmação para a ação de excluir.
 
 ---
-
 ## [0.1.0] - 2025-06-22
 
 ### 🆕 Adicionado
@@ -322,7 +371,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
     - Navegação cruzada entre as telas de detalhes.
 
 ---
-
 ## Versão Conceitual - 2025-01-01 - Fluxo dos Relatórios - ALFA
 - Power Automate: Relatorios_ESAE_Teste
 - Recebe Relatorio do Moodle: Automatico_ID=1 =2 =3 e envia para o e-mail relacionado
@@ -330,13 +378,11 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - ID = 1 Rodando normalmente a cada semana. ID = 2 e 3 Pausados, rodando sob solicitação do Rodrigo
 
 ---
-
 ## KNOW_ISSUES - Problemas Conhecidos e Suas Limitações
 
 Este documento rastreia bugs conhecidos, limitações de arquitetura e potenciais problemas da solução atual.
 
 ---
-
 ## Integridade dos Dados
 
 ### Duplicata de Nomes (Script) 🔵
@@ -386,7 +432,6 @@ Para problemas não listados aqui:
 2. Contato Teams: ---
 
 ---
-
 **Última Atualização**: 2025-00-00
 
 **Versão do Documento**: 0.0.0
