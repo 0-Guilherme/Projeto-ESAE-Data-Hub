@@ -120,9 +120,9 @@ Esta seção documenta áreas que exigem monitoramento e possíveis melhorias fu
 # Descrição das Pastas
 
 Projeto-ESAE-Data-Hub/
-├── Documentacao/Imagens                 # Imagens utilizadas neste arquivo
-├── Documentacao/Scripts                 # Scripts utilizados
-└── Readme.md                            # Este arquivo
+├── Documentacao/Imagens      # Imagens utilizadas neste arquivo
+├── Documentacao/Scripts      # Scripts utilizados
+└── Readme.md                 # Este arquivo
 
 ---
 
