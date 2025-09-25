@@ -83,6 +83,7 @@ A arquitetura do sistema é baseada em quatro pilares principais, que representa
 
 A camada de dados foi implementada utilizando **Listas do SharePoint Online**, configuradas para simular um modelo de banco de dados relacional.
 
+
 ### `LST_Usuarios`
 **Descrição:** Armazena o cadastro único de todos os participantes que possuem registros no Moodle. É a tabela principal de "alunos" do sistema.
 
@@ -96,6 +97,7 @@ A camada de dados foi implementada utilizando **Listas do SharePoint Online**, c
 | `Usuario_SAE_Lookup`| Pesquisa (Lookup) | Aponta para o `ID` da lista `LST_Usuarios_SAE` para criar um vínculo relacional. |
 | `ValidarSAE` | Escolha (Choice) | Usada pelo fluxo "auditor". **Opções:** `Normal`, `AdicionarSAE`, `RemoverSAE`. |
 | `QtdConclusoes` | Número | Armazena o total de cursos concluídos pelo usuário (preenchido por um fluxo). |
+
 
 ### `LST_Cursos`
 **Descrição:** Armazena o catálogo de todos os cursos, eventos e capacitações oferecidos.
@@ -111,12 +113,14 @@ A camada de dados foi implementada utilizando **Listas do SharePoint Online**, c
 | `Categoria` | Escolha (Choice) | Categoria do curso (ex: "Cursos", "Palestras"), calculada pelo Office Script. |
 | `QtdAlunos` | Número | Armazena o total de alunos que concluíram o curso (preenchido por um fluxo). |
 
+
 ### `LST_Lotacoes`
 **Descrição:** Lista mestra que armazena os nomes únicos de todas as lotações para garantir a padronização e facilitar o gerenciamento.
 
 | Nome da Coluna | Tipo de Dado | Descrição / Propriedades |
 | :--- | :--- | :--- |
 | `Title` | Texto Simples | **Nome de Exibição:** `Nome da Lotação`. Configurado para **valores exclusivos**. |
+
 
 ### `LST_Usuarios_SAE`
 **Descrição:** Funciona como a "fonte da verdade" para a lista de usuários externos (SAE), que é sincronizada a partir de relatórios específicos.
@@ -132,6 +136,7 @@ A camada de dados foi implementada utilizando **Listas do SharePoint Online**, c
 | `OrigemDados` | Texto Simples | Identifica o relatório de origem (ex: "CGAJAPDI-Servidores"). |
 | `Status` | Escolha (Choice) | Ciclo de vida do usuário na lista. **Opções:** `Ativo`, `Inativo`, `Verificar!`. |
 | `DataUltimaSincronizacao` | Data e Hora | Data em que o registro foi criado ou atualizado pela última vez pelo fluxo. |
+
 
 ### `LST_Usuarios-Cursos`
 **Descrição:** Tabela de junção que cria o vínculo entre um usuário e um curso, registrando cada matrícula e seu status. É a lista mais importante para o histórico.
