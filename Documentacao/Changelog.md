@@ -3,6 +3,19 @@
 Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 
 ---
+
+## Índice
+1. [Planejamento para Novas Versões](#planejamento-para-próximas-versões)
+2. [Work in Progress](#work-in-progress)
+3. [Versão 0.6.0](#060---2025-09-26)
+4. [Versão 0.5.0](#050---2025-09-19)
+5. [Versão 0.4.0](#040---2025-08-28)
+6. [Versão 0.3.0](#030---2025-08-04)
+7. [Versão 0.2.0](#020---2025-07-10)
+8. [Versão 0.1.0](#010---2025-06-22)
+9. [Versão Conceitual - 2025-01-01](#Versão-Conceitual---2025-01-01)
+
+---
 # Planejamento para Novas Versões
 
 Este documento descreve o roteiro de desenvolvimento para futuras versões do sistema, focando em agregar valor, robustez e novas funcionalidades à base já construída.
@@ -18,9 +31,22 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - [ ] **Fluxo de Ingestão Coordenadores Setoriais:** Desenvolver um novo fluxo de trabalho para processar a lista de Coordenadores das Setoriais. O fluxo precisará buscar e validar os e-mails no Microsoft 365 antes de sincronizá-los.
 
 ---
-## [0.6.0] - 2025-00-00
-
 ## Work in Progress
+
+**Escrita informal**
+- necessario incluir um botão para levar ao BI completo, ja temos o comando e as telas prontas.
+- adequar as bases de dados dos dashboard do powerbi para conectar direto ao sharepoint.
+- PROBLEMAS: CURSOS NÃO TEM DIVISÃO ENTRE AS TURMAS, COMO PENSAR ISSO PARA O FLUXO DO POWERAPPS? necessario dividir ou só aceitar aqui e ir para o powerBI e la separar por turmas.
+- aplicar esta mesma lógica para a listagem dos cursos concluidos por cada aluno na tela_detalhes_usuarios - em processo.
+- rodar novamente a ingestao de dados para atualização das colunas, primeira ingestão é de 01/08/2025-22/09/2025.
+- necessário descrever fora do script o trabalho realizado no fluxo CGAJAPDI, que por si só deveria ser um sistema a parte.
+- criar um manual inicial para os usuários entenderem como que as data bases e seus dados funcionam.
+- agendamento do moodle, ainda é um gatilho manual, devido a considerações de quais dados estaremos rodando no momento, devido ao imenso volume que estamos tratando por rotina, após normalização, configurar para rodar a cada dia às 6h.,
+- separar as etapas desta seção, em documentações menores, como a arquitetura dos dados, descriçãoe  modelos das telas, changelog e know_issues
+- não esquecer de atualizar o diagrama de Entidade-Relacionamento e colocar aqui no readme
+
+---
+## [0.6.0] - 2025-09-26
 
 ### 🆕 Adicionado
 - **Gráficos no Dashboard:** Inclusão de elementos visuais de BI na tela principal para análise de dados (`Gráfico de Colunas` para Top Cursos, `Gráfico de Pizza` para distribuição de usuários).
@@ -42,20 +68,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 
 ### 🔧 Alterado
 - Repositório do GitHub atualizado para incluir todas as imagens e scripts do sistema. (não incluso backups dos fluxos)
-
-```
-### Notas Temporárias
-- necessario incluir um botão para levar ao BI completo, ja temos o comando e as telas prontas.
-- adequar as bases de dados dos dashboard do powerbi para conectar direto ao sharepoint.
-- PROBLEMAS: CURSOS NÃO TEM DIVISÃO ENTRE AS TURMAS, COMO PENSAR ISSO PARA O FLUXO DO POWERAPPS? necessario dividir ou só aceitar aqui e ir para o powerBI e la separar por turmas.
-- aplicar esta mesma lógica para a listagem dos cursos concluidos por cada aluno na tela_detalhes_usuarios - em processo.
-- rodar novamente a ingestao de dados para atualização das colunas, primeira ingestão é de 01/08/2025-22/09/2025.
-- necessário descrever fora do script o trabalho realizado no fluxo CGAJAPDI, que por si só deveria ser um sistema a parte.
-- criar um manual inicial para os usuários entenderem como que as data bases e seus dados funcionam.
-- agendamento do moodle, ainda é um gatilho manual, devido a considerações de quais dados estaremos rodando no momento, devido ao imenso volume que estamos tratando por rotina, após normalização, configurar para rodar a cada dia às 6h.,
-- separar as etapas desta seção, em documentações menores, como a arquitetura dos dados, descriçãoe  modelos das telas, changelog e know_issues
-- não esquecer de atualizar o diagrama de Entidade-Relacionamento e colocar aqui no readme
-```
 
 ---
 ## [0.5.0] - 2025-09-19
