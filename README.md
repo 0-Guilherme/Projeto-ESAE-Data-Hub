@@ -97,7 +97,7 @@ A camada de dados foi implementada utilizando **Listas do SharePoint Online**. A
 
 ### 📊 Diagrama de Entidade-Relacionamento
 
-O diagrama abaixo representa a estrutura relacional das listas do SharePoint.
+O diagrama abaixo representa a estrutura relacional das listas do SharePoint da concepção do projeto.
 
 ![Diagrama de Entidade-Relacionamento](Documentacao/Imagens/diagrama_entidade-relacionamento.png)
 
