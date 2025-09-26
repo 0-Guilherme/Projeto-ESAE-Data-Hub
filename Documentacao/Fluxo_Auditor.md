@@ -59,4 +59,4 @@ Após a inativação, o fluxo inicia o processo de sincronização com base no a
 
 #### Expressões Chave:
 - **`utcNow()`:** Utilizada nos campos `DataUltimaSincronizacao` das ações "Criar item" e "Atualizar item" para registrar a data e hora exatas da sincronização.
-- **`first(outputs(...)`:** Utilizada para extrair o `ID` do item encontrado pela ação "Obter itens" para ser usado no campo `Id` da ação "Atualizar item".
+- **`first(outputs('...')?['body/value'])?['ID']`:** Utilizada para extrair o `ID` do item encontrado pela ação "Obter itens" para ser usado no campo `Id` da ação "Atualizar item".
