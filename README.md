@@ -619,7 +619,9 @@ Este documento rastreia bugs conhecidos, limitações de arquitetura e potenciai
 ---
 ## Classificação:
 🔵 - Baixa Prioridade, será resolvido quando possível.
+
 🟡 - Média Prioridade, será tratado nos proximos updates.
+
 🔴 - Alta Prioridade, será tratado o mais rápido possível.
 
 ---
