@@ -72,9 +72,9 @@ A arquitetura do sistema é baseada em quatro pilares principais, orquestrados p
 │    ├── 📜 Fluxo_Usuarios_Moodle.md     # Descrição detalhada do fluxo moodle.
 │    └── 📜 Fluxo_SAE.md                 # Descrição detalhada do fluxo SAE.
 │
-├── 📜 Changelog.md                      # Histórico completo de versões e alterações.
-├── 📜 Know_Issues.md                    # Lista de problemas conhecidos, bugs e limitações atuais.
-└── 📜 Readme.md                         # Este arquivo: o ponto de partida e resumo do projeto.
+├── 📜 CHANGELOG.md                      # Histórico completo de versões e alterações.
+├── 📜 KNOWN_ISSUES.md                   # Lista de problemas conhecidos, bugs e limitações atuais.
+└── 📜 README.md                         # Este arquivo: o ponto de partida e resumo do projeto.
 ```
 
 ---
