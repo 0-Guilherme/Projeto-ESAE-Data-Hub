@@ -1,46 +1,42 @@
-# Análise Técnica do Fluxo: `Sincronizar Lista de Usuários SAE (CGAJAPDI)`
+# Análise Técnica do Fluxo: `Sincronizar Lista de Usuários SAE`
 
 Esta seção detalha as principais etapas, condições e expressões utilizadas no fluxo de automação para a lista de usuários SAE, servindo como um guia para manutenções e ajustes técnicos futuros.
 
 ---
 ## Etapa 1: Gatilho e Preparação do Arquivo
 
-### Ação: Gatilho "Quando um novo e-mail chegar (V3)"
-- **Descrição:** O fluxo é iniciado quando um e-mail com o assunto exato `Fluxo_Atualizar_SAE` e contendo um anexo é recebido.
-- **Lógica:**
-    - `subjectFilter: "Fluxo_Atualizar_SAE"`: Garante que apenas e-mails com este assunto acionem o fluxo.
-    - `fetchOnlyWithAttachment: true`: Impede que e-mails sem anexo iniciem o processo.
+### Ação: Gatilho "Disparar um fluxo manualmente"
+- **Descrição:** O fluxo é iniciado manualmente por um administrador. Esta abordagem foi escolhida para dar controle total sobre quando e qual lista de origem é processada.
+- **Lógica e Entradas:** O gatilho foi configurado com duas entradas obrigatórias:
+    1.  **`ArquivoExcelSAE` (do tipo Arquivo):** Permite ao administrador carregar o relatório Excel a ser processado.
+    2.  **`OrigemDados` (do tipo Texto):** O administrador deve inserir o identificador exato da fonte de dados (ex: "CGAJAPDI-Servidores"). Este valor é crucial para a lógica de inativação e para "carimbar" os registros no SharePoint.
 
-### Ação: Loop `Aplicar a cada` (sobre os Anexos)
-- **Descrição:** Um loop é iniciado para processar cada anexo do e-mail.
-- **Ações Internas:**
-    1.  **`Criar arquivo`:** O anexo do e-mail é salvo na pasta `/RELATÓRIOS/` do OneDrive. O nome do arquivo é padronizado com a data e hora para garantir que seja único.
-        - **Expressão (Nome do Arquivo):** `formatDateTime(triggerOutputs()?['body/receivedDateTime'], 'dd-MM-yyyy_HH-mm')`
-    2.  **`Executar script`:** Esta é a etapa de transformação (ETL). O fluxo chama o Office Script `PA-SAE-CGAJAPDI-Servidores`, que realiza toda a limpeza, formatação e validação dos dados no arquivo Excel recém-salvo.
+### Ação: "Executar script"
+- **Descrição:** A primeira ação do fluxo. Ela chama o Office Script (`PA-SAE-CGAJAPDI-Servidores`) para realizar a limpeza e formatação completa do arquivo Excel fornecido no gatilho.
 
 ---
 ## Etapa 2: Inativação Preventiva em Lote
 
 O fluxo adota uma lógica de "inativação preventiva" para garantir que a lista do SharePoint seja sempre um espelho fiel do último relatório recebido para uma determinada origem.
 
-### Ação: "Obter Dados de Servidores"
-- **Descrição:** Antes de processar os novos dados, o fluxo busca no SharePoint todos os usuários que pertencem à `OrigemDados` que está sendo sincronizada (neste caso, `CGAJAPDI-Servidores`) e que estão atualmente com o status "Ativo".
+### Ação: "Obter Usuários Ativos da Origem"
+- **Descrição:** Antes de processar os novos dados, o fluxo busca no SharePoint todos os usuários que pertencem à `OrigemDados` que está sendo sincronizada e que estão atualmente com o status "Ativo".
 - **Consulta de Filtro:**
     ```
-    Satus eq 'Ativo' and OrigemDados eq 'CGAJAPDI-Servidores'
+    Status eq 'Ativo' and OrigemDados eq '@{triggerBody()['text']}'
     ```
 
-### Ação: Loop `For_Each_Inativar`
+### Ação: Loop "Aplicar a cada" (Inativação)
 - **Descrição:** Um loop percorre a lista de usuários encontrada na etapa anterior.
-- **Ação Interna:** Dentro do loop, uma única ação **`Atualizar item`** (`Inativar`) define o campo `Satus` de cada um desses usuários para **`Inativo`**.
+- **Ação Interna:** Dentro do loop, uma única ação **`Atualizar item`** define o campo `Status` de cada um desses usuários para **`Inativo`**.
 
 ---
 ## Etapa 3: Sincronização Principal (Criar ou Reativar/Atualizar)
 
 Após a inativação, o fluxo inicia o processo de sincronização com base no arquivo Excel já limpo.
 
-### Ação: Loop `For_each_Verificar_e_Atualizar`
-- **Fonte:** Lê a tabela final e limpa (`TabelaServidoresSAE`) do arquivo Excel.
+### Ação: Loop "Aplicar a cada" (Sincronização Principal)
+- **Fonte:** Lê a tabela final e limpa do arquivo Excel.
 - **Lógica Principal:** Para cada linha do Excel, o fluxo executa uma lógica de verificação em cascata para máxima robustez, lidando inclusive com registros que possam vir sem e-mail.
 
 #### Lógica de Verificação (Dentro do Loop):
@@ -64,4 +60,4 @@ Após a inativação, o fluxo inicia o processo de sincronização com base no a
 
 #### Expressões Chave:
 - **`utcNow()`:** Utilizada nos campos `DataUltimaVerificacao` das ações "Criar item" e "Atualizar item" para registrar a data e hora exatas da sincronização.
-- **`first(outputs('...')?['body/value'])?['ID']`:** Utilizada para extrair o `ID` do item encontrado pela ação "Obter itens" para ser usado no campo `id` da ação "Atualizar item".
+- **`first(outputs('...')?['body/value'])?['ID']`:** Utilizada para extrair o `ID` do item encontrado pela ação "Obter itens" para ser usado no campo `Id` da ação "Atualizar item".
