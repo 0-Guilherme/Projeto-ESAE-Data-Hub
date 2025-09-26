@@ -16,7 +16,7 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 6. [Banco de Dados](#banco-de-dados)
 7. [Pontos de Atenção e Roadmap de Evolução](#Pontos-de-Atenção-e-Roadmap-de-Evolução)
 8. [Descrição das Pastas](#descrição-das-pastas)
-9. [Telas do Aplicativo: Descrição Funcional](#telas-do-aplicativo:-descrição-funcional)
+9. [Telas do Aplicativo - Descrição Funcional](#telas-do-aplicativo---descrição-funcional)
 10. [Changelog](#changelog)
 11. [Mudanças Futuras](#não-lançado---planejamento-para-próximas-versões)
 12. [Versão 0.6.0 - WIP](#060---2025-00-00)
@@ -172,7 +172,7 @@ Projeto-ESAE-Data-Hub/
 
 ---
 
-# Telas do Aplicativo: Descrição Funcional
+# Telas do Aplicativo - Descrição Funcional
 
 Esta seção detalha o fluxo de navegação e as principais funcionalidades de cada tela do Data Hub ESAE.
 
