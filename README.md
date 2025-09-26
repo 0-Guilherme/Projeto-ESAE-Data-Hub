@@ -14,7 +14,8 @@
 3.  [**Resultados Obtidos**](#-resultados-obtidos)
 4.  [**Tecnologias e Arquitetura**](#-tecnologias-e-arquitetura)
 5.  [**Estrutura de Pastas**](#-estrutura-de-pastas)
-6.  [**Documentação Detalhada**](#-documentação-detalhada)
+6.  [**Roadmap de Evolução**](#-pontos-de-atenção-e-roadmap-de-evolução)
+7.  [**Documentação Detalhada**](#-documentação-detalhada)
 
 
 ---
@@ -121,8 +122,7 @@ Toda a documentação técnica e funcional do projeto foi separada em arquivos e
 * **➡️ [Documentação das Telas](./Documentacao/TELAS.md):** Contém a descrição funcional de cada uma das 20+ telas do Power App, com suas lógicas e imagens.
 * **➡️ [Histórico de Alterações (Changelog)](./CHANGELOG.md):** Registra todas as mudanças e novas funcionalidades a cada versão.
 * **➡️ [Problemas Conhecidos (Known Issues)](./KNOWN_ISSUES.md):** Lista as limitações atuais e o roadmap de correções e melhorias.
-* **➡️ [Descrição Detalhada do Fluxo Auditor](./Documentacao/Fluxo_Auditor.md)**
-* **➡️ [Descrição Detalhada do Fluxo CGAJAPDI](./Documentacao/Fluxo_SAE.md)**
-* **➡️ [Descrição Detalhada do Fluxo de Usuarios do Moodle](./Documentacao/Fluxo_Moodle.md)**
-
+* **➡️ [Descrição Detalhada do Fluxo Auditor](./Documentacao/Fluxo_Auditor.md):** Descrição de funcionamento e montagem do fluxo no power automate.
+* **➡️ [Descrição Detalhada do Fluxo CGAJAPDI](./Documentacao/Fluxo_SAE.md):** Descrição de funcionamento e montagem do fluxo no power automate.
+* **➡️ [Descrição Detalhada do Fluxo de Usuarios do Moodle](./Documentacao/Fluxo_Moodle.md):** Descrição de funcionamento e montagem do fluxo no power automate.
 
