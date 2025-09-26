@@ -118,8 +118,9 @@ Esta seção documenta áreas que exigem monitoramento e possíveis melhorias fu
 
 Toda a documentação técnica e funcional do projeto foi separada em arquivos específicos para maior clareza e organização.
 
-* **➡️ [Documentação da Arquitetura](./Documentacao/ARQUITETURA.md):** Contém os detalhes do Banco de Dados (listas do SharePoint) e a descrição técnica dos fluxos do Power Automate.
-* **➡️ [Documentação das Telas](./Documentacao/TELAS.md):** Contém a descrição funcional de cada uma das 20+ telas do Power App, com suas lógicas e imagens.
+* **➡️ [Documentação Inicial do Projeto](./Documentacao/projeto_inicial_esae_data_hub.pdf):** Contém os detalhes da documentação de concepção do projeto.
+* **➡️ [Documentação da Arquitetura](./Documentacao/Arquitetura_de_dados.md):** Contém os detalhes do Banco de Dados (listas do SharePoint) e a descrição técnica dos fluxos do Power Automate.
+* **➡️ [Documentação das Telas](./Documentacao/Telas_do_aplicativo.md):** Contém a descrição funcional de cada uma das 20+ telas do Power App, com suas lógicas e imagens.
 * **➡️ [Histórico de Alterações (CHANGELOG)](./CHANGELOG.md):** Registra todas as mudanças e novas funcionalidades a cada versão.
 * **➡️ [Problemas Conhecidos (KNOWN_ISSUES)](./KNOWN_ISSUES.md):** Lista as limitações atuais e o roadmap de correções e melhorias.
 * **➡️ [Descrição Detalhada do Fluxo Auditor](./Documentacao/Fluxo_Auditor.md):** Descrição de funcionamento e montagem do fluxo no power automate.
