@@ -42,13 +42,18 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 ## Work in Progress
 
 **Notas para a nova versão - Versão atual: 204**
-- Incluir botão para abrir o BI completo (comando e telas prontos).
-- Adequar bases dos dashboards para conexão direta ao SharePoint.
-- Aplicar lógica de listagem de cursos concluídos por aluno na `tela_detalhes_usuarios` (em andamento).
+
+### 🆕 Adicionado
+- ✅ Documentar a descrição e especificação para a montagem de cada fluxo do power automate.
+- ✅ Criação do manual inicial para orientar usuários sobre funcionamento das bases e dados.
+- ✅ Distribuir as descrições dos arquivos no github para cada área, dividindo a documentação que antes estava centralizada.
+- ✅ Adicionado documentação fr concepção do projeto, como diagramas e arquivos.
+
+- Incluir botão para abrir o BI completo (comando e telas prontas).
+- Adequar bases dos dashboards do BI para conexão direta ao SharePoint.
 - Rodar novamente a ingestão de dados para atualizar colunas (período: 01/08/2025 a 22/09/2025).
-- Documentar fora do script o trabalho realizado no fluxo `CGAJAPDI`, que poderia ser um sistema à parte.
-- Criar manual inicial para orientar usuários sobre funcionamento das bases e dados.
 - Agendamento do Moodle ainda é manual; após normalização, configurar execução diária às 6h.
+
 
 ---
 ## [202] - 2025-09-12
@@ -100,16 +105,13 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - **Pré-processamento com Office Scripts:** Script mestre para limpar e formatar relatórios.
   
 ### 🔧 Alterado
-
 - Redefinição do escopo do Power App como ferramenta de consulta.
 - Lógica do fluxo principal do Moodle ajustada para consultar `LST_Usuarios_SAE`.
 
 ### ❌ Removido
-
 - Remoção das funcionalidades de criação/edição de usuários e cursos nas listas principais.
 
 ### 🛠️ Corrigido
-
 - Otimização de filtros complexos para serem delegáveis.
 - Correções em conversões de tipo (Datas, Números, Booleanos) no Power Automate.
 
@@ -117,7 +119,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 ## [068] – 2025-07-31
 
 ### 🆕 Adicionado
-
 - **Fluxo de Ingestão de Dados (Power Automate):** Criado o fluxo principal acionado por arquivo no OneDrive para sincronizar os dados do Moodle com o SharePoint.
 - **Lógica de Sincronização Otimizada:** Implementado o padrão de "Selecionar" e "Compor" (`union`) para processar apenas usuários e cursos únicos, melhorando a performance.
 - **Lógica de "Check-then-Create/Update":** O fluxo agora verifica se um registro já existe antes de criá-lo, para evitar duplicatas.
@@ -125,7 +126,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - **Tela de "Conclusões Recentes":** Criada tela no Power App para exibir conclusões dos últimos meses, com filtros de data dinâmicos.
 
 ### 🛠️ Corrigido
-
 - **Problemas de Delegação:** Otimizadas as fórmulas das galerias nas telas de detalhes com `SortByColumns` para resolver problemas de lentidão com mais de 2000 itens.
 - **Erros de Tipo de Dado:** Resolvidos múltiplos erros de conversão de dados (Datas, Números, Booleanos) no Power Automate.
 
@@ -134,7 +134,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 ## [052] – 2025-07-14
 
 ### 🆕 Adicionado
-
 - Funcionalidade completa de CRUD para Usuários e Cursos no Power App para manter o controle dos dados nas etapas iniciais de desenvolvimento.
 - Telas de formulário (`TelaEditarUsuario`, `TelaNovoUsuario`, etc.) utilizando o controle `Formulário de Edição`.
 - Lógica de `NewForm()` e `ResetForm()` para gerenciamento do estado dos formulários.
@@ -145,7 +144,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 ## [037] – 2025-07-09
 
 ### 🆕 Adicionado
-
 - **Power App (Interface de Leitura):**
   - `TelaInicial` com indicadores de contagem (`CountRows()`) e navegação principal.
   - `TelaUsuarios` e `TelaCursos` com galerias e caixas de busca.
@@ -156,7 +154,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 ## [010] – 2025-06-27
 
 ### 🆕 Adicionado
-
 - **Base de Dados:** Criadas as 4 listas iniciais no SharePoint (`LST_Usuarios`, `LST_Cursos`, `LST_Lotacoes`, `LST_Usuarios-Cursos`).
 - **Power App (Interface de Leitura):**
   - Definição das telas e layouts básicos: `TelaInicial`, `TelaUsuarios`, `TelaCursos`, `TelaDetalhesUsuario` e `TelaDetalhesCurso`.
@@ -164,7 +161,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 ---
 
 ## Versão Conceitual – 2025-01-01
-
 - **Power Automate:** `Relatorios_ESAE_Teste`
 - **Recebimento de Relatórios do Moodle:** Automático para IDs 1, 2 e 3, com envio para os e-mails relacionados.
 - **Scripts Utilizados:** `Relatorio_ESAE_Testes`, `Criar_Tabela_1`, `Mudar_Datas`, `Criar_Tabelas_Dinamicas`.
