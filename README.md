@@ -4,7 +4,7 @@
 
 Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Power Apps, Power Automate e Office Scripts.
 
-*Este Documento contém o CHANGELOG e o KNOW_ISSUES, próximas alterações ja será atualziado e separado*
+*Este Documento contém o CHANGELOG e o KNOW_ISSUES, próximas alterações ja será atualizado e separado*
 
 ---
 ## Índice
