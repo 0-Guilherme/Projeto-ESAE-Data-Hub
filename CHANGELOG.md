@@ -65,7 +65,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
   
 ### 🔧 Alterado
 - Repositório GitHub atualizado com imagens e scripts (sem incluir backups dos fluxos).
-- 
+  
 ---
 ## [147] - 2025-09-05
 
