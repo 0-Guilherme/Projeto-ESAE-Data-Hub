@@ -92,7 +92,7 @@ A arquitetura do sistema é baseada em quatro pilares principais, que representa
 ---
 # Banco de Dados
 
-### ➡️ [Clique aqui para ver a Descrição Detalhada da Arquitetura de Dados](./Documentacao/Arquitetura_de_dados.md)
+* **➡️ [Clique aqui para ver a Descrição Detalhada da Arquitetura de Dados](./Documentacao/Arquitetura_de_dados.md)**
 
 A camada de dados foi implementada utilizando **Listas do SharePoint Online**, configuradas para simular um modelo de banco de dados relacional.
 
@@ -136,30 +136,30 @@ Projeto-ESAE-Data-Hub/
 
 A documentação detalhada de cada tela, incluindo a descrição de suas funcionalidades, principais controles e lógicas de fórmulas, foi consolidada em um documento separado para maior clareza.
 
-### ➡️ [Clique aqui para ver a Descrição Detalhada de Todas as Telas](./Documentacao/Telas_do_aplicativo.md)
+* **➡️ [Clique aqui para ver a Descrição Detalhada de Todas as Telas](./Documentacao/Telas_do_aplicativo.md)**
 
 ---
 # Descrição detalhada dos fluxos do Power Automate
 
 adicionar descrição resumo ou algo assim
 
-### ➡️ [Clique aqui para ver a Descrição Detalhada do Fluxo Auditor](./Documentacao/Descricao_Fluxo_Auditor.md)
-### ➡️ [Clique aqui para ver a Descrição Detalhada do Fluxo CGAJAPDI](./Documentacao/Descricao_Fluxo_CGAJAPI.md)
-### ➡️ [Clique aqui para ver a Descrição Detalhada do Fluxo de Usuarios do Moodle](./Documentacao/Descricao_Fluxo_Usuarios_Moodle.md)
+* **➡️ [Clique aqui para ver a Descrição Detalhada do Fluxo Auditor](./Documentacao/Descricao_Fluxo_Auditor.md)**
+* **➡️ [Clique aqui para ver a Descrição Detalhada do Fluxo CGAJAPDI](./Documentacao/Descricao_Fluxo_CGAJAPI.md)**
+* **➡️ [Clique aqui para ver a Descrição Detalhada do Fluxo de Usuarios do Moodle](./Documentacao/Descricao_Fluxo_Usuarios_Moodle.md)**
 
 ---
 # Changelog
 
 adicionar descrição resumo ou algo assim
 
-### ➡️ [Clique aqui para ver a Descrição Detalhada do Changelog](./Documentacao/Changelog.md)
+* **➡️ [Clique aqui para ver a Descrição Detalhada do Changelog](./Documentacao/Changelog.md)**
 
 ---
 # Know Issues
 
 adicionar descrição resumo ou algo assim
 
-### ➡️ [Clique aqui para ver a Descrição Detalhada do Know Issues](./Documentacao/Know_Issues.md)
+* **➡️ [Clique aqui para ver a Descrição Detalhada do Know Issues](./Documentacao/Know_Issues.md)**
 
 ---
 
