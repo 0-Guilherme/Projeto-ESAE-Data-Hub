@@ -49,7 +49,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 >     * **`Item` (Formulário):** `gblUsuarioSelecionado` para exibir os dados do usuário.
 >     * **`Items` (Galeria de Histórico):** Utiliza a coluna de texto otimizada (`FK_Usuario_in_Text`) para buscar de forma delegável todos os cursos de um usuário: `Filter('LST_Usuarios-Cursos'; FK_Usuario_in_Text = Text(gblUsuarioSelecionado.ID))`.
 >
-> ![Tela 4](Documentacao/Imagens/4.jpg)
+> ![Tela 4](Imagens/4.jpg)
 
 ---
 
@@ -60,7 +60,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 > * **Funções e Lógicas Principais:**
 >     * **`Items` (Galeria):** Utiliza uma fórmula `Filter` com `With` para uma busca universal que lida com texto (`in Nome_Curso`) e número (`PK_ID_Curso = NumeroBusca`).
 >
-> ![Tela 5](Documentacao/Imagens/5.jpg)
+> ![Tela 5](Imagens/5.jpg)
 
 ---
 
@@ -71,7 +71,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 > * **Funções e Lógicas Principais:**
 >     * **Controle `Data Table`:** A propriedade `Items` é conectada à mesma fonte de dados filtrada da tela de gestão de cursos.
 >
-> ![Tela 6](Documentacao/Imagens/6.jpg)
+> ![Tela 6](Imagens/6.jpg)
 
 ---
 
@@ -83,7 +83,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 >     * **`OnVisible`:** `ClearCollect(colAlunosDoCurso; Filter('LST_Usuarios-Cursos'; FK_Curso_in_Text = Text(gblCursoSelecionado.PK_ID_Curso)))` para carregar de forma performática e delegável apenas os alunos do curso.
 >     * **`Items` (Galeria de Alunos):** A galeria é conectada à coleção local `colAlunosDoCurso`, tornando a rolagem instantânea.
 >
-> ![Tela 7](Documentacao/Imagens/7.jpg)
+> ![Tela 7](Imagens/7.jpg)
 
 ---
 
@@ -95,7 +95,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 >     * **`OnSelect` (Botões de Filtro):** Botões como "Esta Semana" usam `UpdateContext` para definir variáveis de data (`varDataInicioFiltro`, `varDataFimFiltro`).
 >     * **`Items` (Galeria):** A galeria é filtrada com base nessas variáveis de data: `Filter('LST_Usuarios-Cursos'; Data_Conclusao >= varDataInicioFiltro And Data_Conclusao < DateAdd(varDataFimFiltro; 1))`.
 >
-> ![Tela 8](Documentacao/Imagens/8.jpg)
+> ![Tela 8](Imagens/8.jpg)
 
 ---
 
@@ -108,7 +108,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 >     * **`Width` (Barra do Gráfico):** `(Parent.Width * 0,7) * (ThisItem.QtdAlunos / Max(colTopCursos; QtdAlunos))` para desenhar barras proporcionais.
 >     * **`OnSelect` (Galeria):** Permite clicar em uma "barra" e navegar para os detalhes daquele curso.
 >
-> ![Tela 9](Documentacao/Imagens/9.jpg)
+> ![Tela 9](Imagens/9.jpg)
 
 ---
 
@@ -119,7 +119,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 > * **Funções e Lógicas Principais:**
 >     * **`Items` (Galeria):** Utiliza uma fórmula `Filter` que combina a busca por texto com múltiplos menus suspensos de forma delegável.
 >
-> ![Tela 10](Documentacao/Imagens/10.jpg)
+> ![Tela 10](Imagens/10.jpg)
 
 ---
 
@@ -130,7 +130,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 > * **Funções e Lógicas Principais:**
 >     * **`Items` (Galeria):** Utiliza uma fórmula `Filter` para buscar na `LST_Usuarios_SAE`, mas com uma condição `LookUp` que verifica a coluna `ValidarSAE` na `LST_Usuarios`.
 >
-> ![Tela 11](Documentacao/Imagens/11.jpg)
+> ![Tela 11](Imagens/11.jpg)
 
 ---
 
@@ -141,7 +141,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 > * **Funções e Lógicas Principais:**
 >     * **Controle `Data Table`:** A propriedade `Items` é conectada à mesma fonte de dados filtrada da tela de gestão SAE.
 >
-> ![Tela 12](Documentacao/Imagens/12.jpg)
+> ![Tela 12](Imagens/12.jpg)
 
 ---
 
@@ -153,7 +153,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 >     * **`OnVisible`:** Usa `UpdateContext` para criar variáveis locais (`locSAEUser`, `locMoodleUser`) que armazenam os registros das duas listas, otimizando a performance.
 >     * **`Visible` (Controles):** A visibilidade do formulário Moodle e de uma mensagem de "não encontrado" é controlada pela fórmula `IsBlank(locMoodleUser)`.
 >
-> ![Tela 13](Documentacao/Imagens/13.jpg)
+> ![Tela 13](Imagens/13.jpg)
 
 ---
 
@@ -164,7 +164,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 > * **Funções e Lógicas Principais:**
 >     * Esta é uma vista da tela de detalhes (13), onde a fórmula `IsBlank(locMoodleUser)` resultou em `true`, tornando a mensagem de alerta visível.
 >
-> ![Tela 14](Documentacao/Imagens/14.jpg)
+> ![Tela 14](Imagens/14.jpg)
 
 ---
 
@@ -175,7 +175,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 > * **Funções e Lógicas Principais:**
 >     * Novamente uma vista da tela 13, mas aqui a visibilidade de um ícone de alerta ⚠️ é controlada por uma fórmula de comparação de status, como: `locMoodleUser.Usuario_SAE.Value = "Sim" && locSAEUser.Status.Value = "Inativo"`.
 >
-> ![Tela 15](Documentacao/Imagens/15.jpg)
+> ![Tela 15](Imagens/15.jpg)
 
 ---
 
@@ -188,7 +188,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 >     * **Contêineres de Layout:** Uso de contêineres verticais e horizontais para organizar os elementos.
 >     * **Propriedades Responsivas:** Uso extensivo de `Parent.Width`, `Fill portions` e fórmulas com `If(App.ActiveScreen.Size <= 1; ...)` para alterar o layout e o tamanho de fontes.
 >
-> ![Tela 16](Documentacao/Imagens/16.jpg)
+> ![Tela 16](Imagens/16.jpg)
 
 ---
 
@@ -199,7 +199,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 > * **Funções e Lógicas Principais:**
 >     * A integração é feita no Power App com um botão que usa a função `Launch("https://app.powerbi.com/...")` para abrir o relatório no navegador.
 >
-> ![Tela 17](Documentacao/Imagens/17.jpg)
+> ![Tela 17](Imagens/17.jpg)
 
 ---
 
@@ -210,7 +210,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 > * **Funções e Lógicas Principais:**
 >     * A lógica de cruzamento de dados e os visuais são construídos com **DAX e Power Query** dentro do Power BI Desktop.
 >
-> ![Tela 18](Documentacao/Imagens/18.jpg)
+> ![Tela 18](Imagens/18.jpg)
 
 ---
 
@@ -221,7 +221,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 > * **Funções e Lógicas Principais:**
 >     * Visual de gráfico no Power BI, utilizando as colunas de Lotação e a contagem de usuários.
 >
-> ![Tela 19](Documentacao/Imagens/19.jpg)
+> ![Tela 19](Imagens/19.jpg)
 
 ---
 
@@ -232,7 +232,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 > * **Funções e Lógicas Principais:**
 >     * Visual de gráfico no Power BI, utilizando as colunas de Cargo e a contagem de usuários.
 >
-> ![Tela 20](Documentacao/Imagens/20.jpg)
+> ![Tela 20](Imagens/20.jpg)
 
 ---
 
@@ -243,4 +243,4 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 > * **Funções e Lógicas Principais:**
 >     * Visual de gráfico de linhas no Power BI, utilizando as colunas de data e medidas de contagem (`COUNTROWS`) em DAX.
 >
-> ![Tela 21](Documentacao/Imagens/21.jpg)
+> ![Tela 21](Imagens/21.jpg)
