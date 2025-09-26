@@ -120,8 +120,8 @@ Toda a documentação técnica e funcional do projeto foi separada em arquivos e
 
 * **➡️ [Documentação da Arquitetura](./Documentacao/ARQUITETURA.md):** Contém os detalhes do Banco de Dados (listas do SharePoint) e a descrição técnica dos fluxos do Power Automate.
 * **➡️ [Documentação das Telas](./Documentacao/TELAS.md):** Contém a descrição funcional de cada uma das 20+ telas do Power App, com suas lógicas e imagens.
-* **➡️ [Histórico de Alterações (Changelog)](./CHANGELOG.md):** Registra todas as mudanças e novas funcionalidades a cada versão.
-* **➡️ [Problemas Conhecidos (Known Issues)](./KNOWN_ISSUES.md):** Lista as limitações atuais e o roadmap de correções e melhorias.
+* **➡️ [Histórico de Alterações (CHANGELOG)](./CHANGELOG.md):** Registra todas as mudanças e novas funcionalidades a cada versão.
+* **➡️ [Problemas Conhecidos (KNOWN_ISSUES)](./KNOWN_ISSUES.md):** Lista as limitações atuais e o roadmap de correções e melhorias.
 * **➡️ [Descrição Detalhada do Fluxo Auditor](./Documentacao/Fluxo_Auditor.md):** Descrição de funcionamento e montagem do fluxo no power automate.
 * **➡️ [Descrição Detalhada do Fluxo SAE](./Documentacao/Fluxo_SAE.md):** Descrição de funcionamento e montagem do fluxo no power automate.
 * **➡️ [Descrição Detalhada do Fluxo Moodle](./Documentacao/Fluxo_Moodle.md):** Descrição de funcionamento e montagem do fluxo no power automate.
