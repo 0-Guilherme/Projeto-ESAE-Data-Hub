@@ -126,4 +126,6 @@ Toda a documentação técnica e funcional do projeto foi separada em arquivos e
 * **➡️ [Descrição Detalhada do Fluxo Auditor](./Documentacao/Fluxo_Auditor.md):** Descrição de funcionamento e montagem do fluxo no power automate.
 * **➡️ [Descrição Detalhada do Fluxo SAE](./Documentacao/Fluxo_SAE.md):** Descrição de funcionamento e montagem do fluxo no power automate.
 * **➡️ [Descrição Detalhada do Fluxo Moodle](./Documentacao/Fluxo_Moodle.md):** Descrição de funcionamento e montagem do fluxo no power automate.
+* **➡️ [Office Script para o Fluxo Moodle](./Documentacao/PA-Usuarios-v2.ts):** Código completo com descrição versionamento e detalhes comentados
+* **➡️ [Office Script para o Fluxo SAE](./Documentacao/Scripts/PA-SAE-CGAJAPDI-Servidores-v2.ts):** Código completo com descrição versionamento e detalhes comentados
 
