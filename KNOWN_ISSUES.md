@@ -1,4 +1,4 @@
-# KNOW_ISSUES ⚠️ - Problemas Conhecidos e Suas Limitações
+# KNOWN_ISSUES ⚠️ - Problemas Conhecidos e Suas Limitações
 
 Este documento rastreia bugs conhecidos, limitações de arquitetura e potenciais problemas da solução atual.
 
