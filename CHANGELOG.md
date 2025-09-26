@@ -1,18 +1,18 @@
 # CHANGELOG - Histórico de Alterações
 
-Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
+Todos as mudanças notáveis neste projeto estão documentadas neste arquivo, está ligada ao versionamento do power apps em que aglomero as alterações em alguns
 
 ---
 
 ## Índice
 1. [Planejamento para Novas Versões](#planejamento-para-próximas-versões)
 2. [Work in Progress](#work-in-progress)
-3. [Versão 0.6.0](#060---2025-09-26)
-4. [Versão 0.5.0](#050---2025-09-19)
-5. [Versão 0.4.0](#040---2025-08-28)
-6. [Versão 0.3.0](#030---2025-08-04)
-7. [Versão 0.2.0](#020---2025-07-10)
-8. [Versão 0.1.0](#010---2025-06-22)
+3. [Versão 202](#202---2025-09-12)
+4. [Versão 147](#147---2025-09-05)
+5. [Versão 109](#109---2025-08-04)
+6. [Versão 068](#068---2025-07-31)
+7. [Versão 037](#037---2025-07-09)
+8. [Versão 010](#010---2025-06-27)
 9. [Versão Conceitual - 2025-01-01](#Versão-Conceitual---2025-01-01)
 
 ---
@@ -39,7 +39,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 ---
 ## Work in Progress
 
-**Notas para a nova versão**
+**Notas para a nova versão - Versão atual: 204**
 - necessario incluir um botão para levar ao BI completo, ja temos o comando e as telas prontas.
 - adequar as bases de dados dos dashboard do powerbi para conectar direto ao sharepoint.
 - aplicar esta mesma lógica para a listagem dos cursos concluidos por cada aluno na tela_detalhes_usuarios - em processo.
@@ -49,7 +49,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - agendamento do moodle, ainda é um gatilho manual, devido a considerações de quais dados estaremos rodando no momento, devido ao imenso volume que estamos tratando por rotina, após normalização, configurar para rodar a cada dia às 6h.,
 
 ---
-## [0.6.0] - 2025-09-26
+## [202] - 2025-09-12
 
 ### 🆕 Adicionado
 - **Gráficos no Dashboard:** Inclusão de elementos visuais de BI na tela principal para análise de dados (`Gráfico de Colunas` para Top Cursos, `Gráfico de Pizza` para distribuição de usuários).
@@ -73,7 +73,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - Repositório do GitHub atualizado para incluir todas as imagens e scripts do sistema. (não incluso backups dos fluxos)
 
 ---
-## [0.5.0] - 2025-09-19
+## [147] - 2025-09-05
 
 ### 🔧 Alterado
 - Otimizado o `Fluxo_Usuarios-v2` em aproximadamente 30% do tempo de processamento. (Para envio de e-mails, utilizar o assunto `"Fluxo_Usuarios_Moodle"`).
@@ -100,7 +100,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - Corrigida a navegação entre as telas de cursos e usuários, garantindo a passagem correta do contexto (`gblCursoSelecionado`, `gblUsuarioSelecionado`) e a exibição completa dos dados vinculados.
 
 ---
-## [0.4.0] - 2025-08-28
+## [109] - 2025-08-04
 
 ### 🆕 Adicionado
 - **Módulo de Gestão de Usuários SAE:** Criada a lista `LST_Usuarios_SAE` para servir como "fonte da verdade" para usuários externos.
@@ -120,7 +120,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - Múltiplos erros de conversão de tipo de dado (Datas, Números, Booleanos) no Power Automate.
 
 ---
-## [0.3.0] - 2025-08-04
+## [068] - 2025-07-31
 
 ### 🆕 Adicionado
 - **Fluxo de Ingestão de Dados (Power Automate):** Criado o fluxo principal acionado por arquivo no OneDrive para sincronizar os dados do Moodle com o SharePoint.
@@ -134,7 +134,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - **Erros de Tipo de Dado:** Resolvidos múltiplos erros de conversão de dados (Datas, Números, Booleanos) no Power Automate.
 
 ---
-## [0.2.0] - 2025-07-10
+## [052] - 2025-07-14
 
 ### 🆕 Adicionado
 - Funcionalidade completa de CRUD para Usuários e Cursos no Power App para manter o controle dos dados nas etapas iniciais de desenvolvimento.
@@ -143,15 +143,21 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - Implementado pop-up de confirmação para a ação de excluir.
 
 ---
-## [0.1.0] - 2025-06-22
+## [037] - 2025-07-09
+
+### 🆕 Adicionado
+- **Power App (Interface de Leitura):**
+    - `TelaInicial` com indicadores de contagem (`CountRows()`) e navegação principal.
+    - `TelaUsuarios` e `TelaCursos` com galerias e caixas de busca.
+    - Estruturação das galerias e rótulos iniciais da `TelaDetalhesUsuario` e `TelaDetalhesCurso` para visualização 360°, incluindo sub-galerias para dados relacionados.
+
+---
+## [010] - 2025-06-27
 
 ### 🆕 Adicionado
 - **Base de Dados:** Criadas as 4 listas iniciais no SharePoint (`LST_Usuarios`, `LST_Cursos`, `LST_Lotacoes`, `LST_Usuarios-Cursos`).
 - **Power App (Interface de Leitura):**
-    - `TelaDashboard` com indicadores de contagem (`CountRows()`) e navegação principal.
-    - `TelaUsuarios` e `TelaCursos` com galerias e caixas de busca.
-    - `TelaDetalhesUsuario` e `TelaDetalhesCurso` para visualização 360°, incluindo sub-galerias para dados relacionados.
-    - Navegação cruzada entre as telas de detalhes.
+    - Definição de cada telas e layouts básicos: `TelaInicial`, `TelaUsuarios`, `TelaCursos`, `TelaDetalhesUsuario` e `TelaDetalhesCurso`
 
 ---
 ## Versão Conceitual - 2025-01-01
