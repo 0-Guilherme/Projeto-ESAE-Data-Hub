@@ -1,4 +1,4 @@
-# CHANGELOG 
+# CHANGELOG - Histórico de Versões e Suas Modificações
 
 Todos as mudanças notáveis neste projeto estão documentadas neste arquivo.
 
