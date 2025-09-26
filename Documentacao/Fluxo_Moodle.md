@@ -11,7 +11,7 @@ Esta seção detalha as principais etapas, condições e expressões utilizadas 
     - `subjectFilter: "Fluxo_Usuarios_Moodle"`: Garante que apenas e-mails com este assunto acionem o fluxo.
     - `fetchOnlyWithAttachment: true`: Impede que e-mails sem anexo iniciem o processo.
 
-### Ação: Loop "Aplicar a cada" (sobre os Anexos)
+### Ação: Loop `Aplicar a cada` (sobre os Anexos)
 - **Descrição:** Um loop é iniciado para processar cada anexo do e-mail.
 - **Ações Internas:**
     1.  **`Criar arquivo`:** O anexo do e-mail é salvo em uma pasta específica do OneDrive. O nome do arquivo é padronizado com a data e hora para garantir que seja único.
@@ -76,4 +76,7 @@ O fluxo agora executa uma série de loops, cada um lendo uma das tabelas limpas 
             ```
             if(empty(items('For_Each_Conclusao')?['DataConclusao']), null, addDays('1899-12-30', int(items('For_Each_Conclusao')?['DataConclusao']), 'yyyy-MM-dd'))
             ```
-        - **`StatusAluno/Value`:** Usa uma expressão `if()` para definir o status como "Inscrito" ou "Concluído" com base na existência da data de conclusão.
+        - **`StatusAluno/Value`:** Usa uma expressão `if()` para definir o status como "Inscrito" ou "Concluído" com base na coluna "Concluido" do Excel.
+            ```
+            if(equals(items('For_Each_Conclusao')?['Concluido'], 'Sim'), 'Concluído', 'Inscrito')
+            ```
