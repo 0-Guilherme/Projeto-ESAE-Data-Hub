@@ -13,7 +13,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 >     * **Controles de Botão (Texto HTML):** Usam a propriedade `HtmlText` para combinar texto, quebras de linha (`<br>`) e a contagem de itens em tempo real (`CountRows()`).
 >     * **Navegação:** A propriedade `OnSelect` de cada controle utiliza a função `Maps()` para direcionar o usuário ao módulo correspondente.
 >
-> ![Tela 1](/Imagens/1.jpg)
+> ![Tela 1](Imagens/1.jpg)
 
 ---
 
@@ -26,7 +26,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 >     * **`Items` (Galeria):** Utiliza uma fórmula `Filter` com o operador `in` para uma busca do tipo "contém" que é delegável: `Filter(LST_Usuarios; IsBlank(txtBuscaUsuario.Value) Or txtBuscaUsuario.Value in NomeCompleto)`.
 >     * **`OnSelect` (Galeria):** `Set(gblUsuarioSelecionado; ThisItem);; Navigate(tela_detalhes_usuarios)` para guardar o registro selecionado e navegar.
 >
-> ![Tela 2](/Imagens/2.jpg)
+> ![Tela 2](Imagens/2.jpg)
 
 ---
 
@@ -37,7 +37,7 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 > * **Funções e Lógicas Principais:**
 >     * **Controle `Data Table`:** A propriedade `Items` é conectada à mesma fonte de dados filtrada da tela anterior para consistência.
 >
-> ![Tela 3](/Imagens/3.jpg)
+> ![Tela 3](Imagens/3.jpg)
 
 ---
 
