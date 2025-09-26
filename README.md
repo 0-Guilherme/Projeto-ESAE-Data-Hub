@@ -48,19 +48,19 @@ Ele resolve o desafio de um processo anteriormente manual, demorado e sujeito a 
 # Funcionalidades Principais
 
 * ✅ **Centralização de Dados:** Consolida informações de fontes distintas (Moodle, SAE) em uma base de dados única e padronizada.
-* ✅ **Automação de ETL de Ponta a Ponta:** Automatiza todo o processo de Extração, Transformação (limpeza e padronização com Office Scripts) e Carga (sincronização com SharePoint via Power Automate).
-* ✅ **Gestão e Visualização 360°:** Permite a visualização, pesquisa e filtragem de todo o histórico de usuários e suas participações em cursos, bem como o perfil detalhado de cada curso e seus participantes.
+* ✅ **Automação de ETL de Ponta a Ponta:** Automatiza todo o processo de Extração, Transformação (limpeza com Office Scripts) e Carga (sincronização com SharePoint via Power Automate).
+* ✅ **Gestão e Visualização 360°:** Permite a visualização, pesquisa e filtragem do histórico de usuários e suas participações em cursos.
 * ✅ **Sincronização Inteligente:** Gerencia o ciclo de vida dos registros, realizando operações de criação, atualização e inativação de forma automática.
-* ✅ **Análise e Dashboards:** Oferece um cockpit de controle (Power App) com visões gerenciais, gráficos interativos e indicadores de performance (KPIs).
-* ✅ **Auditoria de Dados:** Inclui funcionalidades e automações para reconciliar e auditar dados de diferentes fontes, sinalizando inconsistências para revisão.
-* ✅ **Fluxo da CGAJAPDI:** Inclui uma automação completa para a solução de processamento de uma base de dados em excel, processada, verificada e atualizada nas nossas bases, para inclusão e remoção de usuários.
+* ✅ **Análise e Dashboards:** Oferece um cockpit de controle (Power App) com visões gerenciais, gráficos interativos e KPIs.
+* ✅ **Auditoria de Dados:** Inclui funcionalidades e automações para reconciliar dados de diferentes fontes.
+* ✅ **Fluxo da CGAJAPDI:** Automação completa para processamento e verificação da lista de usuários SAE.
 
 ---
 # Resultados Obtidos
 
-* ✅ **Automação Compelta de Relatórios do Moodle**: São exportados, processados e incluidos em bases de dados dentro do sistema da microsoft, para poder ser utilizado por outros componentes internos da rede e da PGE.
-* ✅ **Automação Completa do Fluxo da CGAJAPDI**: Reduzido em 98% do tempo de processamento e verificação da lista de usuários, antes feita manualmente, demorando em torno de 4 dias. Agora em minutos, totalmente automatizado!
-* ✅ **Relatórios de Power BI Atualizados**: Gestores agora tem conexão com uma base padronizada e de facil configuração para atualização dos dashboards do power BI, podendo inclusive verificar dentro do programa algumas estatisticas iniciais.
+* ✅ **Automação Completa de Relatórios do Moodle**: Relatórios são exportados, processados e incluídos em bases de dados de forma automática, prontos para serem consumidos por outros componentes da rede.
+* ✅ **Automação Completa do Fluxo da CGAJAPDI**: Redução de 98% no tempo de processamento e verificação da lista de usuários, que antes era manual e demorava dias, para poucos minutos.
+* ✅ **Relatórios de Power BI Atualizados**: Gestores agora têm conexão com uma base padronizada para atualização dos dashboards do Power BI, podendo verificar estatísticas iniciais dentro do próprio Power App.
 
 ---
 # Estrutura do Projeto
@@ -87,6 +87,21 @@ A arquitetura do sistema é baseada em quatro pilares principais, que representa
 # Banco de Dados
 
 A camada de dados foi implementada utilizando **Listas do SharePoint Online**, configuradas para simular um modelo de banco de dados relacional.
+
+
+```
+Incluir esta parte e mover a montagem para um segundo documento
+
+A camada de dados foi implementada utilizando **Listas do SharePoint Online**. As principais são:
+
+* `LST_Usuarios`
+* `LST_Cursos`
+* `LST_Lotacoes`
+* `LST_Usuarios_SAE`
+* `LST_Usuarios-Cursos`
+
+*(Para uma descrição detalhada de cada campo, consulte a documentação de arquitetura de dados.)*
+```
 
 ### `LST_Usuarios`
 **Descrição:** Armazena o cadastro único de todos os participantes que possuem registros no Moodle. É a tabela principal de "alunos" do sistema.
@@ -171,6 +186,15 @@ Projeto-ESAE-Data-Hub/
 ```
 
 ---
+
+```
+Utilizar está descrição e seprar as telas para um arquivo próprio
+# Telas do Aplicativo: Descrição Funcional
+
+A documentação detalhada de cada tela, incluindo a descrição de suas funcionalidades, principais controles e lógicas de fórmulas, foi consolidada em um documento separado para maior clareza.
+
+### ➡️ [Clique aqui para ver a Descrição Detalhada de Todas as Telas](./Documentacao/TELAS.md)
+```
 
 # Telas do Aplicativo - Descrição Funcional
 
@@ -475,6 +499,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - necessário descrever fora do script o trabalho realizado no fluxo CGAJAPDI, que por si só deveria ser um sistema a parte.
 - criar um manual inicial para os usuários entenderem como que as data bases e seus dados funcionam.
 - agendamento do moodle, ainda é um gatilho manual, devido a considerações de quais dados estaremos rodando no momento, devido ao imenso volume que estamos tratando por rotina, após normalização, configurar para rodar a cada dia às 6h.,
+- separar as etapas desta seção, em documentações menores, como a arquitetura dos dados, descriçãoe  modelos das telas, changelog e know_issues
 ```
 
 ---
@@ -585,6 +610,11 @@ Este documento rastreia bugs conhecidos, limitações de arquitetura e potenciai
 - **Problema:** O fluxo de ingestão principal foi construído para ser resiliente (continua mesmo que a busca no Teams falhe), mas não possui um `sistema avançado para registrar ou notificar` sobre cada linha individual do Excel que possa falhar por outros motivos (ex: uma lotação que não foi encontrada).
 - **Impacto:** Médio. Uma execução pode terminar com sucesso, mas algumas linhas podem não ter sido processadas.
 - **Solução Planejada:** Implementar uma ramificação de tratamento de erros que, em caso de falha em uma etapa crítica (como a busca de ID de Lotação), registre o erro em uma lista do SharePoint ou envie um e-mail de alerta para o administrador.
+
+### Fluxo dos AJS-NS e Coordenadores 🔵
+- **Problema:** O fluxo para ingestão da lista ainda não foi configurado em sua totalidade.
+- **Impacto:** Baixo. Depende da origem dos dados. A ingestão inicial desses dados ainda é um processo manual.
+- **Solução Planejada:** Desenvolver um fluxo que utilize o nome do usuário para buscar e validar o e-mail no Microsoft 365 antes de sincronizar.
 
 ### Interface Gráfica - Power Apps 🔵
 - **Status:** ❌ NÃO RESOLVIDO - Porém, a `tela_inicial` e `tela_dashboard` ja estão refatorados para containers flexiveis, ainda são necessários ajustes, mas é um exemplo.
