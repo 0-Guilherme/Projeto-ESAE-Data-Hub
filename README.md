@@ -70,7 +70,7 @@ A arquitetura do sistema é baseada em quatro pilares principais, orquestrados p
 │    ├── 📜 Telas.md                     # Descrição funcional de cada tela do Power App.
 │    ├── 📜 Fluxo_Auditor.md             # Descrição detalhada do fluxo auditor.
 │    ├── 📜 Fluxo_Usuarios_Moodle.md     # Descrição detalhada do fluxo moodle.
-│    ├── 📜 Fluxo_SAE.md                 # Descrição detalhada do fluxo SAE.
+│    └── 📜 Fluxo_SAE.md                 # Descrição detalhada do fluxo SAE.
 │
 ├── 📜 Changelog.md                      # Histórico completo de versões e alterações.
 ├── 📜 Know_Issues.md                    # Lista de problemas conhecidos, bugs e limitações atuais.
