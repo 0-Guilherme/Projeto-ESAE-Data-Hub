@@ -5,7 +5,9 @@
 Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Power Apps, Power Automate e Office Scripts.
 
 *Este Documento contém temporáriamente toda a Documentação*
+
 *Proxima alteração ja deixará o documento separado em 5 Partes: Readme; Changelog; Know_Issues; Detalhamento_Telas; Arquitetura_Dados*
+
 *Documentação Inicial utilizada para definição do projeto será adicionada posteriormente em .pdf*
 
 ---
