@@ -11,12 +11,12 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 1. [Sobre](#sobre)
 2. [Tecnologias Utilizadas](#tecnologias-utilizadas)
 3. [Funcionalidades Principais](#funcionalidades-principais)
-4. # Resultados Obtidos
+4. [Resultados Obtidos](#resultados-obtidos)
 5. [Estrutura do Projeto](#estrutura-do-projeto)
 6. [Banco de Dados](#banco-de-dados)
 7. [Pontos de Atenção e Roadmap de Evolução](#Pontos-de-Atenção-e-Roadmap-de-Evolução)
-8. # Descrição das Pastas
-9. # Telas do Aplicativo: Descrição Funcional
+8. [Descrição das Pastas](#descrição-das-pastas)
+9. [Telas do Aplicativo: Descrição Funcional](#telas-do-aplicativo:-descrição-funcional)
 10. [Changelog](#changelog)
 11. [Mudanças Futuras](#não-lançado---planejamento-para-próximas-versões)
 12. [Versão 0.6.0 - WIP](#060---2025-00-00)
@@ -25,7 +25,7 @@ Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Po
 15. [Versão 0.3.0](#030---2025-08-04)
 16. [Versão 0.2.0](#020---2025-07-10)
 17. [Versão 0.1.0](#010---2025-06-22)
-18. [Versão Conceitual - 2025-01-01 - ALFA](#Versão-Conceitual---2025-01-01---Fluxo-dos-Relatórios---ALFA)
+18. [Versão Conceitual - 2025-01-01](#Versão-Conceitual---2025-01-01)
 19. [Know Issues](#know_issues---problemas-conhecidos-e-suas-limitações)
 20. [Suporte](#-suporte)
 
@@ -559,7 +559,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
     - Navegação cruzada entre as telas de detalhes.
 
 ---
-## Versão Conceitual - 2025-01-01 - Fluxo dos Relatórios - ALFA
+## Versão Conceitual - 2025-01-01
 - Power Automate: Relatorios_ESAE_Teste
 - Recebe Relatorio do Moodle: Automatico_ID=1 =2 =3 e envia para o e-mail relacionado
 - Scripts Utilizados - Relatorio_ESAE_Testes - Criar_Tabela_1 // Mudar_Datas // Criar_Tabelas_Dinamicas
