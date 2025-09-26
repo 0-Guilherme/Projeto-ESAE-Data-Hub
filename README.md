@@ -4,7 +4,9 @@
 
 Uma Plataforma para Análise de Usuários e Cursos do Moodle, desenvolvida em Power Apps, Power Automate e Office Scripts.
 
-*Este Documento contém o CHANGELOG e o KNOW_ISSUES, próximas alterações ja será atualizado e separado*
+*Este Documento contém temporáriamente toda a Documentação*
+*Proxima alteração ja deixará o documento separado em 5 Partes: Readme; Changelog; Know_Issues; Detalhamento_Telas; Arquitetura_Dados*
+*Documentação Inicial utilizada para definição do projeto será adicionada posteriormente em .pdf*
 
 ---
 ## Índice
@@ -63,6 +65,16 @@ Ele resolve o desafio de um processo anteriormente manual, demorado e sujeito a 
 * ✅ **Relatórios de Power BI Atualizados**: Gestores agora têm conexão com uma base padronizada para atualização dos dashboards do Power BI, podendo verificar estatísticas iniciais dentro do próprio Power App.
 
 ---
+```
+# Concepção do Projeto e Análise Inicial
+
+O desenvolvimento deste projeto foi guiado por um documento de análise e concepção inicial, elaborado em formato Word. Este documento serviu como a base para a definição do escopo, modelagem de dados e planejamento das funcionalidades.
+
+Ele contém a primeira versão da arquitetura, os diagramas de entidade-relacionamento (DER) e os fluxogramas de atividades que nortearam as fases iniciais do desenvolvimento.
+
+* **➡️ [Clique aqui para acessar o Documento de Concepção Inicial (PDF)](./Documentacao/Documento_Concepcao_Inicial.pdf)**
+```
+---
 # Estrutura do Projeto
 
 A arquitetura do sistema é baseada em quatro pilares principais, que representam as camadas lógicas da solução, orquestradas pelo ecossistema Power Platform.
@@ -99,6 +111,12 @@ A camada de dados foi implementada utilizando **Listas do SharePoint Online**. A
 * `LST_Lotacoes`
 * `LST_Usuarios_SAE`
 * `LST_Usuarios-Cursos`
+
+### Diagrama de Entidade-Relacionamento
+
+O diagrama abaixo representa a estrutura relacional das listas do SharePoint.
+
+![Diagrama de Entidade-Relacionamento](Documentacao/Imagens/Diagrama_Entidade_Relacionamento.png)
 
 *(Para uma descrição detalhada de cada campo, consulte a documentação de arquitetura de dados.)*
 ```
@@ -500,6 +518,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - criar um manual inicial para os usuários entenderem como que as data bases e seus dados funcionam.
 - agendamento do moodle, ainda é um gatilho manual, devido a considerações de quais dados estaremos rodando no momento, devido ao imenso volume que estamos tratando por rotina, após normalização, configurar para rodar a cada dia às 6h.,
 - separar as etapas desta seção, em documentações menores, como a arquitetura dos dados, descriçãoe  modelos das telas, changelog e know_issues
+- não esquecer de atualizar o diagrama de Entidade-Relacionamento e colocar aqui no readme
 ```
 
 ---
