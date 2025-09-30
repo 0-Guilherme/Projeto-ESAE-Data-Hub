@@ -50,7 +50,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 
 - Incluir botão para abrir o BI completo (comando e telas prontas).
 - Adequar bases dos dashboards do BI para conexão direta ao SharePoint.
-- Rodar novamente a ingestão de dados para atualizar colunas (período já efetuado: 01/08/2025-22/09/2025). (rodando: 01/07/2025-01/08/2025)
+- Rodar novamente a ingestão de dados para atualizar colunas, período já efetuado: (01/08/2025-22/09/2025)(01/07/2025-01/08/2025) | rodando: (01/06/2025-01/07/2025)
 - Agendamento do Moodle ainda é manual; após normalização, configurar execução diária às 6h.
 
 
