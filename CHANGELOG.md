@@ -4,6 +4,10 @@ Este documento registra todas as mudanças relevantes realizadas no projeto, org
 
 Cada versão representa um conjunto de entregas que podem envolver múltiplos componentes do sistema, como telas do aplicativo, listas do SharePoint, fluxos automatizados, scripts de pré-processamento e integrações com Power BI. O objetivo é garantir rastreabilidade, facilitar auditorias técnicas e apoiar a evolução contínua da solução.
 
+Os históricos de alterações relacionaos aos scripts, pode ser localizado dentro do próprio script.
+
+  ** ➡️ [Documentação - Office Scripts](.Documentacao/Scripts)
+
 ---
 
 ## Índice
@@ -48,12 +52,19 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - ✅ Distribuir as descrições dos arquivos no github para cada área, dividindo a documentação que antes estava centralizada.
 - ✅ Adicionado documentação fr concepção do projeto, como diagramas e arquivos.
 
+### 🛠️ Corrigido
+- Ajustado as fórmulas para a inclusão das datas de conclusão dos usuarios, o fluxo do power automate não reconhecia as datas de conclusão em algumas circunstâncias.
 - Incluir botão para abrir o BI completo (comando e telas prontas).
 - Adequar bases dos dashboards do BI para conexão direta ao SharePoint.
 - Rodar novamente a ingestão de dados para atualizar colunas, período já efetuado: (01/08/2025-22/09/2025)(01/07/2025-01/08/2025) | rodando: (01/06/2025-01/07/2025)
 - Agendamento do Moodle ainda é manual; após normalização, configurar execução diária às 6h.
 
-
+### 📌 Notas de Desenvolvimento
+- inicio dos novos dashboards para o BI 2025-09-29
+- criar um dashboard para visualizar horas de capacitação por mes, quadrimestre, entre outros pontos de gestão.
+- manter as relações já construidas no dash anterior
+- planejar como será atendida as demandas e cálculos de cursos externos à plataforma moodle (forms, fluxo, ...)
+  
 ---
 ## [202] - 2025-09-12
 
@@ -73,13 +84,6 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 ---
 ## [147] - 2025-09-05
 
-### 🔧 Alterado
-- Otimização do `Fluxo_Usuarios-v2` (30% mais rápido).
-- Reorganização do `Script_Usuarios-v2` para gerar tabelas com nomes únicos.
-- Refatoração da `tela_inicial` com contêineres flexíveis.
-- Uso de coleções nas telas `tela_detalhes_cursos` e `tela_detalhes_usuarios` para melhorar performance.
-- Atualização completa da documentação (`README.md`, `CHANGELOG.md`).
-
 ### 🆕 Adicionado
 - `Fluxo_SAE-CGAJAPDI-Servidores-v2` agora gera planilha com log de novos usuários.
 - Coluna `Data da Última Modificação` adicionada à lista `LST_Usuarios`.
@@ -93,7 +97,14 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 ### 🛠️ Corrigido
 - Ajustes em `ClearCollect` e `OnVisible` para resolver falhas de delegação.
 - Correção na navegação entre telas, garantindo passagem de contexto e exibição completa dos dados.
-  
+
+### 🔧 Alterado
+- Otimização do `Fluxo_Usuarios-v2` (30% mais rápido).
+- Reorganização do `Script_Usuarios-v2` para gerar tabelas com nomes únicos.
+- Refatoração da `tela_inicial` com contêineres flexíveis.
+- Uso de coleções nas telas `tela_detalhes_cursos` e `tela_detalhes_usuarios` para melhorar performance.
+- Atualização completa da documentação (`README.md`, `CHANGELOG.md`).
+
 ---
 ## [109] - 2025-08-04
 
@@ -103,16 +114,16 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - **Telas de Reconciliação:** `TelaGerenciarUsuariosSAE` e `TelaDetalhesUsuarioSAE`.
 - **Pré-processamento com Office Scripts:** Script mestre para limpar e formatar relatórios.
   
+### 🛠️ Corrigido
+- Otimização de filtros complexos para serem delegáveis.
+- Correções em conversões de tipo (Datas, Números, Booleanos) no Power Automate.
+
 ### 🔧 Alterado
 - Redefinição do escopo do Power App como ferramenta de consulta.
 - Lógica do fluxo principal do Moodle ajustada para consultar `LST_Usuarios_SAE`.
 
 ### ❌ Removido
 - Remoção das funcionalidades de criação/edição de usuários e cursos nas listas principais.
-
-### 🛠️ Corrigido
-- Otimização de filtros complexos para serem delegáveis.
-- Correções em conversões de tipo (Datas, Números, Booleanos) no Power Automate.
 
 ---
 ## [068] – 2025-07-31
