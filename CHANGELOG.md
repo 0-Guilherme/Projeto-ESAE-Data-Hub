@@ -4,9 +4,9 @@ Este documento registra todas as mudanças relevantes realizadas no projeto, org
 
 Cada versão representa um conjunto de entregas que podem envolver múltiplos componentes do sistema, como telas do aplicativo, listas do SharePoint, fluxos automatizados, scripts de pré-processamento e integrações com Power BI. O objetivo é garantir rastreabilidade, facilitar auditorias técnicas e apoiar a evolução contínua da solução.
 
-Os históricos de alterações relacionaos aos scripts, pode ser localizado dentro do próprio script.
+Os históricos de alterações relacionados aos scripts, estão disponíveis na pasta abaixo:
 
-  * ➡️ [Documentação - Office Scripts](https://github.com/0-Guilherme/Projeto-ESAE-Data-Hub/tree/main/Documentacao/Scripts)
+  * ➡️ [.Documentação/Scripts - Office Scripts](https://github.com/0-Guilherme/Projeto-ESAE-Data-Hub/tree/main/Documentacao/Scripts)
 
 ---
 
