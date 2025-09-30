@@ -22,21 +22,20 @@ Cada versão representa um conjunto de entregas que podem envolver múltiplos co
 
 Este documento descreve o roteiro de desenvolvimento para futuras versões do sistema, focando em agregar valor, robustez e novas funcionalidades à base já construída.
 
-### 🆕 Adicionado
+### 🆕 Adicionar
 - [ ] **Ferramenta de Mesclagem de Lotações:** Nova tela no Power App e fluxo associado para permitir que administradores corrijam e unifiquem registros de lotações duplicados.
 - [ ] **Filtros Adicionais na Tela de Conclusões:** Implementar novos filtros na `TelaConclusoesRecentes` (ex: "Este Mês", "Últimos 7 dias") para facilitar a análise dos gestores.
 - [ ] **Botão de Acesso ao Power BI:** Adicionar um botão na `tela_inicial` para abrir o relatório completo no Power BI (`Launch()` function).
 - [ ] **Manual do Usuário:** Criar um guia inicial para os usuários entenderem como as bases de dados e o sistema funcionam.
+- [ ] **Fluxo de Ingestão AJS-NS:** Desenvolver um novo fluxo de trabalho para processar a lista de AJS-NS, que é recebida em um formato diferente (apenas nomes). O fluxo precisará buscar e validar os e-mails no Microsoft 365.
+- [ ] **Fluxo de Ingestão Coordenadores Setoriais:** Desenvolver um novo fluxo de trabalho para processar a lista de Coordenadores das Setoriais.
 
-### ✅ Melhorado
+
+### ✅ Melhorar
 - [ ] **Interface Gráfica Responsiva:** Refatorar as telas restantes do Power App utilizando Contêineres de Layout para garantir a adaptabilidade a dispositivos móveis em modo vertical.
 - [ ] **Tratamento de Erros Avançado:** Implementar um sistema de notificação por e-mail no Power Automate para alertar administradores sobre falhas na execução dos fluxos.
 - [ ] **Otimizar Fluxo de Ingestão de Usuários:** Continuar a otimização do fluxo, com foco em reduzir a redundância e o número de chamadas para garantir que não exceda os limites diários da plataforma.
 - [ ] **Conexão Direta do Power BI:** Adequar as bases de dados dos dashboards do Power BI para se conectarem diretamente às listas do SharePoint.
-
-### 🆕 Novo
-- [ ] **Fluxo de Ingestão AJS-NS:** Desenvolver um novo fluxo de trabalho para processar a lista de AJS-NS, que é recebida em um formato diferente (apenas nomes). O fluxo precisará buscar e validar os e-mails no Microsoft 365.
-- [ ] **Fluxo de Ingestão Coordenadores Setoriais:** Desenvolver um novo fluxo de trabalho para processar a lista de Coordenadores das Setoriais.
 
 ---
 ## Work in Progress
