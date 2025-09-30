@@ -6,7 +6,7 @@ Cada versão representa um conjunto de entregas que podem envolver múltiplos co
 
 Os históricos de alterações relacionados aos scripts, estão disponíveis na pasta abaixo:
 
-  * ➡️ [.Documentação/Scripts - Office Scripts](https://github.com/0-Guilherme/Projeto-ESAE-Data-Hub/tree/main/Documentacao/Scripts)
+  * ➡️ [.Documentacao/Scripts](https://github.com/0-Guilherme/Projeto-ESAE-Data-Hub/tree/main/Documentacao/Scripts)
 
 ---
 
