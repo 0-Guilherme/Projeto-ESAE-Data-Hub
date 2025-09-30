@@ -50,7 +50,8 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 - ✅ Documentar a descrição e especificação para a montagem de cada fluxo do power automate.
 - ✅ Criação do manual inicial para orientar usuários sobre funcionamento das bases e dados.
 - ✅ Distribuir as descrições dos arquivos no github para cada área, dividindo a documentação que antes estava centralizada.
-- ✅ Adicionado documentação fr concepção do projeto, como diagramas e arquivos.
+- ✅ Documentação de concepção do projeto, como diagramas e arquivos.
+- ✅ Explicação da normalização dos dados nas Listas do Sharepoint.
 
 ### 🛠️ Corrigido
 - Ajustado as fórmulas para a inclusão das datas de conclusão dos usuarios, o fluxo do power automate não reconhecia as datas de conclusão em algumas circunstâncias.
