@@ -6,7 +6,7 @@ Cada versão representa um conjunto de entregas que podem envolver múltiplos co
 
 Os históricos de alterações relacionaos aos scripts, pode ser localizado dentro do próprio script.
 
-  ** ➡️ [Documentação - Office Scripts](.Documentacao/Scripts)
+  ** ➡️ [Documentação - Office Scripts](.Documentacao/Scripts/)
 
 ---
 
