@@ -64,3 +64,52 @@ A camada de dados foi implementada utilizando **Listas do SharePoint Online**, c
 | `StatusAluno` | Escolha (Choice) | Status da matrícula. **Opções:** `Inscrito`, `Concluído`. |
 | `FK_Usuario_in_Text` | Texto Simples | **Otimização:** Cópia em texto do `ID` do usuário. Usado para filtros delegáveis. |
 | `FK_Curso_in_Text` | Texto Simples | **Otimização:** Cópia em texto do `ID` do curso. Usado para filtros delegáveis. |
+
+---
+
+# Análise da Arquitetura de Dados: Normalização
+
+A camada de dados do sistema, implementada com **Listas do SharePoint Online**, foi projetada para simular um modelo de banco de dados relacional. Para garantir a integridade, escalabilidade e facilidade de manutenção, a estrutura segue os princípios de normalização de dados, estendendo-se até a Terceira Forma Normal (3FN).
+
+---
+
+### Primeira Forma Normal (1FN): Organização e Atomicidade
+
+A 1FN é a fundação de um banco de dados relacional, garantindo que os dados sejam organizados de forma atômica e não repetitiva.
+
+* **Valores Atômicos:** Cada célula em todas as listas do projeto (`LST_Usuarios`, `LST_Cursos`, etc.) foi projetada para armazenar um **único valor**. Não há campos que contenham listas de informações (ex: múltiplos e-mails em uma única célula).
+
+* **Ausência de Grupos Repetidos:** A criação da lista de junção **`LST_Usuarios-Cursos`** é o principal exemplo de conformidade com a 1FN.
+    * **Abordagem Incorreta (Violaria a 1FN):** Ter colunas como `Curso1`, `DataConclusao1`, `Curso2`, `DataConclusao2` na lista `LST_Usuarios`. Isso limitaria o número de cursos por aluno e tornaria as consultas (`"quantos alunos fizeram o curso X?"`) extremamente complexas.
+    * **Nossa Abordagem Correta:** Para cada nova conclusão, criamos uma nova **linha** na `LST_Usuarios-Cursos`. Isso permite um número infinito de conclusões por aluno e simplifica drasticamente a análise de dados.
+
+---
+
+### Segunda Forma Normal (2FN): Dependência Funcional Completa
+
+A 2FN foca na lógica dos relacionamentos, garantindo que cada atributo de uma tabela dependa da **chave primária completa**.
+
+* **Exemplo Principal:** A nossa tabela de junção, a `LST_Usuarios-Cursos`.
+* **Chave Composta:** A chave que identifica unicamente um registro nesta lista é a **combinação** de `FK_Usuario` + `FK_Curso_ID`.
+* **Como Cumprimos:** O campo `Data_Conclusao` nesta lista depende funcionalmente tanto do **usuário** quanto do **curso**. Não faria sentido existir uma data de conclusão sem uma dessas duas informações.
+    * **Abordagem Incorreta (Violaria a 2FN):** Se colocássemos o `NomeCompleto` do usuário diretamente na lista `LST_Usuarios-Cursos`. O nome depende apenas do `FK_Usuario`, e não da chave completa. Isso criaria uma redundância massiva de dados (o mesmo nome de usuário repetido para cada curso que ele conclui). Nosso design evita isso ao manter o nome em um único local: na `LST_Usuarios`.
+
+---
+
+### Terceira Forma Normal (3FN): Sem Dependências Transitivas
+
+A 3FN é o nível de otimização que nos dá a maior flexibilidade de manutenção, eliminando dependências indiretas entre os campos.
+
+* **Exemplo Principal:** A criação da lista **`LST_Lotacoes`**.
+* **Como Cumprimos:**
+    * **Abordagem Incorreta (Violaria a 3FN):** Poderíamos ter colocado a `Lotacao` como um simples campo de texto na `LST_Usuarios`. Isso funcionaria inicialmente, mas criaria um grande problema de manutenção: se o nome de uma lotação mudasse (ex: de "DA" para "Departamento de Administração"), teríamos que encontrar e **atualizar manualmente todos os registros de usuário** que pertencem àquela lotação.
+    * **Nossa Abordagem Correta:** Ao criar uma lista separada `LST_Lotacoes` e usar uma coluna de **Pesquisa (Lookup)**, removemos esta "dependência transitiva". Agora, a lotação de um usuário depende apenas do `ID` da lotação. Se o nome da lotação mudar, nós o alteramos em **um único lugar** (`LST_Lotacoes`), e a alteração reflete-se automaticamente em todos os usuários vinculados.
+
+---
+
+### Conclusão
+
+A arquitetura de dados do projeto, ao seguir estes princípios de normalização, garante que o sistema seja:
+* **Escalável:** Pode crescer para milhares de registros sem perder a organização.
+* **Fácil de Manter:** Alterações em entidades (como o nome de um curso ou de uma lotação) são feitas em um único local.
+* **Íntegro:** As regras de negócio e os relacionamentos garantem a consistência e a confiabilidade dos dados a longo prazo.
