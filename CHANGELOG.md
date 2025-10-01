@@ -55,15 +55,17 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 
 ### 🛠️ Corrigido
 - Ajustado as fórmulas para a inclusão das datas de conclusão dos usuarios, o fluxo do power automate não reconhecia as datas de conclusão em algumas circunstâncias.
-- Incluir botão para abrir o BI completo (comando e telas prontas).
-- Adequar bases dos dashboards do BI para conexão direta ao SharePoint.
-- Rodar novamente a ingestão de dados para atualizar colunas, período já efetuado: (01/08/2025-22/09/2025)(01/07/2025-01/08/2025) | rodando: (01/06/2025-01/07/2025)
 - Agendamento do Moodle ainda é manual; após normalização, configurar execução diária às 6h.
 
-### 📌 Notas de Desenvolvimento
-- inicio dos novos dashboards para o BI 2025-09-29
-- criar um dashboard para visualizar horas de capacitação por mes, quadrimestre, entre outros pontos de gestão.
-- manter as relações já construidas no dash anterior
+### 📌 Notas
+- **DASHBOARDS**
+      - inicio dos novos dashboards para o BI 2025-09-29
+      - criado novo dashboard, ainda em estado inicial, mas já esta conectado diretamente ao sharepoint, com colunas DAX para referências e calculos precisos em relações a cada informação
+      - incluir botão para abrir o BI completo (comando e telas prontas).
+      - criar um dashboard para visualizar horas de capacitação por mes, quadrimestre, entre outros pontos de gestão.
+      - manter as relações já construidas no dash anterior
+  
+- Ingestão de dados já foi rodada novamente, para atualização e verificação das tabelas e listas
 - planejar como será atendida as demandas e cálculos de cursos externos à plataforma moodle (forms, fluxo, ...)
   
 ---
