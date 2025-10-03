@@ -4,13 +4,6 @@
 Criar um dashboard inteligente e flexível para acompanhar inscrições e conclusões de alunos ao longo do tempo, com recortes por **Ano**, **Semestre** e **Quadrimestre**, usando uma única tabela de calendário como base de filtragem.
 
 ---
-
-### Imagem do Dashboard
-Abaixo segue a imagem do dashboard sem thema customizado e sem o fundo personalizado. Utilziando tema disponível no Power BI nativo.
-
-![Dashboard Power BI](Imagens/17.jpg)
-
----
 ## Resultado Final
 
 Um dashboard **limpo**, **flexível** e **inteligente**, com:
@@ -20,11 +13,16 @@ Um dashboard **limpo**, **flexível** e **inteligente**, com:
 - ✅ Navegação intuitiva por período com uso de marcadores e botões  
 - ✅ Interface centrada na experiência e demandas dos usuários
 
+### Dashboard
+
+![Dashboard Power BI](Imagens/17.jpg)
+
 ---
 ## Próximas Atualizações
 
 * Adicionar **Distribuiução por lotação** , para análises mais precisas em relação a cada equipe. Problema: o nome das equipes não é padronizado.
 * Adicionar números do campo amostral para comparativos diretos. Necessário pedir a administração com acesso a base de dados atual.
+* Testar o método de título dinâmico para preenchimento de acordo com o filtro utilizado.
 
 ---
 ## 📚 Estrutura de Dados (Modelo Semântico)
