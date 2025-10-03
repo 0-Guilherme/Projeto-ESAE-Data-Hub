@@ -32,18 +32,26 @@ ADDCOLUMNS (
 )
 ```
 
-## 🔗 Relacionamentos no Modelo
+## 🔗 Relacionamentos no Modelo do Power BI
+
+A arquitetura do modelo de dados no Power BI foi projetada para permitir análises complexas e performáticas, conectando as tabelas de fatos (eventos) com as de dimensão (contexto).
+
+### Relacionamentos Temporais (Análise de Datas)
 
 Para permitir a análise por duas datas diferentes (**inscrição** e **conclusão**) a partir da mesma tabela de fatos, a seguinte estratégia de relacionamentos foi utilizada:
 
-- `dCalendario[Date]` → `LST_Usuarios-Cursos[Data_Inscricao]` (**Relação Ativa**)  
+- `dCalendario[Date]` → `LST_Usuarios-Cursos[Data_Inscricao]` (**Relação Ativa**)
 - `dCalendario[Date]` → `LST_Usuarios-Cursos[Data_Conclusao]` (**Relação Inativa**)
 
-A relação inativa é ativada sob demanda dentro das medidas DAX utilizando a função `USERELATIONSHIP`.
+A relação inativa é ativada sob demanda dentro das medidas DAX utilizando a função `USERELATIONSHIP`, o que permite que a mesma tabela de calendário filtre os dados por duas perspectivas de tempo diferentes.
 
-Além dos relacionamentos temporais com a tabela de calendário, os seguintes vínculos formam a espinha dorsal do modelo de dados, conectando as tabelas de fatos (eventos) com as de dimensão (contexto).
+---
 
-### 🔹 Relação: Conclusões → Usuários
+### Relacionamentos Estruturais (Vínculos de Dados)
+
+Os seguintes vínculos formam a espinha dorsal do modelo de dados.
+
+#### 🔹 Relação: Conclusões → Usuários
 Conecta cada registro de inscrição/conclusão ao participante correspondente.
 
 * **Tabela de Origem (Muitos):** `LST_Usuarios-Cursos`
@@ -51,9 +59,9 @@ Conecta cada registro de inscrição/conclusão ao participante correspondente.
 * **Tabela de Destino (Um):** `LST_Usuarios`
 * **Coluna de Destino:** `ID_Text` *(Coluna calculada que converte o ID numérico para texto)*
 * **Cardinalidade:** Muitos para Um (`*..1`)
-* **Propósito:** Permite que os filtros aplicados a um usuário (como sua lotação ou tipo) se propaguem para suas respectivas inscrições e conclusões, possibilitando análises como "quantos cursos os servidores concluíram?".
+* **Propósito:** Permite que os filtros aplicados a um usuário (como sua lotação ou tipo) se propaguem para suas respectivas inscrições e conclusões.
 
-### 🔹 Relação: Conclusões → Cursos
+#### 🔹 Relação: Conclusões → Cursos
 Conecta cada registro de inscrição/conclusão ao curso correspondente.
 
 * **Tabela de Origem (Muitos):** `LST_Usuarios-Cursos`
@@ -61,9 +69,9 @@ Conecta cada registro de inscrição/conclusão ao curso correspondente.
 * **Tabela de Destino (Um):** `LST_Cursos`
 * **Coluna de Destino:** `PK_ID_Curso_Text` *(Coluna calculada que converte o ID numérico para texto)*
 * **Cardinalidade:** Muitos para Um (`*..1`)
-* **Propósito:** Permite que os filtros aplicados a um curso (como sua categoria) se propaguem para todos os seus participantes, possibilitando análises como "quantas inscrições tivemos na categoria 'Cursos'?".
+* **Propósito:** Permite que os filtros aplicados a um curso (como sua categoria) se propaguem para todos os seus participantes.
 
-### 🔹 Relação: Usuários → Lotações
+#### 🔹 Relação: Usuários → Lotações
 Conecta cada usuário à sua lotação oficial, permitindo agrupar e analisar os dados por departamento.
 
 * **Tabela de Origem (Muitos):** `LST_Usuarios`
@@ -71,15 +79,15 @@ Conecta cada usuário à sua lotação oficial, permitindo agrupar e analisar os
 * **Tabela de Destino (Um):** `LST_Lotacoes`
 * **Coluna de Destino:** `ID`
 * **Cardinalidade:** Muitos para Um (`*..1`)
-* **Propósito:** Fundamental para a criação de análises de engajamento por lotação, como o gráfico de "Lotações Mais Ativas".
+* **Propósito:** Fundamental para a criação de análises de engajamento por lotação.
 
-### 🔹 Relação Virtual: Usuários → Usuários SAE
+#### 🔹 Relação Virtual: Usuários → Usuários SAE
 A relação entre os usuários do Moodle e os da lista SAE é gerenciada de forma virtual, através de medidas DAX, para máxima flexibilidade.
 
 * **Tabelas Envolvidas:** `LST_Usuarios` e a tabela calculada `SAE_Limpo`.
 * **Chave de Ligação:** A coluna `Email` em ambas as tabelas.
 * **Método:** A função **`TREATAS`** é utilizada dentro de medidas `CALCULATE` para criar um relacionamento "em tempo real" durante o cálculo.
-* **Propósito:** Permite cruzar dados e criar métricas como a "Contagem de Alunos Únicos (SAE)", filtrando os participantes dos cursos com base em uma lista de referência externa, sem a necessidade de criar um relacionamento físico no modelo que poderia ser complexo.
+* **Propósito:** Permite cruzar dados e criar métricas como a "Contagem de Alunos Únicos (SAE)", filtrando os participantes dos cursos com base em uma lista de referência externa, sem a necessidade de criar um relacionamento físico no modelo.
 
 ---
 
