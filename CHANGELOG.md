@@ -28,9 +28,8 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 
 ### 🆕 Adicionar
 - [ ] **Ferramenta de Mesclagem de Lotações:** Nova tela no Power App e fluxo associado para permitir que administradores corrijam e unifiquem registros de lotações duplicados.
-- [ ] **Filtros Adicionais na Tela de Conclusões:** Implementar novos filtros na `TelaConclusoesRecentes` (ex: "Este Mês", "Últimos 7 dias") para facilitar a análise dos gestores.
-- [ ] **Botão de Acesso ao Power BI:** Adicionar um botão na `tela_inicial` para abrir o relatório completo no Power BI (`Launch()` function).
-- [ ] **Manual do Usuário:** Criar um guia inicial para os usuários entenderem como as bases de dados e o sistema funcionam.
+- [ ] **Filtros Adicionais na Tela de Conclusões:** Implementar novos filtros na `TelaConclusoesRecentes` dentro do Power Apps (ex: "Este Mês", "Últimos 7 dias") para facilitar a análise dos gestores.
+- [ ] **Manual do Usuário:** Criar um guia inicial para os usuários entenderem como as bases de dados e o sistema como um todo funciona.
 - [ ] **Fluxo de Ingestão AJS-NS:** Desenvolver um novo fluxo de trabalho para processar a lista de AJS-NS, que é recebida em um formato diferente (apenas nomes). O fluxo precisará buscar e validar os e-mails no Microsoft 365.
 - [ ] **Fluxo de Ingestão Coordenadores Setoriais:** Desenvolver um novo fluxo de trabalho para processar a lista de Coordenadores das Setoriais.
 
@@ -38,41 +37,92 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 ### ✅ Melhorar
 - [ ] **Interface Gráfica Responsiva:** Refatorar as telas restantes do Power App utilizando Contêineres de Layout para garantir a adaptabilidade a dispositivos móveis em modo vertical.
 - [ ] **Tratamento de Erros Avançado:** Implementar um sistema de notificação por e-mail no Power Automate para alertar administradores sobre falhas na execução dos fluxos.
-- [ ] **Otimizar Fluxo de Ingestão de Usuários:** Continuar a otimização do fluxo, com foco em reduzir a redundância e o número de chamadas para garantir que não exceda os limites diários da plataforma.
-- [ ] **Conexão Direta do Power BI:** Adequar as bases de dados dos dashboards do Power BI para se conectarem diretamente às listas do SharePoint.
-
----
-## Work in Progress
-
-**Notas para a nova versão - Versão atual: 204**
-
-### 🆕 Adicionado
-- ✅ Documentar a descrição e especificação para a montagem de cada fluxo do power automate.
-- ✅ Criação do manual inicial para orientar usuários sobre funcionamento das bases e dados.
-- ✅ Distribuir as descrições dos arquivos no github para cada área, dividindo a documentação que antes estava centralizada.
-- ✅ Documentação de concepção do projeto, como diagramas e arquivos.
-- ✅ Explicação da normalização dos dados nas Listas do Sharepoint.
-
-### 🛠️ Corrigido
-- Ajustado as fórmulas para a inclusão das datas de conclusão dos usuarios, o fluxo do power automate não reconhecia as datas de conclusão em algumas circunstâncias.
-- Agendamento do Moodle ainda é manual; após normalização, configurar execução diária às 6h.
+- [ ] **Otimizar Fluxo de Ingestão de Usuários:** Continuar a otimização do fluxo, com foco em reduzir a redundância e o número de chamadas.
 
 ### 📌 Notas
-- **DASHBOARDS**
-      - inicio dos novos dashboards para o BI 2025-09-29
-      - criado novo dashboard, ainda em estado inicial, mas já esta conectado diretamente ao sharepoint, com colunas DAX para referências e calculos precisos em relações a cada informação
-      - incluir botão para abrir o BI completo (comando e telas prontas).
-      - criar um dashboard para visualizar horas de capacitação por mes, quadrimestre, entre outros pontos de gestão.
-      - manter as relações já construidas no dash anterior
-  
-- Ingestão de dados já foi rodada novamente, para atualização e verificação das tabelas e listas
-- planejar como será atendida as demandas e cálculos de cursos externos à plataforma moodle (forms, fluxo, ...)
-  
+- [ ] planejar como será atendida as demandas e cálculos de cursos externos à plataforma moodle (forms, fluxo, ...)
+- [ ] pensar em como concatenar ou definir as lotações, uma vez que não temos uma padronização dos nomes.
+- [ ] agendamento do Moodle ainda é manual; após normalização, duplicar o agendamento para rodar com as inscrições e conclusões diárias às 6h.
+
+---
+
+
+## [Não Lançado]
+
+### 📝 Em Andamento (WIP) -
+## [Não Lançado] - Planejamento para Próximas Versões
+
+Esta seção descreve o roteiro de desenvolvimento (roadmap) para a próxima versão, incluindo suas novas funcionalidades e correções.
+
+#### Incluir Novas Funcionalidades
+
+- [ ] **Ferramenta de Mesclagem de Lotações:**
+    - **Objetivo:** Construir uma nova tela no Power App e um fluxo de suporte no Power Automate. A ferramenta permitirá que um administrador selecione múltiplas lotações com nomes inconsistentes (ex: "PGE-GAB", "Gabinete") e uma lotação "correta", unificando todos os usuários sob o registro correto.
+    - **Valor:** Garante a integridade dos dados e a precisão das análises por departamento no Power BI.
+
+- [ ] **Fluxo de Ingestão (AJS-NS e Coordenadores):**
+    - **Objetivo:** Desenvolver novos fluxos de trabalho no Power Automate para processar estas listas, que são recebidas em formatos diferentes (muitas vezes, apenas com nomes). O fluxo precisará buscar e validar os e-mails no Microsoft 365.
+    - **Valor:** Automatiza a ingestão de novas fontes de dados SAE, eliminando o trabalho manual e expandindo o alcance do sistema.
+
+#### Melhorias de Robustez e Usabilidade
+
+- [ ] **Tratamento de Erros Avançado:**
+    - **Objetivo:** Implementar um sistema de notificação por e-mail nos fluxos do Power Automate.
+    - **Valor:** Alerta os administradores proativamente sobre falhas na execução dos fluxos, aumentando a confiabilidade do sistema e permitindo uma resolução de problemas mais rápida.
+- [ ] **Interface Gráfica Responsiva:**
+    - **Objetivo:** Continuar o trabalho de refatoração das telas restantes do Power App (como as telas de detalhes e de gestão) utilizando Contêineres de Layout.
+    - **Valor:** Garante que o aplicativo tenha uma experiência de usuário funcional e profissional em dispositivos móveis.
+- [ ] **Filtros Adicionais na Tela de Conclusões:**
+    - **Objetivo:** Adicionar mais opções de filtro pré-definidas (ex: "Este Mês", "Últimos 7 dias") na `TelaConclusoesRecentes`.
+    - **Valor:** Aumenta o poder de análise da tela de relatórios, facilitando o trabalho dos gestores.
+
+
+```
+### 🆕 Adicionado
+-
+
+### 🛠️ Corrigido
+-
+
+### 📌 Notas
+-
+```
+
+---
+
+## [205] - 2025-10-03
+
+**Todas as tarefas para a próxima versão já foram atendidas! Documentação  em verificação e Deploy na próxima Semana!!!!!**
+
+Esta versão representa um marco significativo no projeto, com a conclusão de toda a documentação da arquitetura, a finalização da segunda versão do dashboard de BI no Power BI e a implementação de correções críticas nos fluxos de automação.
+
+### 🆕 Adicionado
+
+- **Documentação Abrangente do Projeto:**
+    - **Arquitetura de Dados:** Criada a documentação detalhada para cada lista do SharePoint, explicando o propósito de cada coluna e a lógica de normalização de dados (1FN, 2FN, 3FN).
+    - **Análise Técnica dos Fluxos:** Desenvolvida a documentação para cada um dos fluxos principais do Power Automate (`Sincronizar Moodle`, `Sincronizar SAE`, `Auditor`), detalhando cada etapa, lógica de condição e expressões utilizadas.
+    - **Manual do Usuário:** Criado o primeiro manual de operações, orientando os administradores sobre como executar os fluxos de sincronização e utilizar as ferramentas do sistema.
+- **Desenvolvimento e Integração do Dashboard de BI (Power BI):**
+    - **Modelo Semântico Robusto:** Construído um novo modelo semântico no Power BI, conectando-se diretamente às listas do SharePoint.
+    - **Medidas DAX Avançadas:** Implementadas múltiplas medidas DAX para análises de performance, incluindo `Total de Inscrições`, `Total de Conclusões`, `Total de Horas Concluídas`, `Contagem de Alunos Únicos` e `Taxa de Conclusão`.
+    - **Análise Temporal:** Criada uma tabela de calendário (`dCalendario`) com colunas calculadas para permitir análises por Ano, Semestre e Quadrimestre.
+    - **Interatividade:** O dashboard agora inclui navegação por marcadores (`bookmarks`) e um título dinâmico que reflete o período selecionado.
+- **Integração Power Apps ↔ Power BI:**
+    - Adicionado um botão na tela principal do Power App que utiliza a função `Launch()` para abrir o relatório completo do Power BI em uma nova aba do navegador, integrando as duas plataformas.
+
+### 🔧 Alterado
+
+- **Estrutura do Repositório (GitHub):** A documentação, que antes estava centralizada em um único arquivo, foi distribuída em múltiplos arquivos `.md` (`README.md`, `CHANGELOG.md`, `TELAS.md`, `ARQUITETURA.md`), seguindo as melhores práticas de gerenciamento de projetos.
+
+### 🛠️ Corrigido
+
+- **Processamento de Datas nos Fluxos:** Corrigida a lógica de ingestão de datas de conclusão no Power Automate. A fórmula agora utiliza uma expressão `if/addDays` robusta, que lida com células vazias e converte corretamente as datas que vêm do Excel no formato de "número de série", eliminando os erros de `ParameterTypeConversionFailed`.
+
 ---
 ## [202] - 2025-09-12
 
 ### 🆕 Adicionado
-- **Gráficos no Dashboard:** Inclusão de gráficos de colunas e pizza para análise de cursos e distribuição de usuários.
+- **Gráficos no Dashboard:** Inclusão de gráfico simplificado no Aplicativo, no formato de linhas para análise de cursos e distribuição de usuários.
 - **Fluxo "Auditor" de Consistência de Dados:** Verifica divergências entre `LST_Usuarios` e `LST_Usuarios_SAE`, atualizando a coluna `ValidarSAE` com alertas como "AdicionarSAE" ou "RemoverSAE".
 - **TelaAuditoria no Power App:** Exibe usuários com inconsistências, com filtros e navegação para `TelaDetalhesUsuarioSAE`.
   
