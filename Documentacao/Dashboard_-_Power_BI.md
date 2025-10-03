@@ -1,11 +1,11 @@
-# 📊 Dashboard de Inscrições e Conclusões por Período
+# Dashboard de Inscrições e Conclusões por Período
 
-## 🧠 Objetivo
+## 🎯 Objetivo
 Criar um dashboard inteligente e flexível para acompanhar inscrições e conclusões de alunos ao longo do tempo, com recortes por **Ano**, **Semestre** e **Quadrimestre**, usando uma única tabela de calendário como base de filtragem.
 
 ---
 
-## 🧱 Estrutura de Dados
+## 📚 Estrutura de Dados
 
 ### 🔹 Tabelas Envolvidas
 * **Tabela Fato:** `LST_Usuarios-Cursos` (a lista que contém todos os registros de inscrições e conclusões).
@@ -43,7 +43,7 @@ A relação inativa é ativada sob demanda dentro das medidas DAX utilizando a f
 
 ---
 
-## 📐 Medidas Criadas (DAX)
+## 📄 Medidas Criadas (DAX)
 
 ### ✅ Total de Inscrições
 
