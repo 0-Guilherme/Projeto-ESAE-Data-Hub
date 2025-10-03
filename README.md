@@ -34,7 +34,7 @@ Ele resolve o desafio de um processo anteriormente manual, demorado e sujeito a 
 * ✅ **Automação de ETL de Ponta a Ponta:** Automatiza todo o processo de Extração, Transformação (limpeza com Office Scripts) e Carga (sincronização com SharePoint via Power Automate).
 * ✅ **Gestão e Visualização 360°:** Permite a visualização, pesquisa e filtragem do histórico de usuários e suas participações em cursos.
 * ✅ **Sincronização Inteligente:** Gerencia o ciclo de vida dos registros, realizando operações de criação, atualização e inativação de forma automática.
-* ✅ **Análise e Dashboards:** Oferece um cockpit de controle (Power App) com visões gerenciais, gráficos interativos e KPIs.
+* ✅ **Análise e Dashboards:** Oferece um cockpit de controle (Power BI) com visões gerenciais, gráficos interativos e KPIs.
 * ✅ **Auditoria de Dados:** Inclui funcionalidades e automações para reconciliar dados de diferentes fontes.
 * ✅ **Fluxo da CGAJAPDI:** Automação completa para o processamento da lista de usuários SAE.
 
@@ -44,7 +44,7 @@ Ele resolve o desafio de um processo anteriormente manual, demorado e sujeito a 
 
 * ✅ **Automação Completa de Relatórios do Moodle**: Relatórios são processados e incluídos na base de dados de forma automática, prontos para serem consumidos por outros componentes da rede.
 * ✅ **Automação Completa do Fluxo da CGAJAPDI**: Redução de 98% no tempo de processamento e verificação da lista de usuários, que antes era manual e demorava dias, para poucos minutos.
-* ✅ **Relatórios de Power BI Atualizados**: Gestores agora têm conexão com uma base padronizada para atualização dos dashboards do Power BI, podendo verificar estatísticas iniciais dentro do próprio Power App.
+* ✅ **Relatórios de Power BI Atualizados**: Gestores agora têm conexão com uma base padronizada para atualização dos dashboards do Power BI, podendo verificar estatísticas a partir dos dados tratados com fórmulas DAX.
 
 ---
 
