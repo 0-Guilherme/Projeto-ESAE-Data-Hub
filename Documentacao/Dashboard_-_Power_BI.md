@@ -49,7 +49,9 @@ A relação inativa é ativada sob demanda dentro das medidas DAX utilizando a f
 
 Esta medida utiliza o relacionamento ativo por padrão, sendo um cálculo direto:
 
+```
 Total de Inscrições = COUNTROWS('LST_Usuarios-Cursos')
+```
 
 ### ✅ Conclusões
 
