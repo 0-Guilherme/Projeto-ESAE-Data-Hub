@@ -114,18 +114,23 @@ Esta seção documenta áreas que exigem monitoramento e possíveis melhorias fu
 
 ---
 
-## 📄 Documentação Detalhada
+## 📄 Documentação Técnica
 
 Toda a documentação técnica e funcional do projeto foi separada em arquivos específicos para maior clareza e organização.
 
 * **➡️ [Documentação Inicial do Projeto](./Documentacao/projeto_inicial_esae_data_hub.pdf):** Contém os detalhes da documentação de concepção do projeto.
-* **➡️ [Documentação da Arquitetura](./Documentacao/Arquitetura_de_dados.md):** Contém os detalhes do Banco de Dados (listas do SharePoint) e a descrição técnica dos fluxos do Power Automate.
-* **➡️ [Documentação das Telas](./Documentacao/Telas_do_aplicativo.md):** Contém a descrição funcional de cada uma das 20+ telas do Power App, com suas lógicas e imagens.
+* **➡️ [Arquitetura de Dados](./Documentacao/Arquitetura_de_dados.md):** Detalha o Banco de Dados (listas do SharePoint).
+* **➡️ [Telas do PowerAPPs](./Documentacao/Telas_do_aplicativo.md):** Contém a descrição funcional de cada uma das 15+ telas do Power App, com suas lógicas e imagens.
+* **➡️ [Dashboard em Power BI](./Documentacao/Dashboard_-_Power_BI.md):** Detalha a modelagem de dados, funções DAX utilizadas e as metodologias aplicadas na construção do painel.
 * **➡️ [Histórico de Alterações (CHANGELOG)](./CHANGELOG.md):** Registra todas as mudanças e novas funcionalidades a cada versão.
 * **➡️ [Problemas Conhecidos (KNOWN_ISSUES)](./KNOWN_ISSUES.md):** Lista as limitações atuais e o roadmap de correções e melhorias.
-* **➡️ [Descrição Detalhada do Fluxo Auditor](./Documentacao/Fluxo_Auditor.md):** Descrição de funcionamento e montagem do fluxo no power automate.
-* **➡️ [Descrição Detalhada do Fluxo SAE](./Documentacao/Fluxo_SAE.md):** Descrição de funcionamento e montagem do fluxo no power automate.
-* **➡️ [Descrição Detalhada do Fluxo Moodle](./Documentacao/Fluxo_Moodle.md):** Descrição de funcionamento e montagem do fluxo no power automate.
-* **➡️ [Office Script para o Fluxo Moodle](./Documentacao/PA-Usuarios-v2.ts):** Código completo com descrição versionamento e detalhes comentados
-* **➡️ [Office Script para o Fluxo SAE](./Documentacao/Scripts/PA-SAE-CGAJAPDI-Servidores-v2.ts):** Código completo com descrição versionamento e detalhes comentados
+
+### Power Automate
+* **➡️ [Fluxo Auditor](./Documentacao/Fluxo_Auditor.md):** Descrição de funcionamento e montagem do fluxo no power automate.
+* **➡️ [Fluxo SAE](./Documentacao/Fluxo_SAE.md):** Descrição de funcionamento e montagem do fluxo no power automate.
+* **➡️ [Fluxo Moodle](./Documentacao/Fluxo_Moodle.md):** Descrição de funcionamento e montagem do fluxo no power automate.
+
+### Office Scripts
+* **➡️ [Script Usuarios](./Documentacao/PA-Usuarios-v2.ts):** Código completo com descrição versionamento e detalhes comentados
+* **➡️ [Script Usuarios Externos](./Documentacao/Scripts/PA-SAE-CGAJAPDI-Servidores-v2.ts):** Código completo com descrição versionamento e detalhes comentados
 
