@@ -131,6 +131,6 @@ Um dashboard **limpo**, **flexível** e **inteligente**, com:
 
 ### 🖼️ Imagem do Dashboard
 
-![Dashboard Power BI](Documentacao/Imagens/17.jpg)
+![Dashboard Power BI](Imagens/17.jpg)
 
 ---
