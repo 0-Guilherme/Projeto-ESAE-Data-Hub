@@ -232,7 +232,7 @@ Para criar uma experiência de navegação fluida entre os recortes de tempo, fo
 
 ---
 
-### Título Dinâmico do Período - Falta testar e aplicar -
+### Título Dinâmico do Período
 
 Para que o usuário saiba sempre qual período está sendo analisado, foi criada uma medida DAX que gera um título dinâmico:
 
