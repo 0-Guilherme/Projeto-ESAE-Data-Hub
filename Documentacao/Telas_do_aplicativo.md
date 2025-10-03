@@ -190,55 +190,6 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 >
 > ![Tela 16](Imagens/16.jpg)
 
----
-
-**17. Dashboard de BI (Power BI) - Tela Inicial**
->
-> Tela principal do relatório no Power BI, que é integrado ao Power App. Apresenta os KPIs e os principais filtros.
->
-> * **Funções e Lógicas Principais:**
->     * A integração é feita no Power App com um botão que usa a função `Launch("https://app.powerbi.com/...")` para abrir o relatório no navegador.
->
-> ![Tela 17](Imagens/17.jpg)
-
----
-
-**18. Dashboard de BI - Análise Comparativa**
->
-> Vista do relatório no Power BI que permite o estudo de campo amostral, cruzando dados administrativos com os dados de participação em cursos.
->
-> * **Funções e Lógicas Principais:**
->     * A lógica de cruzamento de dados e os visuais são construídos com **DAX e Power Query** dentro do Power BI Desktop.
->
-> ![Tela 18](Imagens/18.jpg)
-
----
-
-**19. Dashboard de BI - Distribuição por Lotação**
->
-> Gráfico de barras ou pizza no Power BI que exibe a distribuição quantitativa de participantes por lotação.
->
-> * **Funções e Lógicas Principais:**
->     * Visual de gráfico no Power BI, utilizando as colunas de Lotação e a contagem de usuários.
->
-> ![Tela 19](Imagens/19.jpg)
-
----
-
-**20. Dashboard de BI - Distribuição por Cargo**
->
-> Análise visual no Power BI que mostra a distribuição de participantes por cargo.
->
-> * **Funções e Lógicas Principais:**
->     * Visual de gráfico no Power BI, utilizando as colunas de Cargo e a contagem de usuários.
->
-> ![Tela 20](Imagens/20.jpg)
-
----
-
-**21. Dashboard de BI - Análise Temporal**
->
-> Gráfico de linhas no Power BI que exibe a evolução do número de inscrições e conclusões ao longo do tempo.
 >
 > * **Funções e Lógicas Principais:**
 >     * Visual de gráfico de linhas no Power BI, utilizando as colunas de data e medidas de contagem (`COUNTROWS`) em DAX.
