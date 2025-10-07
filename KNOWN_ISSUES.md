@@ -10,11 +10,6 @@ Este documento rastreia bugs conhecidos, limitações de arquitetura e potenciai
 
 ---
 
-## Arquitetura de Dados 🟡
-- **Problema:** Os cursos no Moodle não possuem uma distinção clara entre diferentes turmas de uma mesma oferta. Um `ID_Curso` pode ter várias turmas com datas diferentes.
-- **Impacto:** Alto. Isso pode levar a uma contagem de alunos (`QtdAlunos`) incorreta na `LST_Cursos`, pois ela agrega todos os participantes de todas as turmas em um único número.
-- **Solução Planejada:** A análise de dados por turma deve ser realizada em uma ferramenta de BI externa (Power BI), onde é possível criar lógicas mais complexas para separar os participantes com base nas datas de início e conclusão. A estrutura de dados no SharePoint será mantida para agregação geral.
-
 ### Tratamento de Erros 🟡
 - **Problema:** O fluxo de ingestão principal foi construído para ser resiliente (continua mesmo que a busca no Teams falhe), mas não possui um sistema avançado para registrar ou notificar sobre cada linha individual do Excel que possa falhar por outros motivos (ex: uma lotação que não foi encontrada).
 - **Impacto:** Médio. Uma execução pode terminar com sucesso, mas algumas linhas podem não ter sido processadas.
