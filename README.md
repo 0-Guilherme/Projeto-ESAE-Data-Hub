@@ -22,9 +22,7 @@
 
 ## 🎯 Sobre o Projeto
 
-O **Data Hub ESAE** é uma plataforma integrada e automatizada, construída sobre o ecossistema Microsoft Power Platform. O sistema foi projetado para centralizar, limpar, gerenciar e analisar todos os dados de participação em cursos e eventos oferecidos pela instituição, transformando relatórios brutos de múltiplas fontes (Moodle, listas SAE) em uma base de dados única, confiável e interativa.
-
-Ele resolve o desafio de um processo anteriormente manual, demorado e sujeito a erros, que dependia de planilhas descentralizadas e dados inconsistentes.
+O **Data Hub ESAE** é uma plataforma de automação e análise de dados construída sobre o ecossistema Microsoft Power Platform. O projeto nasceu para resolver o desafio de um processo de consolidação de dados que era manual, demorado e sujeito a erros, **levando dias** para ser concluído. A solução automatizada transformou este cenário, **reduzindo o tempo de processamento em 98% (de dias para minutos)** e criando uma fonte de dados única, confiável e interativa para a gestão.
 
 ---
 
@@ -34,17 +32,16 @@ Ele resolve o desafio de um processo anteriormente manual, demorado e sujeito a 
 * ✅ **Automação de ETL de Ponta a Ponta:** Automatiza todo o processo de Extração, Transformação (limpeza com Office Scripts) e Carga (sincronização com SharePoint via Power Automate).
 * ✅ **Gestão e Visualização 360°:** Permite a visualização, pesquisa e filtragem do histórico de usuários e suas participações em cursos.
 * ✅ **Sincronização Inteligente:** Gerencia o ciclo de vida dos registros, realizando operações de criação, atualização e inativação de forma automática.
-* ✅ **Análise e Dashboards:** Oferece um cockpit de controle (Power BI) com visões gerenciais, gráficos interativos e KPIs.
+* ✅ **Análise e Dashboards:** Oferece um cockpit de controle em **Power BI** e **Power Apps** com visões gerenciais, gráficos interativos e KPIs.
 * ✅ **Auditoria de Dados:** Inclui funcionalidades e automações para reconciliar dados de diferentes fontes.
-* ✅ **Fluxo da CGAJAPDI:** Automação completa para o processamento da lista de usuários SAE.
 
 ---
 
-## 🚀 Resultados Obtidos
+## 🚀 Resultados de Impacto
 
-* ✅ **Automação Completa de Relatórios do Moodle**: Relatórios são processados e incluídos na base de dados de forma automática, prontos para serem consumidos por outros componentes da rede.
-* ✅ **Automação Completa do Fluxo da CGAJAPDI**: Redução de 98% no tempo de processamento e verificação da lista de usuários, que antes era manual e demorava dias, para poucos minutos.
-* ✅ **Relatórios de Power BI Atualizados**: Gestores agora têm conexão com uma base padronizada para atualização dos dashboards do Power BI, podendo verificar estatísticas a partir dos dados tratados com fórmulas DAX.
+* ✅ **Ganho de Eficiência Exponencial:** Automação de ponta a ponta do fluxo de processamento de dados, **reduzindo o tempo de execução de dias para minutos (-98%)** e eliminando horas de retrabalho manual da equipe.
+* ✅ **Agilidade na Tomada de Decisão:** Substituição de relatórios estáticos e demorados por dashboards em **Power BI conectados a uma base centralizada e confiável**, permitindo análises gerenciais em tempo quase real.
+* ✅ **Governança e Confiabilidade dos Dados:** Criação de uma **fonte única da verdade (Single Source of Truth)** para todos os dados de cursos e usuários, garantindo a consistência e a integridade das informações para toda a instituição.
 
 ---
 
