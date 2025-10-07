@@ -42,7 +42,7 @@ Este documento descreve o roteiro de desenvolvimento para futuras versões do si
 ### 📌 Notas
 - [ ] planejar como será atendida as demandas e cálculos de cursos externos à plataforma moodle (forms, fluxo, ...)
 - [ ] pensar em como concatenar ou definir as lotações, uma vez que não temos uma padronização dos nomes.
-- [ ] agendamento do Moodle ainda é manual; após normalização, duplicar o agendamento para rodar com as inscrições e conclusões diárias às 6h.
+
 
 ---
 
@@ -82,10 +82,10 @@ Esta seção descreve o roteiro de desenvolvimento (roadmap) para a próxima ver
 -
 
 ### 🛠️ Corrigido
--
+- [X] 06/10/25 Agendamento rodando diariamente: 02h para inscrições e 03h para conclusões
 
 ### 📌 Notas
--
+- 
 ```
 
 ---
