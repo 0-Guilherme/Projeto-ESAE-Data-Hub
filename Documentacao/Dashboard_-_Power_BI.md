@@ -38,7 +38,7 @@ O resultado são dashboards com indicadores objetivos, gráficos de distribuiç�
 * **`LST_Lotacoes` (Dimensão):** Lista com o nome de todas as lotações únicas.
 * **`LST_Usuarios-Cursos` (Fato):** Tabela central que registra todos os eventos de inscrição e conclusão, conectando as dimensões.
 * **`dCalendario` (Dimensão):** Tabela de calendário, criada via DAX, que serve como o eixo do tempo para todas as análises.
-* **'Top_Lotacoes_por_Aluno' (Dimensão):** Tabela calculada, criada via DAX, que armazena dinamicamente a lista das principais lotações com base no número de alunos únicos.
+* **`Top_Lotacoes_por_Aluno` (Dimensão):** Tabela calculada, criada via DAX, que armazena dinamicamente a lista das principais lotações com base no número de alunos únicos.
 
 ---
 ### Tabela de Calendário (`dCalendario`)
