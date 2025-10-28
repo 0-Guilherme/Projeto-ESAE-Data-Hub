@@ -38,16 +38,14 @@ O resultado são dashboards com indicadores objetivos, gráficos de distribuiç�
 * **`LST_Lotacoes` (Dimensão):** Lista com o nome de todas as lotações únicas.
 * **`LST_Usuarios-Cursos` (Fato):** Tabela central que registra todos os eventos de inscrição e conclusão, conectando as dimensões.
 * **`dCalendario` (Dimensão):** Tabela de calendário, criada via DAX, que serve como o eixo do tempo para todas as análises.
-* **`Top_Lotacoes_por_Aluno` (Dimensão):** Tabela calculada, criada via DAX, que armazena dinamicamente a lista das principais lotações com base no número de alunos únicos.
+* **`Top_Lotacoes_por_Alunos` (Dimensão):** Tabela calculada, criada via DAX, que armazena dinamicamente a lista das principais lotações com base no número de alunos únicos.
 
 ---
 ### Tabela de Calendário (`dCalendario`)
 
-Criada como uma Tabela Calculada em DAX para garantir uma base de tempo consistente e contínua para as análises. Devido a necessidades administrativas, os relatórios devem ser separados em filtros por ano, semestre e quadrimestres.
-
-A construção em DAX se dá por:
-
-```
+- **Descrição:** Criada como uma Tabela Calculada em DAX para garantir uma base de tempo consistente e contínua para as análises. Devido a necessidades administrativas, os relatórios devem ser separados em filtros por ano, semestre e quadrimestres.
+- **Fórmula DAX:**
+```dax
 dCalendario = 
 ADDCOLUMNS (
     CALENDARAUTO(),
@@ -64,7 +62,28 @@ ADDCOLUMNS (
     )
 )
 ```
+---
 
+### Top_Lotacoes_por_Alunos
+
+- **Descrição:** Cria uma tabela calculada dinâmica que classifica as 5 principais lotações com base na contagem de alunos únicos. Esta tabela é ideal para ser usada em gráficos de barras ou tabelas de ranking no dashboard.
+- **Fórmula DAX:**
+  ```dax
+  Top Lotações por Alunos = 
+  TOPN(
+      5,
+      ADDCOLUMNS(
+          FILTER(
+              VALUES('LST_Usuarios'[lookupValue]),
+              NOT(ISBLANK('LST_Usuarios'[lookupValue])) && TRIM('LST_Usuarios'[lookupValue]) <> ""
+          ),
+          "Numero de Alunos Unicos", CALCULATE([Cont_Alunos_Unicos])
+      ),
+      [Numero de Alunos Unicos],
+      DESC
+  )
+  ```
+  
 ---
 
 ## 🔗 Relacionamentos no Modelo do Power BI
@@ -206,26 +225,6 @@ Esta seção serve como um guia de referência para todas as lógicas de negóci
         LST_Usuarios[Usuario_SAE.Value] = "Sim"
     )
     ```
-
-### Top Lotações por Alunos
-
-- **Descrição:** Cria uma tabela calculada dinâmica que classifica as 5 principais lotações com base na contagem de alunos únicos. Esta tabela é ideal para ser usada em gráficos de barras ou tabelas de ranking no dashboard.
-- **Fórmula DAX:**
-  ```dax
-  Top Lotações por Alunos = 
-  TOPN(
-      5,
-      ADDCOLUMNS(
-          FILTER(
-              VALUES('LST_Usuarios'[lookupValue]),
-              NOT(ISBLANK('LST_Usuarios'[lookupValue])) && TRIM('LST_Usuarios'[lookupValue]) <> ""
-          ),
-          "Numero de Alunos Unicos", CALCULATE([Cont_Alunos_Unicos])
-      ),
-      [Numero de Alunos Unicos],
-      DESC
-  )
-  ```
 
 ---
 
