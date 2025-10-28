@@ -189,9 +189,3 @@ Esta seção detalha o fluxo de navegação e as principais funcionalidades de c
 >     * **Propriedades Responsivas:** Uso extensivo de `Parent.Width`, `Fill portions` e fórmulas com `If(App.ActiveScreen.Size <= 1; ...)` para alterar o layout e o tamanho de fontes.
 >
 > ![Tela 16](Imagens/16.jpg)
-
->
-> * **Funções e Lógicas Principais:**
->     * Visual de gráfico de linhas no Power BI, utilizando as colunas de data e medidas de contagem (`COUNTROWS`) em DAX.
->
-> ![Tela 21](Imagens/21.jpg)
