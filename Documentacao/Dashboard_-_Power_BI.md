@@ -4,6 +4,12 @@
 Criar um dashboard inteligente e flexível para acompanhar inscrições e conclusões de alunos ao longo do tempo, com recortes por **Ano**, **Semestre** e **Quadrimestre**, usando uma única tabela de calendário como base de filtragem.
 
 ---
+## Ferramentas Utilizadas
+
+- **Visualização**: Power BI Desktop
+- **Linguagem de Análise**: DAX
+- **Fonte de Dados**: Listas do SharePoint Online
+---
 ## Resultado Final
 
 Um dashboard **limpo**, **flexível** e **inteligente**, com:
@@ -16,13 +22,6 @@ Um dashboard **limpo**, **flexível** e **inteligente**, com:
 ### Dashboard
 
 ![Dashboard Power BI](Imagens/17.jpg)
-
----
-## Próximas Atualizações
-
-* Adicionar **Distribuiução por lotação** , para análises mais precisas em relação a cada equipe. Problema: o nome das equipes não é padronizado.
-* Adicionar números do campo amostral para comparativos diretos. Necessário pedir a administração com acesso a base de dados atual.
-* Testar o método de título dinâmico para preenchimento de acordo com o filtro utilizado.
 
 ---
 ## 📚 Estrutura de Dados (Modelo Semântico)
@@ -39,6 +38,7 @@ O resultado são dashboards com indicadores objetivos, gráficos de distribuiç�
 * **`LST_Lotacoes` (Dimensão):** Lista com o nome de todas as lotações únicas.
 * **`LST_Usuarios-Cursos` (Fato):** Tabela central que registra todos os eventos de inscrição e conclusão, conectando as dimensões.
 * **`dCalendario` (Dimensão):** Tabela de calendário, criada via DAX, que serve como o eixo do tempo para todas as análises.
+* **'Top_Lotacoes_por_Aluno' (Dimensão):** Tabela calculada, criada via DAX, que armazena dinamicamente a lista das principais lotações com base no número de alunos únicos.
 
 ---
 ### Tabela de Calendário (`dCalendario`)
@@ -149,7 +149,7 @@ Uma única medida bem construída pode ser utilizada em diversos visuais para re
 * **Análise de "Horas por Mês" ou "Horas por Lotação":** Da mesma forma, ao usar a medida como o valor de um gráfico de colunas com um campo de dimensão no eixo (como `dCalendario[AnoMes]` ou `'LST_Lotacoes'[Nome da Lotação]`), o Power BI recalcula a medida para cada contexto, permitindo análises de tendências e de engajamento por departamento.
 
 ---
-##  Fórmulas Aplicadas (Dicionário de Medidas DAX)
+## Fórmulas Aplicadas (Dicionário de Medidas DAX)
 
 Esta seção serve como um guia de referência para todas as lógicas de negócio e cálculos implementados no modelo semântico.
 
@@ -207,51 +207,60 @@ Esta seção serve como um guia de referência para todas as lógicas de negóci
     )
     ```
 
+### Top Lotações por Alunos
+
+- **Descrição:** Cria uma tabela calculada dinâmica que classifica as 5 principais lotações com base na contagem de alunos únicos. Esta tabela é ideal para ser usada em gráficos de barras ou tabelas de ranking no dashboard.
+- **Fórmula DAX:**
+  ```dax
+  Top Lotações por Alunos = 
+  TOPN(
+      5,
+      ADDCOLUMNS(
+          FILTER(
+              VALUES('LST_Usuarios'[lookupValue]),
+              NOT(ISBLANK('LST_Usuarios'[lookupValue])) && TRIM('LST_Usuarios'[lookupValue]) <> ""
+          ),
+          "Numero de Alunos Unicos", CALCULATE([Cont_Alunos_Unicos])
+      ),
+      [Numero de Alunos Unicos],
+      DESC
+  )
+  ```
+
 ---
 
-## 🎛️ Interatividade e UX
+## 🎛️ Interatividade e UX (Navegação e Filtros)
+
+A interface do dashboard foi projetada para ser intuitiva, permitindo que o usuário alterne o contexto da análise temporal (Semestre vs. Quadrimestre) e refine os dados com filtros de perfil e categoria.
+
+### Navegação de Visão por Marcadores (Semestral vs. Quadrimestral)
+
+Para atender à demanda de análise por diferentes cortes de tempo (semestre ou quadrimestre), foi utilizada uma combinação de **Botões**, **Marcadores (Bookmarks)** e o **Painel de Seleção**.
+
+* **Como Funciona:**
+    1.  Existem dois botões principais de navegação: "Semestral" e "Quadrimestral".
+    2.  Cada botão está vinculado a um **Marcador** específico.
+    3.  **Marcador "Visão Semestral"**
+        * Muda a cor do botão "Semestral" para azul (indicando seleção).
+        * Muda a cor do botão "Quadrimestral" para laranja (indicando inatividade).
+        * **Exibe** o grupo de segmentadores de dados "1º Semestre" e "2º Semestre".
+        * **Oculta** o grupo de segmentadores de dados dos quadrimestres (que provavelmente são "1º Quadri", "2º Quadri", "3º Quadri").
+    4.  **Marcador "Visão Quadrimestral":**
+        * Faz o oposto: ativa o botão "Semestral", desativa o "Quadrimestral", oculta os slicers de semestre e exibe os slicers de quadrimestre.
+
+* **Propósito:** Esta técnica limpa a interface, mostrando ao usuário apenas os filtros relevantes para a análise que ele escolheu, evitando poluição visual.
 
 ### Segmentadores de Dados (Slicers)
 
-Utilizados para permitir filtros temporais hierárquicos:
+Além da navegação principal, o dashboard oferece um conjunto de filtros (segmentadores de dados, estilizados como botões) para refinar a análise:
 
-- `dCalendario[Ano]`  
-- `dCalendario[Semestre]`  
-- `dCalendario[Quadrimestre]`
+* **Filtros Temporais Padrão:**
+    * **Ano:** Um menu *dropdown* (lista suspensa) para selecionar o ano da análise (ex: 2025).
+    * **Mês:** Um menu *dropdown* para selecionar um mês específico ou "Todos".
 
----
+* **Filtros de Perfil de Usuário:**
+    * **Cadastros:** Permite filtrar por tipo de vínculo (Estagiário(a), Procurador(a), Servidor(a)).
+    * **SAE:** Permite filtrar se o usuário pertence ao público "SAE" (Sim).
 
-### Navegação por Período com Marcadores (Bookmarks)
-
-Para criar uma experiência de navegação fluida entre os recortes de tempo, foram utilizados **Marcadores** e **Botões**:
-
-- **Marcadores Criados**: Visão Anual, Visão Semestral, Visão Quadrimestral  
-- **Botões Configurados**: Cada botão ativa um marcador específico  
-- **Painel de Seleção**: Usado para ocultar os slicers que não são relevantes em cada visão  
-  *(ex: na "Visão Semestral", o slicer de Quadrimestre é ocultado)*
-
----
-
-### Título Dinâmico do Período
-
-Para que o usuário saiba sempre qual período está sendo analisado, foi criada uma medida DAX que gera um título dinâmico:
-
-```
-PeriodoSelecionado =   
-VAR AnoSelecionado = SELECTEDVALUE(dCalendario[Ano])  
-VAR SemestreSelecionado = SELECTEDVALUE(dCalendario[Semestre])  
-VAR QuadrimestreSelecionado = SELECTEDVALUE(dCalendario[Quadrimestre])  
-RETURN  
-    IF(  
-        HASONEVALUE(dCalendario[Quadrimestre]), QuadrimestreSelecionado & " de " & AnoSelecionado,  
-        IF(  
-            HASONEVALUE(dCalendario[Semestre]), SemestreSelecionado & " de " & AnoSelecionado,  
-            IF(  
-                HASONEVALUE(dCalendario[Ano]), "Ano " & AnoSelecionado,  
-                "Todo o Período"  
-            )  
-        )  
-    )
-```
-
----
+* **Filtros de Conteúdo:**
+    * **Categorias:** Permite filtrar pelo tipo de evento (Cursos, Eventos Gravados, Palestras e Eventos).
