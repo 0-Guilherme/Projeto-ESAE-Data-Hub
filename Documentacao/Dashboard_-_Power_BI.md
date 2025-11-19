@@ -197,14 +197,15 @@ Esta seção serve como um guia de referência para todas as lógicas de negóci
 - **Descrição:** Calcula o volume total de horas de treinamento concluídas.
 - **Fórmula DAX:**
     ```dax
-    Total Horas Concluídas = 
+HorasCursoConcluidas = 
+CALCULATE(
     SUMX(
-        FILTER(
-            'LST_Usuarios-Cursos',
-            'LST_Usuarios-Cursos'[StatusAluno] = "Concluído"
-        ),
-        RELATED('LST_Cursos'[Carga_Horaria])
-    )
+        'LST_Usuarios-Cursos',
+        RELATED(LST_Cursos[Carga_Horaria])
+    ),
+    'LST_Usuarios-Cursos'[StatusAluno] = "Concluído",
+    USERELATIONSHIP('dCalendario'[Date], 'LST_Usuarios-Cursos'[Data_Conclusao])
+)
     ```
 
 ### Contagem de Alunos Únicos
